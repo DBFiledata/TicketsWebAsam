@@ -1,0 +1,335 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="_UpgradeWizard_Files\UpgradeWizardLog.xslt"?>
+<log>
+  <event>Get project references.</event>
+  <event action="Analyze" type="Success" name="Assembly References" path="C:\Users\User\source\repos\paginaOficial\paginaOficial\paginaOficial.csproj" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" name="Assembly References" path="C:\Users\User\source\repos\paginaOficial\paginaOficial\Bundle.config" />
+  <event action="Analyze" type="Success" name="Http Handlers" path="C:\Users\User\source\repos\paginaOficial\paginaOficial\Bundle.config" />
+  <event action="Analyze" type="Success" name="Handlers (IIS7+)" path="C:\Users\User\source\repos\paginaOficial\paginaOficial\Bundle.config" />
+  <event action="Analyze" type="Success" name="Config Sections" path="C:\Users\User\source\repos\paginaOficial\paginaOficial\Bundle.config" />
+  <event action="Analyze" type="Success" name="Render Extensions" path="C:\Users\User\source\repos\paginaOficial\paginaOficial\Bundle.config" />
+  <event action="Analyze" type="Success" name="Session State Providers" path="C:\Users\User\source\repos\paginaOficial\paginaOficial\Bundle.config" />
+  <event action="Analyze" type="Success" name="Bundle.config" path="C:\Users\User\source\repos\paginaOficial\paginaOficial\Bundle.config" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" name="Register Directives" path="C:\Users\User\source\repos\paginaOficial\paginaOficial\errores.aspx" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="C:\Users\User\source\repos\paginaOficial\paginaOficial\errores.aspx" />
+  <event action="Analyze" type="Success" name="errores.aspx" path="C:\Users\User\source\repos\paginaOficial\paginaOficial\errores.aspx" />
+  <event action="Analyze" type="Success" name="Register Directives" path="C:\Users\User\source\repos\paginaOficial\paginaOficial\login.aspx" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="C:\Users\User\source\repos\paginaOficial\paginaOficial\login.aspx" />
+  <event action="Analyze" type="Success" name="login.aspx" path="C:\Users\User\source\repos\paginaOficial\paginaOficial\login.aspx" />
+  <event action="Analyze" type="Success" name="Assembly References" path="C:\Users\User\source\repos\paginaOficial\paginaOficial\packages.config" />
+  <event action="Analyze" type="Success" name="Http Handlers" path="C:\Users\User\source\repos\paginaOficial\paginaOficial\packages.config" />
+  <event action="Analyze" type="Success" name="Handlers (IIS7+)" path="C:\Users\User\source\repos\paginaOficial\paginaOficial\packages.config" />
+  <event action="Analyze" type="Success" name="Config Sections" path="C:\Users\User\source\repos\paginaOficial\paginaOficial\packages.config" />
+  <event action="Analyze" type="Success" name="Render Extensions" path="C:\Users\User\source\repos\paginaOficial\paginaOficial\packages.config" />
+  <event action="Analyze" type="Success" name="Session State Providers" path="C:\Users\User\source\repos\paginaOficial\paginaOficial\packages.config" />
+  <event action="Analyze" type="Success" name="packages.config" path="C:\Users\User\source\repos\paginaOficial\paginaOficial\packages.config" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" name="Register Directives" path="C:\Users\User\source\repos\paginaOficial\paginaOficial\viewsAdmin\admin.Master" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="C:\Users\User\source\repos\paginaOficial\paginaOficial\viewsAdmin\admin.Master" />
+  <event action="Analyze" type="Success" name="admin.Master" path="C:\Users\User\source\repos\paginaOficial\paginaOficial\viewsAdmin\admin.Master" />
+  <event action="Analyze" type="Success" name="Register Directives" path="C:\Users\User\source\repos\paginaOficial\paginaOficial\viewsAdmin\buscarSolicitante.aspx" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="C:\Users\User\source\repos\paginaOficial\paginaOficial\viewsAdmin\buscarSolicitante.aspx" />
+  <event action="Analyze" type="Success" name="buscarSolicitante.aspx" path="C:\Users\User\source\repos\paginaOficial\paginaOficial\viewsAdmin\buscarSolicitante.aspx" />
+  <event action="Analyze" type="Success" name="Register Directives" path="C:\Users\User\source\repos\paginaOficial\paginaOficial\viewsAdmin\buscarTicketAgente.aspx" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="C:\Users\User\source\repos\paginaOficial\paginaOficial\viewsAdmin\buscarTicketAgente.aspx" />
+  <event action="Analyze" type="Success" name="buscarTicketAgente.aspx" path="C:\Users\User\source\repos\paginaOficial\paginaOficial\viewsAdmin\buscarTicketAgente.aspx" />
+  <event action="Analyze" type="Success" name="Register Directives" path="C:\Users\User\source\repos\paginaOficial\paginaOficial\viewsAdmin\buscarTicketNum.aspx" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="C:\Users\User\source\repos\paginaOficial\paginaOficial\viewsAdmin\buscarTicketNum.aspx" />
+  <event action="Analyze" type="Success" name="buscarTicketNum.aspx" path="C:\Users\User\source\repos\paginaOficial\paginaOficial\viewsAdmin\buscarTicketNum.aspx" />
+  <event action="Analyze" type="Success" name="Register Directives" path="C:\Users\User\source\repos\paginaOficial\paginaOficial\viewsAdmin\buscarTicketSolicitante.aspx" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="C:\Users\User\source\repos\paginaOficial\paginaOficial\viewsAdmin\buscarTicketSolicitante.aspx" />
+  <event action="Analyze" type="Success" name="buscarTicketSolicitante.aspx" path="C:\Users\User\source\repos\paginaOficial\paginaOficial\viewsAdmin\buscarTicketSolicitante.aspx" />
+  <event action="Analyze" type="Success" name="Register Directives" path="C:\Users\User\source\repos\paginaOficial\paginaOficial\viewsAdmin\buscarTicketTecnico.aspx" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="C:\Users\User\source\repos\paginaOficial\paginaOficial\viewsAdmin\buscarTicketTecnico.aspx" />
+  <event action="Analyze" type="Success" name="buscarTicketTecnico.aspx" path="C:\Users\User\source\repos\paginaOficial\paginaOficial\viewsAdmin\buscarTicketTecnico.aspx" />
+  <event action="Analyze" type="Success" name="Register Directives" path="C:\Users\User\source\repos\paginaOficial\paginaOficial\viewsAdmin\buscarUsuario.aspx" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="C:\Users\User\source\repos\paginaOficial\paginaOficial\viewsAdmin\buscarUsuario.aspx" />
+  <event action="Analyze" type="Success" name="buscarUsuario.aspx" path="C:\Users\User\source\repos\paginaOficial\paginaOficial\viewsAdmin\buscarUsuario.aspx" />
+  <event action="Analyze" type="Success" name="Register Directives" path="C:\Users\User\source\repos\paginaOficial\paginaOficial\viewsAdmin\cambioContraseñaAdmin.aspx" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="C:\Users\User\source\repos\paginaOficial\paginaOficial\viewsAdmin\cambioContraseñaAdmin.aspx" />
+  <event action="Analyze" type="Success" name="cambioContraseñaAdmin.aspx" path="C:\Users\User\source\repos\paginaOficial\paginaOficial\viewsAdmin\cambioContraseñaAdmin.aspx" />
+  <event action="Analyze" type="Success" name="Register Directives" path="C:\Users\User\source\repos\paginaOficial\paginaOficial\viewsAdmin\CerrarTickets.aspx" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="C:\Users\User\source\repos\paginaOficial\paginaOficial\viewsAdmin\CerrarTickets.aspx" />
+  <event action="Analyze" type="Success" name="CerrarTickets.aspx" path="C:\Users\User\source\repos\paginaOficial\paginaOficial\viewsAdmin\CerrarTickets.aspx" />
+  <event action="Analyze" type="Success" name="Register Directives" path="C:\Users\User\source\repos\paginaOficial\paginaOficial\viewsAdmin\editarPerfilAdmin.aspx" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="C:\Users\User\source\repos\paginaOficial\paginaOficial\viewsAdmin\editarPerfilAdmin.aspx" />
+  <event action="Analyze" type="Success" name="editarPerfilAdmin.aspx" path="C:\Users\User\source\repos\paginaOficial\paginaOficial\viewsAdmin\editarPerfilAdmin.aspx" />
+  <event action="Analyze" type="Success" name="Register Directives" path="C:\Users\User\source\repos\paginaOficial\paginaOficial\viewsAdmin\editarPermiso.aspx" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="C:\Users\User\source\repos\paginaOficial\paginaOficial\viewsAdmin\editarPermiso.aspx" />
+  <event action="Analyze" type="Success" name="editarPermiso.aspx" path="C:\Users\User\source\repos\paginaOficial\paginaOficial\viewsAdmin\editarPermiso.aspx" />
+  <event action="Analyze" type="Success" name="Register Directives" path="C:\Users\User\source\repos\paginaOficial\paginaOficial\viewsAdmin\editarSolicitante.aspx" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="C:\Users\User\source\repos\paginaOficial\paginaOficial\viewsAdmin\editarSolicitante.aspx" />
+  <event action="Analyze" type="Success" name="editarSolicitante.aspx" path="C:\Users\User\source\repos\paginaOficial\paginaOficial\viewsAdmin\editarSolicitante.aspx" />
+  <event action="Analyze" type="Success" name="Register Directives" path="C:\Users\User\source\repos\paginaOficial\paginaOficial\viewsAdmin\editarTicket.aspx" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="C:\Users\User\source\repos\paginaOficial\paginaOficial\viewsAdmin\editarTicket.aspx" />
+  <event action="Analyze" type="Success" name="editarTicket.aspx" path="C:\Users\User\source\repos\paginaOficial\paginaOficial\viewsAdmin\editarTicket.aspx" />
+  <event action="Analyze" type="Success" name="Register Directives" path="C:\Users\User\source\repos\paginaOficial\paginaOficial\viewsAdmin\editarVacaciones.aspx" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="C:\Users\User\source\repos\paginaOficial\paginaOficial\viewsAdmin\editarVacaciones.aspx" />
+  <event action="Analyze" type="Success" name="editarVacaciones.aspx" path="C:\Users\User\source\repos\paginaOficial\paginaOficial\viewsAdmin\editarVacaciones.aspx" />
+  <event action="Analyze" type="Success" name="Register Directives" path="C:\Users\User\source\repos\paginaOficial\paginaOficial\viewsAdmin\infoCuentaAdmin.aspx" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="C:\Users\User\source\repos\paginaOficial\paginaOficial\viewsAdmin\infoCuentaAdmin.aspx" />
+  <event action="Analyze" type="Success" name="infoCuentaAdmin.aspx" path="C:\Users\User\source\repos\paginaOficial\paginaOficial\viewsAdmin\infoCuentaAdmin.aspx" />
+  <event action="Analyze" type="Success" name="Register Directives" path="C:\Users\User\source\repos\paginaOficial\paginaOficial\viewsAdmin\inicioAdmin.aspx" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="C:\Users\User\source\repos\paginaOficial\paginaOficial\viewsAdmin\inicioAdmin.aspx" />
+  <event action="Analyze" type="Success" name="inicioAdmin.aspx" path="C:\Users\User\source\repos\paginaOficial\paginaOficial\viewsAdmin\inicioAdmin.aspx" />
+  <event action="Analyze" type="Success" name="Register Directives" path="C:\Users\User\source\repos\paginaOficial\paginaOficial\viewsAdmin\listaUsuarios.aspx" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="C:\Users\User\source\repos\paginaOficial\paginaOficial\viewsAdmin\listaUsuarios.aspx" />
+  <event action="Analyze" type="Success" name="listaUsuarios.aspx" path="C:\Users\User\source\repos\paginaOficial\paginaOficial\viewsAdmin\listaUsuarios.aspx" />
+  <event action="Analyze" type="Success" name="Register Directives" path="C:\Users\User\source\repos\paginaOficial\paginaOficial\viewsAdmin\permisos.aspx" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="C:\Users\User\source\repos\paginaOficial\paginaOficial\viewsAdmin\permisos.aspx" />
+  <event action="Analyze" type="Success" name="permisos.aspx" path="C:\Users\User\source\repos\paginaOficial\paginaOficial\viewsAdmin\permisos.aspx" />
+  <event action="Analyze" type="Success" name="Register Directives" path="C:\Users\User\source\repos\paginaOficial\paginaOficial\viewsAdmin\prueva.aspx" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="C:\Users\User\source\repos\paginaOficial\paginaOficial\viewsAdmin\prueva.aspx" />
+  <event action="Analyze" type="Success" name="prueva.aspx" path="C:\Users\User\source\repos\paginaOficial\paginaOficial\viewsAdmin\prueva.aspx" />
+  <event action="Analyze" type="Success" name="Register Directives" path="C:\Users\User\source\repos\paginaOficial\paginaOficial\viewsAdmin\registro.aspx" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="C:\Users\User\source\repos\paginaOficial\paginaOficial\viewsAdmin\registro.aspx" />
+  <event action="Analyze" type="Success" name="registro.aspx" path="C:\Users\User\source\repos\paginaOficial\paginaOficial\viewsAdmin\registro.aspx" />
+  <event action="Analyze" type="Success" name="Register Directives" path="C:\Users\User\source\repos\paginaOficial\paginaOficial\viewsAdmin\vacaciones.aspx" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="C:\Users\User\source\repos\paginaOficial\paginaOficial\viewsAdmin\vacaciones.aspx" />
+  <event action="Analyze" type="Success" name="vacaciones.aspx" path="C:\Users\User\source\repos\paginaOficial\paginaOficial\viewsAdmin\vacaciones.aspx" />
+  <event action="Analyze" type="Success" name="Register Directives" path="C:\Users\User\source\repos\paginaOficial\paginaOficial\viewsUsers\buscarSolicitante.aspx" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="C:\Users\User\source\repos\paginaOficial\paginaOficial\viewsUsers\buscarSolicitante.aspx" />
+  <event action="Analyze" type="Success" name="buscarSolicitante.aspx" path="C:\Users\User\source\repos\paginaOficial\paginaOficial\viewsUsers\buscarSolicitante.aspx" />
+  <event action="Analyze" type="Success" name="Register Directives" path="C:\Users\User\source\repos\paginaOficial\paginaOficial\viewsUsers\cambioComtraseña.aspx" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="C:\Users\User\source\repos\paginaOficial\paginaOficial\viewsUsers\cambioComtraseña.aspx" />
+  <event action="Analyze" type="Success" name="cambioComtraseña.aspx" path="C:\Users\User\source\repos\paginaOficial\paginaOficial\viewsUsers\cambioComtraseña.aspx" />
+  <event action="Analyze" type="Success" name="Register Directives" path="C:\Users\User\source\repos\paginaOficial\paginaOficial\viewsUsers\estadisticasUsers.aspx" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="C:\Users\User\source\repos\paginaOficial\paginaOficial\viewsUsers\estadisticasUsers.aspx" />
+  <event action="Analyze" type="Success" name="estadisticasUsers.aspx" path="C:\Users\User\source\repos\paginaOficial\paginaOficial\viewsUsers\estadisticasUsers.aspx" />
+  <event action="Analyze" type="Success" name="Register Directives" path="C:\Users\User\source\repos\paginaOficial\paginaOficial\viewsUsers\generarTicketsUsers.aspx" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="C:\Users\User\source\repos\paginaOficial\paginaOficial\viewsUsers\generarTicketsUsers.aspx" />
+  <event action="Analyze" type="Success" name="generarTicketsUsers.aspx" path="C:\Users\User\source\repos\paginaOficial\paginaOficial\viewsUsers\generarTicketsUsers.aspx" />
+  <event action="Analyze" type="Success" name="Register Directives" path="C:\Users\User\source\repos\paginaOficial\paginaOficial\viewsUsers\infoCuenta.aspx" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="C:\Users\User\source\repos\paginaOficial\paginaOficial\viewsUsers\infoCuenta.aspx" />
+  <event action="Analyze" type="Success" name="infoCuenta.aspx" path="C:\Users\User\source\repos\paginaOficial\paginaOficial\viewsUsers\infoCuenta.aspx" />
+  <event action="Analyze" type="Success" name="Register Directives" path="C:\Users\User\source\repos\paginaOficial\paginaOficial\viewsUsers\inicioUsers.aspx" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="C:\Users\User\source\repos\paginaOficial\paginaOficial\viewsUsers\inicioUsers.aspx" />
+  <event action="Analyze" type="Success" name="inicioUsers.aspx" path="C:\Users\User\source\repos\paginaOficial\paginaOficial\viewsUsers\inicioUsers.aspx" />
+  <event action="Analyze" type="Success" name="Register Directives" path="C:\Users\User\source\repos\paginaOficial\paginaOficial\viewsUsers\liberarTicketProgramado.aspx" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="C:\Users\User\source\repos\paginaOficial\paginaOficial\viewsUsers\liberarTicketProgramado.aspx" />
+  <event action="Analyze" type="Success" name="liberarTicketProgramado.aspx" path="C:\Users\User\source\repos\paginaOficial\paginaOficial\viewsUsers\liberarTicketProgramado.aspx" />
+  <event action="Analyze" type="Success" name="Register Directives" path="C:\Users\User\source\repos\paginaOficial\paginaOficial\viewsUsers\listaUsuariosUser.aspx" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="C:\Users\User\source\repos\paginaOficial\paginaOficial\viewsUsers\listaUsuariosUser.aspx" />
+  <event action="Analyze" type="Success" name="listaUsuariosUser.aspx" path="C:\Users\User\source\repos\paginaOficial\paginaOficial\viewsUsers\listaUsuariosUser.aspx" />
+  <event action="Analyze" type="Success" name="Register Directives" path="C:\Users\User\source\repos\paginaOficial\paginaOficial\viewsUsers\registroSolicitantes.aspx" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="C:\Users\User\source\repos\paginaOficial\paginaOficial\viewsUsers\registroSolicitantes.aspx" />
+  <event action="Analyze" type="Success" name="registroSolicitantes.aspx" path="C:\Users\User\source\repos\paginaOficial\paginaOficial\viewsUsers\registroSolicitantes.aspx" />
+  <event action="Analyze" type="Success" name="Register Directives" path="C:\Users\User\source\repos\paginaOficial\paginaOficial\viewsUsers\seguimientoTicketsUser.aspx" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="C:\Users\User\source\repos\paginaOficial\paginaOficial\viewsUsers\seguimientoTicketsUser.aspx" />
+  <event action="Analyze" type="Success" name="seguimientoTicketsUser.aspx" path="C:\Users\User\source\repos\paginaOficial\paginaOficial\viewsUsers\seguimientoTicketsUser.aspx" />
+  <event action="Analyze" type="Success" name="Register Directives" path="C:\Users\User\source\repos\paginaOficial\paginaOficial\viewsUsers\users.Master" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="C:\Users\User\source\repos\paginaOficial\paginaOficial\viewsUsers\users.Master" />
+  <event action="Analyze" type="Success" name="users.Master" path="C:\Users\User\source\repos\paginaOficial\paginaOficial\viewsUsers\users.Master" />
+  <event action="Analyze" type="Success" name="Register Directives" path="C:\Users\User\source\repos\paginaOficial\paginaOficial\ViewSwitcher.ascx" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="C:\Users\User\source\repos\paginaOficial\paginaOficial\ViewSwitcher.ascx" />
+  <event action="Analyze" type="Success" name="ViewSwitcher.ascx" path="C:\Users\User\source\repos\paginaOficial\paginaOficial\ViewSwitcher.ascx" />
+  <event action="Analyze" type="Success" name="Assembly References" path="C:\Users\User\source\repos\paginaOficial\paginaOficial\Web.config" />
+  <event action="Analyze" type="Success" name="Http Handlers" path="C:\Users\User\source\repos\paginaOficial\paginaOficial\Web.config" />
+  <event action="Analyze" type="Success" name="Handlers (IIS7+)" path="C:\Users\User\source\repos\paginaOficial\paginaOficial\Web.config" />
+  <event action="Analyze" type="Success" name="Config Sections" path="C:\Users\User\source\repos\paginaOficial\paginaOficial\Web.config" />
+  <event action="Analyze" type="Success" name="Render Extensions" path="C:\Users\User\source\repos\paginaOficial\paginaOficial\Web.config" />
+  <event action="Analyze" type="Success" name="Session State Providers" path="C:\Users\User\source\repos\paginaOficial\paginaOficial\Web.config" />
+  <event action="Analyze" type="Success" name="Web.config" path="C:\Users\User\source\repos\paginaOficial\paginaOficial\Web.config" />
+  <event action="Analyze" type="Success" name="Assembly References" path="C:\Users\User\source\repos\paginaOficial\paginaOficial\Web.Debug.config" />
+  <event action="Analyze" type="Success" name="Http Handlers" path="C:\Users\User\source\repos\paginaOficial\paginaOficial\Web.Debug.config" />
+  <event action="Analyze" type="Success" name="Handlers (IIS7+)" path="C:\Users\User\source\repos\paginaOficial\paginaOficial\Web.Debug.config" />
+  <event action="Analyze" type="Success" name="Config Sections" path="C:\Users\User\source\repos\paginaOficial\paginaOficial\Web.Debug.config" />
+  <event action="Analyze" type="Success" name="Render Extensions" path="C:\Users\User\source\repos\paginaOficial\paginaOficial\Web.Debug.config" />
+  <event action="Analyze" type="Success" name="Session State Providers" path="C:\Users\User\source\repos\paginaOficial\paginaOficial\Web.Debug.config" />
+  <event action="Analyze" type="Success" name="Web.Debug.config" path="C:\Users\User\source\repos\paginaOficial\paginaOficial\Web.Debug.config" />
+  <event action="Analyze" type="Success" name="Assembly References" path="C:\Users\User\source\repos\paginaOficial\paginaOficial\Web.Release.config" />
+  <event action="Analyze" type="Success" name="Http Handlers" path="C:\Users\User\source\repos\paginaOficial\paginaOficial\Web.Release.config" />
+  <event action="Analyze" type="Success" name="Handlers (IIS7+)" path="C:\Users\User\source\repos\paginaOficial\paginaOficial\Web.Release.config" />
+  <event action="Analyze" type="Success" name="Config Sections" path="C:\Users\User\source\repos\paginaOficial\paginaOficial\Web.Release.config" />
+  <event action="Analyze" type="Success" name="Render Extensions" path="C:\Users\User\source\repos\paginaOficial\paginaOficial\Web.Release.config" />
+  <event action="Analyze" type="Success" name="Session State Providers" path="C:\Users\User\source\repos\paginaOficial\paginaOficial\Web.Release.config" />
+  <event action="Analyze" type="Success" name="Web.Release.config" path="C:\Users\User\source\repos\paginaOficial\paginaOficial\Web.Release.config" />
+  <event action="Analyze" type="Success" name="paginaOficial" path="C:\Users\User\source\repos\paginaOficial\paginaOficial\paginaOficial.csproj" />
+  <event action="Analyze" type="Success" name="paginaOficial" path="C:\Users\User\source\repos\paginaOficial\paginaOficial.sln" />
+  <event action="Backup" type="Success" name="paginaOficial" path="C:\Users\User\source\repos\paginaOficial\paginaOficial\paginaOficial.csproj" />
+  <event>Installed NuGet package: Telerik.Reporting 14.0.20.219</event>
+  <event type="Error">System.InvalidOperationException: A problem occurred while trying to install the NuGet package Telerik.Reporting 14.0.20.219.
+You can try to update your NuGet client or install the packages manually.
+ ---&gt; System.InvalidOperationException: No se encontró el paquete 'Telerik.Reporting 14.0.20.219' en los siguientes orígenes principales: 'https://nuget.telerik.com/nuget,https://api.nuget.org/v3/index.json,C:\Program Files (x86)\Microsoft SDKs\NuGetPackages\'. Compruebe que todos los orígenes de paquetes están disponibles o que el id. del paquete y la versión se especificaron correctamente.
+   en NuGet.PackageManagement.ResolverGather.&lt;GatherAsync&gt;d__21.MoveNext()
+--- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---
+   en System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   en System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   en NuGet.PackageManagement.ResolverGather.&lt;GatherAsync&gt;d__20.MoveNext()
+--- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---
+   en System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   en System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   en System.Runtime.CompilerServices.TaskAwaiter.ValidateEnd(Task task)
+   en NuGet.PackageManagement.NuGetPackageManager.&lt;PreviewInstallPackageAsync&gt;d__68.MoveNext()
+--- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---
+   en System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   en System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   en NuGet.PackageManagement.NuGetPackageManager.&lt;InstallPackageAsync&gt;d__48.MoveNext()
+--- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---
+   en System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   en System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   en NuGet.PackageManagement.NuGetPackageManager.&lt;InstallPackageAsync&gt;d__47.MoveNext()
+--- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---
+   en System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   en System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   en NuGet.VisualStudio.VsPackageInstaller.&lt;InstallInternalCoreAsync&gt;d__33.MoveNext()
+--- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---
+   en System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   en System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   en System.Runtime.CompilerServices.TaskAwaiter.ValidateEnd(Task task)
+   en NuGet.VisualStudio.VsPackageInstaller.&lt;InstallInternalAsync&gt;d__32.MoveNext()
+--- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---
+   en System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   en NuGet.VisualStudio.VsPackageInstaller.&lt;InstallInternalAsync&gt;d__32.MoveNext()
+--- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---
+   en System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   en System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   en Microsoft.VisualStudio.Threading.JoinableTask.CompleteOnCurrentThread()
+   en NuGet.VisualStudio.VsPackageInstaller.RunJTFWithCorrectContext(Project project, Func`1 asyncTask)
+   en NuGet.VisualStudio.VsPackageInstaller.InstallPackage(String source, Project project, String packageId, String version, Boolean ignoreDependencies)
+   en Telerik.Reporting.Vs.Common.NugetManager.InstallPackage(String package, String version)
+   --- Fin del seguimiento de la pila de la excepción interna ---</event>
+  <event action="Upgrade" type="Success" name="Assembly References" path="C:\Users\User\source\repos\paginaOficial\paginaOficial\paginaOficial.csproj" />
+  <event action="Upgrade" type="Success" name="paginaOficial" path="C:\Users\User\source\repos\paginaOficial\paginaOficial\paginaOficial.csproj" />
+  <event action="Upgrade" type="Success" name="paginaOficial" path="C:\Users\User\source\repos\paginaOficial\paginaOficial.sln" />
+</log>
