@@ -152,10 +152,6 @@
     <Reference Include="Telerik.Reporting.XpsRendering, Version=13.2.19.1030, Culture=neutral, PublicKeyToken=a9d7983dfcc261be, processorArchitecture=MSIL">
       <HintPath>..\packages\Telerik.Reporting.13.2.19.1030\lib\net40\Telerik.Reporting.XpsRendering.dll</HintPath>
     </Reference>
-    <Reference Include="Telerik.Web.UI, Version=2020.1.219.45, Culture=neutral, PublicKeyToken=121fae78165ba3d4, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\Progress\Telerik UI for ASP.NET AJAX R1 2020\Bin45\Telerik.Web.UI.dll</HintPath>
-    </Reference>
     <Reference Include="WebGrease">
       <Private>True</Private>
       <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
@@ -1977,16 +1973,12 @@
     <Content Include="viewsAdmin\buscarTicketTecnico.aspx" />
     <Content Include="viewsAdmin\buscarUsuario.aspx" />
     <Content Include="viewsAdmin\cambioContraseñaAdmin.aspx" />
-    <Content Include="viewsAdmin\cantidadAtencion.aspx" />
-    <Content Include="viewsAdmin\cantidadPermisos.aspx" />
     <Content Include="viewsAdmin\CerrarTickets.aspx" />
     <Content Include="viewsAdmin\editarPerfilAdmin.aspx" />
     <Content Include="viewsAdmin\editarPermiso.aspx" />
     <Content Include="viewsAdmin\editarSolicitante.aspx" />
     <Content Include="viewsAdmin\editarTicket.aspx" />
     <Content Include="viewsAdmin\editarVacaciones.aspx" />
-    <Content Include="viewsAdmin\estadisticas.aspx" />
-    <Content Include="viewsAdmin\estadisticasDiarias.aspx" />
     <Content Include="viewsAdmin\infoCuentaAdmin.aspx" />
     <Content Include="viewsAdmin\inicioAdmin.aspx" />
     <Content Include="viewsAdmin\listaUsuarios.aspx" />
@@ -2015,8 +2007,6 @@
     <Content Include="Scripts\esm\popper.js.map" />
     <Content Include="Scripts\esm\popper-utils.min.js.map" />
     <Content Include="Scripts\esm\popper-utils.js.map" />
-    <Content Include="viewsAdmin\TiempoAtencion.aspx" />
-    <Content Include="WebForm1.aspx" />
     <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -2171,20 +2161,6 @@
     <Compile Include="viewsAdmin\cambioContraseñaAdmin.aspx.designer.cs">
       <DependentUpon>cambioContraseñaAdmin.aspx</DependentUpon>
     </Compile>
-    <Compile Include="viewsAdmin\cantidadAtencion.aspx.cs">
-      <DependentUpon>cantidadAtencion.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="viewsAdmin\cantidadAtencion.aspx.designer.cs">
-      <DependentUpon>cantidadAtencion.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="viewsAdmin\cantidadPermisos.aspx.cs">
-      <DependentUpon>cantidadPermisos.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="viewsAdmin\cantidadPermisos.aspx.designer.cs">
-      <DependentUpon>cantidadPermisos.aspx</DependentUpon>
-    </Compile>
     <Compile Include="viewsAdmin\CerrarTickets.aspx.cs">
       <DependentUpon>CerrarTickets.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2226,20 +2202,6 @@
     </Compile>
     <Compile Include="viewsAdmin\editarVacaciones.aspx.designer.cs">
       <DependentUpon>editarVacaciones.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="viewsAdmin\estadisticas.aspx.cs">
-      <DependentUpon>estadisticas.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="viewsAdmin\estadisticas.aspx.designer.cs">
-      <DependentUpon>estadisticas.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="viewsAdmin\estadisticasDiarias.aspx.cs">
-      <DependentUpon>estadisticasDiarias.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="viewsAdmin\estadisticasDiarias.aspx.designer.cs">
-      <DependentUpon>estadisticasDiarias.aspx</DependentUpon>
     </Compile>
     <Compile Include="viewsAdmin\infoCuentaAdmin.aspx.cs">
       <DependentUpon>infoCuentaAdmin.aspx</DependentUpon>
@@ -2297,13 +2259,6 @@
     </Compile>
     <Compile Include="viewsAdmin\registro.aspx.designer.cs">
       <DependentUpon>registro.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="viewsAdmin\TiempoAtencion.aspx.cs">
-      <DependentUpon>TiempoAtencion.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="viewsAdmin\TiempoAtencion.aspx.designer.cs">
-      <DependentUpon>TiempoAtencion.aspx</DependentUpon>
     </Compile>
     <Compile Include="viewsAdmin\vacaciones.aspx.cs">
       <DependentUpon>vacaciones.aspx</DependentUpon>
@@ -2396,13 +2351,6 @@
     <Compile Include="ViewSwitcher.ascx.designer.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
     </Compile>
-    <Compile Include="WebForm1.aspx.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="WebForm1.aspx.designer.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -2463,9 +2411,6 @@
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\index.d.ts" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Properties\licenses.licx" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

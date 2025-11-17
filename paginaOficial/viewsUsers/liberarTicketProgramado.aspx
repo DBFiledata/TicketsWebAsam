@@ -27,7 +27,7 @@
         <div class="modal-dialog mt-3">
             <div class="modal-content">
                 <div class=" modal-header">
-                    <h4 class="modal-title text-center" id="myModalLabels">Informacion de Ticket</h4>
+                    <h4 class="modal-title text-center" id="myModalLabels">Informacion de Cuenta</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
                 </div>
                 <div class="modal-body">
@@ -60,7 +60,7 @@
         <div class="modal-dialog mt-5">
             <div class="modal-content">
                 <div class=" modal-header">
-                    <h4 class="modal-title text-center">Liberar Ticket</h4>
+                    <h4 class="modal-title text-center">Eliminar de Perfil</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
                 </div>
                 <div class="modal-body">
@@ -135,7 +135,7 @@
     </div>
 
     <div class="card-header bg-gradient-secondary">
-        <h3 class=" text-center">Liberar Tickets Programados</h3>
+        <h3 class=" text-center">Busqueda de Personal Tecnico</h3>
     </div>
     <div class="card-body">
         <div class="card-header bg-light text-center">
@@ -144,7 +144,7 @@
         <div class="form-group">
             <asp:GridView ID="listTicket" class="table table-striped table-dark" runat="server" OnRowCommand="listTicket_RowCommand">
                 <Columns>
-                    <asp:TemplateField HeaderText="Procesos">
+                    <asp:TemplateField HeaderText="Manteniniento">
                         <ItemTemplate>
                             <asp:Button ID="Button1" CommandName="info" Text="👁‍🗨" CssClass="btn btn-link" ToolTip="Informacion detallada del ticket" runat="server" />
                             <asp:Button ID="Button2" CommandName="liberar" Text="🔓" CssClass="btn btn-link" ToolTip="liberar ticket" runat="server" />

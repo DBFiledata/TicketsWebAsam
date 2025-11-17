@@ -144,7 +144,7 @@
 
                 <div class="modal-content">
                     <div class=" modal-header">
-                        <h4 class="modal-title text-center">Cerrar Tickets</h4>
+                        <h4 class="modal-title text-center">Eliminar de Perfil</h4>
                         <asp:Button ID="btnClose" runat="server" Text="x" class="close" aria-hidden="true" />
                     </div>
                     <div class="modal-body">
@@ -182,7 +182,7 @@
                     <div class="table-responsive">
                         <asp:GridView ID="GridView1" CssClass="table table-striped table-dark table-bordered  " Font-Size="Small" Width="100%" CellSpacing="0" runat="server" OnRowCommand="GridView1_RowCommand">
                             <Columns>
-                                <asp:TemplateField HeaderText="Procesos">
+                                <asp:TemplateField HeaderText="Manteniniento">
                                     <ItemTemplate>
 
                                         <asp:Button ID="Button2" CommandName="cerrarTicket" Text="🔐" CssClass="btn btn-link" ToolTip="Cerrar ticket" runat="server" />

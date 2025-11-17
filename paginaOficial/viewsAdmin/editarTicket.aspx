@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" Title="Editar Tickets" MasterPageFile="~/viewsAdmin/admin.Master" CodeBehind="editarTicket.aspx.cs" Inherits="paginaOficial.viewsAdmin.editarTicket" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" Title="Generar Tickets" MasterPageFile="~/viewsAdmin/admin.Master" CodeBehind="editarTicket.aspx.cs" Inherits="paginaOficial.viewsAdmin.editarTicket" %>
 
 <asp:Content ID="BodyContenido" ContentPlaceHolderID="contenido" runat="server">
     <script type="text/javascript">
@@ -44,7 +44,7 @@
                                                 CssClass="form-control " TextMode="MultiLine" Width="95%" Height="150px"></asp:TextBox>
                                         </div>
                                         <div class="form-group">
-                                            <asp:Label ID="Label2" runat="server" Text="Label">Detalle de problemas que se esta presentando</asp:Label>
+                                            <asp:Label ID="Label2" runat="server" Text="Label">Detalle de problemas Que se esta presentando</asp:Label>
                                             <asp:TextBox ID="txtProblema" runat="server"
                                                 ToolTip="📝 ingrese la informacion de forma entendible &#10;🎯 procure que la informacion sea precisa y correcta &#10;👨‍💻 para que el personal tecnico este correctamente informado del problema"
                                                 CssClass="form-control " TextMode="MultiLine" Width="95%" Height="150px"></asp:TextBox>

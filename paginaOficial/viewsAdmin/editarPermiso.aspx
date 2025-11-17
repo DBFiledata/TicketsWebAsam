@@ -12,7 +12,7 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h4 class="modal-title text-center" id="myModalLabel">Finalizar Permisos</h4>
+                        <h4 class="modal-title text-center" id="myModalLabel">Asignar vacaciones</h4>
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
                     </div>
                     <div class="modal-body mt-n3">
@@ -46,7 +46,7 @@
         </div>
 
         <div class="card-header bg-gradient-secondary">
-            <h3 class=" text-center">Editar Permisos a Personal Tecnico</h3>
+            <h3 class=" text-center">Asignar Vacaciones a Personal Tecnico</h3>
         </div>
         <div class="card-body">
             <div class="card-header bg-light">

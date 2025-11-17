@@ -32,7 +32,6 @@ namespace paginaOficial
                         ScriptManager.RegisterStartupScript(this, GetType(), "Pop", "alert('Registro completado satisfactoriamente');", true);
                         txtId.Text = "";
                         txtPass.Text = "";
-                        txtPass2.Text = "";
                         txtNombre.Text = "";
                         txtApellido.Text = "";
                         txtEmail.Text = "";
@@ -50,7 +49,7 @@ namespace paginaOficial
              }
              else
              {
-                lblerror.Text = "Debe completar los campo requeridos";
+                lblerror.Text = "debe completar los campo requeridos";
                 lblerror.Visible = true;
              }
         }
@@ -58,7 +57,6 @@ namespace paginaOficial
         {
             txtId.Text = "";
             txtPass.Text = "";
-            txtPass2.Text = "";
             txtNombre.Text = "";
             txtApellido.Text = "";
             txtEmail.Text = "";

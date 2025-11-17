@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" Title="Buscar Personal" MasterPageFile="~/viewsAdmin/admin.Master" CodeBehind="listaUsuarios.aspx.cs" Inherits="paginaOficial.viewsAdmin.listaUsuarios" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" Title="Buscar solicitantes" MasterPageFile="~/viewsAdmin/admin.Master" CodeBehind="listaUsuarios.aspx.cs" Inherits="paginaOficial.viewsAdmin.listaUsuarios" %>
 
 <asp:Content ID="BodyContenido" ContentPlaceHolderID="contenido" runat="server">
     <script src="../Scripts/bootstrap.min.js"></script>
@@ -46,7 +46,7 @@
                             <ItemTemplate>
                                 <asp:Button ID="Button1" CommandName="info" Text="👁‍🗨" CssClass="btn btn-link" ToolTip="Informacion detallada del usuario" runat="server" />
 
-                                <asp:Button ID="Button2" CommandName="editar" Text="✏️ " CssClass="btn btn-link" ToolTip="Editar informacion del usuario" runat="server" />
+                                <asp:Button ID="Button2" CommandName="editar" Text="📝" CssClass="btn btn-link" ToolTip="Editar informacion del usuario" runat="server" />
 
                                 <asp:Button ID="Button3" CommandName="eliminar" Text="🧺" CssClass="btn btn-link" ToolTip="Eliminar cuenta del usuario" runat="server" />
                             </ItemTemplate>
@@ -86,7 +86,7 @@
                                         <asp:Label ID="lblTelefonoInfo" runat="server" CssClass="form-control text-center" Text="Label"></asp:Label>
                                     </div>
                                     <div class="form-group">
-                                        <asp:Label ID="Label25" runat="server" Text="Label">Tipo de usuario:</asp:Label>
+                                        <asp:Label ID="Label25" runat="server" Text="Label">Tipo ded usuario:</asp:Label>
                                         <asp:Label ID="lblTipoInfo" runat="server" CssClass="form-control text-center" Text="Label"></asp:Label>
                                     </div>
                                 </div>
@@ -134,7 +134,7 @@
                                         </div>
                                         <div class="form-group">
                                             <div class="form-group pl-3">
-                                                <asp:Label ID="Label5" runat="server" Text="Label">Tipo de usuario</asp:Label>
+                                                <asp:Label ID="Label5" runat="server" Text="Label">Tipo ded usuario</asp:Label>
                                                 <asp:DropDownList ID="listTipoEditar" CssClass="form-control" ToolTip="👷‍ Escoja el tipo de usuario" runat="server">
                                                     <asp:ListItem Value="0">👥 Seleccionar</asp:ListItem>
                                                     <asp:ListItem Value="1">Soporte</asp:ListItem>
@@ -165,7 +165,7 @@
         <div class="modal-dialog mt-5">
             <div class="modal-content">
                 <div class=" modal-header">
-                    <h4 class="modal-title text-center">Eliminar Perfil</h4>
+                    <h4 class="modal-title text-center">Eliminar de Perfil</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
                 </div>
                 <div class="modal-body">
@@ -174,7 +174,7 @@
                             <div class="card border-secondary">
                                 <div class="card-body mt-n3">
                                     <div class="form-group text-center">
-                                        <h6>Desea elimiar al usuario
+                                        <h6>Desea elimiar   al usuario
                                             <br />
                                             <asp:Label ID="lblIdEliminar" runat="server" Text="Label">Cedula</asp:Label><br />
                                             Con Nombre:

@@ -90,7 +90,21 @@
                 Control de personal
            
             </div>
-            
+            <%--<li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#desplegableAsistencia" aria-expanded="true" aria-controls="collapsePages">
+                    <i class="fa fa-plane"></i>
+                    
+                    <span>Asistencias</span>
+                </a>
+                <div id="desplegableAsistencia" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Asistencia de Personal:</h6>
+                        <a class="collapse-item" href="buscarSolicitante.aspx">Confirmar Asistencias</a>
+                        <a class="collapse-item" href="listaUsuarios.aspx">Editar Asistencias</a>
+                        <a class="collapse-item" href="listaUsuarios.aspx">Finalizar Asistencias</a>
+                    </div>
+                </div>
+            </li>--%>
 
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#desplegablePermisos" aria-expanded="true" aria-controls="collapsePages">
@@ -116,21 +130,6 @@
                         <h6 class="collapse-header">Vacaciones:</h6>
                         <a class="collapse-item" href="vacaciones.aspx">Dar Vacaciones</a>
                         <a class="collapse-item" href="editarVacaciones.aspx">Editar Vacaciones</a>
-                    </div>
-                </div>
-            </li>
-
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#desplegableRendimiento" aria-expanded="true" aria-controls="collapsePages">
-                    <i class="fa fa-tachometer-alt"></i>
-                    <span>Productividad</span>
-                </a>
-                <div id="desplegableRendimiento" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">productividad:</h6>
-                        <a class="collapse-item" href="TiempoAtencion.aspx">Tiempo de Atencion</a>
-                        <a class="collapse-item" href="cantidadAtencion.aspx">Cantidad</a>
-                        <a class="collapse-item" href="cantidadPermisos.aspx">Permisos Solicitados</a>
                     </div>
                 </div>
             </li>
@@ -173,26 +172,10 @@
 
             <!-- Nav Item - Estadisticas -->
             <%--<li class="nav-item">
-                <a class="nav-link" href="estadisticas.aspx">
+                <a class="nav-link" href="charts.html">
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>Estadisticas</span></a>
             </li>--%>
-
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#desplegableEstadisticas" aria-expanded="true" aria-controls="collapsePages">
-                    <i class="fas fa-fw fa-chart-area"></i>
-                    
-                    <span>Estadisticas</span>
-                </a>
-                <div id="desplegableEstadisticas" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Asistencia de Personal:</h6>
-                        <a class="collapse-item" href="estadisticasDiarias.aspx">Estadisticas Diarias</a>
-                        <a class="collapse-item" href="estadisticas.aspx">Estadisticas Mensuales</a>
-                    </div>
-                </div>
-            </li>
-
 
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
