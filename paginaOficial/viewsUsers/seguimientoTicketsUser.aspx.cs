@@ -1,52 +1,73 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+using System;
+using System.Data;
+using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.Data;
+using paginaOficial.Controlers;
+
 namespace paginaOficial.viewsUsers
 {
-    public partial class seguimientoTicketsUser : System.Web.UI.Page
+    public partial class seguimientoTicketsUser : Page
     {
-        Controlers.BaseDatos odbusuario;
-        protected void Page_Load(object sender, EventArgs e)
-        {
-            if (!User.Identity.IsAuthenticated)
-            {
-                Response.Redirect("~/Login.aspx");
-            }
-            if (!Page.IsPostBack)
-            {
-                odbusuario = new Controlers.BaseDatos();
-                DataSet ds = odbusuario.ListaTicketUsuario(User.Identity.Name);
-                this.listTickets.DataSource = ds.Tables[0];
-                this.listTickets.DataBind();
-            }
-            else
-            {
+    	private BaseDatos odbusuario;
 
-            }
+    	protected ScriptManager ScriptManager1;
 
-        }
-        
-        protected void btnfiltrar_Click(object sender, EventArgs e)
-        {
-            odbusuario = new Controlers.BaseDatos();
-            if (listEstado.SelectedIndex > 0 & listEstado.SelectedIndex < 6)
-            {
-                DataSet ds = odbusuario.filtroTicketUsuario(User.Identity.Name, Convert.ToInt32(listEstado.Text));
-                this.listTickets.DataSource = ds.Tables[0];
-                this.listTickets.DataBind();
+    	protected UpdatePanel UpdatePanel1;
 
-            }
-            else
-            {
-                odbusuario = new Controlers.BaseDatos();
-                DataSet ds = odbusuario.ListaTicketUsuario(User.Identity.Name);
-                this.listTickets.DataSource = ds.Tables[0];
-                this.listTickets.DataBind();
-            }
-        }
+    	protected Label Label6;
+
+    	protected DropDownList listEstado;
+
+    	protected Button btnfiltrar;
+
+    	protected GridView listTickets;
+
+    	protected void Page_Load(object sender, EventArgs e)
+    	{
+    		if (!User.Identity.IsAuthenticated)
+    		{
+    			Response.Redirect("~/Login.aspx");
+    		}
+    		else if ((string)Session["type"] != "5")
+    		{
+    			Session.Abandon();
+    			Session.Clear();
+    			FormsAuthentication.SignOut();
+    			Response.Redirect("~/login.aspx");
+    		}
+    		else if (!Page.IsPostBack)
+    		{
+    			odbusuario = new BaseDatos();
+    			DataSet ds = odbusuario.ListaTicketUsuario(User.Identity.Name);
+    			listTickets.DataSource = ds.Tables[0];
+    			listTickets.DataBind();
+    		}
+    	}
+
+    	protected void btnfiltrar_Click(object sender, EventArgs e)
+    	{
+    		odbusuario = new BaseDatos();
+    		if ((listEstado.SelectedIndex > 0) & (listEstado.SelectedIndex < 5))
+    		{
+    			DataSet ds = odbusuario.filtroTicketUsuario(User.Identity.Name, Convert.ToInt32(listEstado.Text));
+    			listTickets.DataSource = ds.Tables[0];
+    			listTickets.DataBind();
+    		}
+    		else
+    		{
+    			odbusuario = new BaseDatos();
+    			DataSet ds2 = odbusuario.ListaTicketUsuario(User.Identity.Name);
+    			listTickets.DataSource = ds2.Tables[0];
+    			listTickets.DataBind();
+    		}
+    	}
+
+    	protected void listTickets_PageIndexChanging(object sender, GridViewPageEventArgs e)
+    	{
+    		listTickets.PageIndex = e.NewPageIndex;
+    		btnfiltrar_Click(null, null);
+    	}
     }
+
 }

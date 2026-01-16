@@ -56,6 +56,7 @@
                                                 <asp:ListItem Value="4">Desarrollo</asp:ListItem>
                                                 <asp:ListItem Value="5">Agente</asp:ListItem>
                                                 <asp:ListItem Value="6">Administrador</asp:ListItem>
+                                                <asp:ListItem Value="9">Administrativo Tecnología</asp:ListItem>
                                             </asp:DropDownList>
                                         </div>
                                         <div class="form-group d-flex align-items-center justify-content-center">

@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" Title="cambio de contraseña" MasterPageFile="~/viewsAdmin/admin.Master" CodeBehind="cambioContraseñaAdmin.aspx.cs" Inherits="paginaOficial.viewsAdmin.cambioContraseñaAdmin" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" Title="Cambio de contraseña" MasterPageFile="~/viewsAdmin/admin.Master" CodeBehind="cambioContraseñaAdmin.aspx.cs" Inherits="paginaOficial.viewsAdmin.cambioContraseñaAdmin" %>
 
 
 <asp:Content ID="BodyContenido" ContentPlaceHolderID="contenido" runat="server">

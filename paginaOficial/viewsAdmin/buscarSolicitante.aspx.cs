@@ -1,99 +1,143 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+using System;
+using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using paginaOficial.Controlers;
 
 namespace paginaOficial.viewsAdmin
 {
-    public partial class buscarSolicitante : System.Web.UI.Page
+    public partial class buscarSolicitante : Page
     {
-        Controlers.BaseDatos odbusuario;
-        protected void Page_Load(object sender, EventArgs e)
-        {
-            if (!User.Identity.IsAuthenticated)
-            {
-                Response.Redirect("~/Login.aspx");
-            }
-        }
+    	private BaseDatos odbusuario;
 
+    	protected ScriptManager ScriptManager1;
 
-        protected void btnEditar_Click(object sender, EventArgs e)
-        {
-            Session["solicitante"] = this.txtIdSolicitante.Text;
-            Response.Redirect("editarSolicitante.aspx");
-        }
+    	protected UpdatePanel UpdatePanel1;
 
-        protected void btnEliminar_Click(object sender, EventArgs e)
-        {
-            lblerror.Visible = false;
-            if (txtIdSolicitante.Text != string.Empty)
-            {
-                odbusuario = new Controlers.BaseDatos();
-                if (odbusuario.EliminarSolicitante(this.txtIdSolicitante.Text))
-                {
-                    this.panelInfo.Visible = false;
-                    this.lblId.Text = "";
-                    this.lblNombre.Text = "";
-                    this.lblDepartamento.Text = "";
-                    this.lblEmail.Text = "";
-                    this.lblTelefono.Text = "";
-                    this.txtIdSolicitante.Text = "";
-                    this.panelBuscar.Visible = true;
-                    this.btnBuscarSolicitante.Enabled = true;
-                    this.btnEditar.Enabled = false;
-                    this.btnEliminar.Enabled = false;
-                    ScriptManager.RegisterStartupScript(this, GetType(), "Pop", "alert('El solicitante a sido eliminado satisfactoriamente');", true);
+    	protected Panel panelBuscar;
 
-                }
-                else
-                {
-                    lblerror.Text = "no se pudo elimirar el solicitante";
-                    lblerror.Visible = true;
-                }
-            }
+    	protected TextBox txtIdSolicitante;
 
-        }
+    	protected Button btnBuscarSolicitante;
 
-        protected void btnBuscarSolicitante_Click(object sender, EventArgs e)
-        {
-            lblerror.Visible = false;
-            try { 
-            if (txtIdSolicitante.Text != string.Empty)
-            {
-                odbusuario = new Controlers.BaseDatos();
-                string[] datos = new string[8];
-                datos = odbusuario.infoSolicitante(this.txtIdSolicitante.Text);
-                if(datos != null) {
-                this.panelInfo.Visible = true;
-                this.lblId.Text = datos[0];
-                this.lblNombre.Text = datos[1] + " " + datos[2];
-                this.lblDepartamento.Text = datos[3];
-                this.lblEmail.Text = datos[4];
-                this.lblTelefono.Text = datos[5];
-                this.panelBuscar.Visible = false;
-                this.btnBuscarSolicitante.Enabled = false;
-                this.btnEditar.Enabled = true;
-                this.btnEliminar.Enabled = true;
-                }
-                else
-                 {
-                        lblerror.Text = "No se encontro solocitante registrado con ese id";
-                        lblerror.Visible = true;
+    	protected Panel panelInfo;
 
-                    }
+    	protected Label Label2;
 
+    	protected Label lblId;
 
-                }
-            
-            }
-            catch (Exception ex) {
-                lblerror.Text = "error al intentar realizar el proceso <br/>"+ex.Message;
-                lblerror.Visible = true;
+    	protected Label lbl1;
 
-            }
-        }
+    	protected Label lblNombre;
 
-      }
+    	protected Label Label1;
+
+    	protected Label lblDepartamento;
+
+    	protected Label Label3;
+
+    	protected Label lblEmail;
+
+    	protected Label Label7;
+
+    	protected Label lblTelefono;
+
+    	protected Button btnEditar;
+
+    	protected Button btnEliminar;
+
+    	protected Label lblerror;
+
+    	protected RequiredFieldValidator RequiredFieldValidatorId;
+
+    	protected ValidationSummary ValidationSummary;
+
+    	protected void Page_Load(object sender, EventArgs e)
+    	{
+    		if (!User.Identity.IsAuthenticated)
+    		{
+    			Response.Redirect("~/Login.aspx");
+    		}
+    		else if ((string)Session["type"] != "6")
+    		{
+    			Session.Abandon();
+    			Session.Clear();
+    			FormsAuthentication.SignOut();
+    			Response.Redirect("~/login.aspx");
+    		}
+    	}
+
+    	protected void btnEditar_Click(object sender, EventArgs e)
+    	{
+    		Session["solicitante"] = txtIdSolicitante.Text;
+    		Response.Redirect("editarSolicitante.aspx");
+    	}
+
+    	protected void btnEliminar_Click(object sender, EventArgs e)
+    	{
+    		lblerror.Visible = false;
+    		if (txtIdSolicitante.Text != string.Empty)
+    		{
+    			odbusuario = new BaseDatos();
+    			if (odbusuario.EliminarSolicitante(txtIdSolicitante.Text))
+    			{
+    				panelInfo.Visible = false;
+    				lblId.Text = "";
+    				lblNombre.Text = "";
+    				lblDepartamento.Text = "";
+    				lblEmail.Text = "";
+    				lblTelefono.Text = "";
+    				txtIdSolicitante.Text = "";
+    				panelBuscar.Visible = true;
+    				btnBuscarSolicitante.Enabled = true;
+    				btnEditar.Enabled = false;
+    				btnEliminar.Enabled = false;
+    				ScriptManager.RegisterStartupScript(this, GetType(), "Pop", "alert('El solicitante a sido eliminado satisfactoriamente');", addScriptTags: true);
+    			}
+    			else
+    			{
+    				lblerror.Text = "no se pudo elimirar el solicitante";
+    				lblerror.Visible = true;
+    			}
+    		}
+    	}
+
+    	protected void btnBuscarSolicitante_Click(object sender, EventArgs e)
+    	{
+    		lblerror.Visible = false;
+    		try
+    		{
+    			if (txtIdSolicitante.Text != string.Empty)
+    			{
+    				odbusuario = new BaseDatos();
+    				string[] datos = new string[8];
+    				datos = odbusuario.infoSolicitante(txtIdSolicitante.Text);
+    				if (datos != null)
+    				{
+    					panelInfo.Visible = true;
+    					lblId.Text = datos[0];
+    					lblNombre.Text = datos[1] + " " + datos[2];
+    					lblDepartamento.Text = datos[3];
+    					lblEmail.Text = datos[4];
+    					lblTelefono.Text = datos[5];
+    					panelBuscar.Visible = false;
+    					btnBuscarSolicitante.Enabled = false;
+    					btnEditar.Enabled = true;
+    					btnEliminar.Enabled = true;
+    				}
+    				else
+    				{
+    					lblerror.Text = "No se encontro solocitante registrado con ese id";
+    					lblerror.Visible = true;
+    				}
+    			}
+    		}
+    		catch (Exception ex)
+    		{
+    			lblerror.Text = "error al intentar realizar el proceso <br/>" + ex.Message;
+    			lblerror.Visible = true;
+    		}
+    	}
+    }
+
 }

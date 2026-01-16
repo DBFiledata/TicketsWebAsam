@@ -61,7 +61,7 @@
                                             </div>
                                         </div>
                                         <div class="form-group pl-3">
-                                            <asp:Label ID="Label6" runat="server" Text="Label">Tipo ded usuario</asp:Label>
+                                            <asp:Label ID="Label6" runat="server" Text="Label">Tipo de usuario</asp:Label>
                                             <asp:DropDownList ID="listTipo" CssClass="form-control" ToolTip="👷‍ Escoja el area a la que pertenecera el usuario" runat="server" Width="98%">
                                                 <asp:ListItem Value="0">👥 Seleccionar</asp:ListItem>
                                                 <asp:ListItem Value="1">Soporte</asp:ListItem>
@@ -70,6 +70,9 @@
                                                 <asp:ListItem Value="4">Desarrollo</asp:ListItem>
                                                 <asp:ListItem Value="5">Agente</asp:ListItem>
                                                 <asp:ListItem Value="6">Administrador</asp:ListItem>
+                                                <asp:ListItem Value="7">Monitoreo</asp:ListItem>
+                                                <asp:ListItem Value="8">Administrador Trabajos Programados</asp:ListItem>
+                                                <asp:ListItem Value="9">Administrativo Tecnología</asp:ListItem>
                                             </asp:DropDownList>
                                         </div>
                                         <div class="form-group d-flex align-items-center justify-content-center">
@@ -84,16 +87,19 @@
 
                                     <div class="form-group d-flex align-items-center justify-content-center">
                                         <asp:RequiredFieldValidator CssClass="text-center" ID="RequiredFieldValidatorId" runat="server" ControlToValidate="txtId" ErrorMessage="Debe Ingresar un Id" ForeColor="Red" Display="None"></asp:RequiredFieldValidator>
-                                        <asp:RegularExpressionValidator ID="RegularExpressionValidatorId" runat="server" ControlToValidate="txtId" ErrorMessage="El Id no concuerda con un numero de cedula valido" ForeColor="Red" ValidationExpression="^(PE|E|N|[23456789](?:AV|PI)?|1[0123]?(?:AV|PI)?)-(\d{1,4})-(\d{1,6})$" Display="None"></asp:RegularExpressionValidator>
+                                        
+                                        <%--<asp:RegularExpressionValidator ID="RegularExpressionValidatorId" runat="server" ControlToValidate="txtId" ErrorMessage="El Id no concuerda con un numero de cedula valido" ForeColor="Red" ValidationExpression="^(PE|E|N|[23456789](?:AV|PI)?|1[0123]?(?:AV|PI)?)-(\d{1,4})-(\d{1,6})$" Display="None"></asp:RegularExpressionValidator>--%>
 
                                         <asp:RequiredFieldValidator ID="RequiredFieldValidatorIdNombre" runat="server" ErrorMessage="Debe ingresar el nombre" ControlToValidate="txtNombre" ForeColor="Red" Display="None"></asp:RequiredFieldValidator>
 
                                         <asp:RequiredFieldValidator ID="RequiredFieldValidatorApellido" runat="server" ErrorMessage="Debe ingresar el Apellido" ControlToValidate="txtApellido" ForeColor="Red" Display="None"></asp:RequiredFieldValidator>
 
                                         <asp:RequiredFieldValidator ID="RequiredFieldValidatorTelefono" runat="server" ErrorMessage="Debe ingresar un numero de telefono" ControlToValidate="txtTelefono" ForeColor="Red" Display="None"></asp:RequiredFieldValidator>
+                                        
                                         <asp:RegularExpressionValidator ID="RegularExpressionValidatorTelefono" runat="server" ControlToValidate="txtTelefono" ErrorMessage="El numero de telefono no es valido" ForeColor="Red" ValidationExpression="^(([6]([0-9]{7}))|([6]([0-9]{3})-([0-9]{4}))|([2|3|5|8]([0-9]{6}))|([2|3|5|8]([0-9]{2})-([0-9]{4}))|([1-9]{4}))$" Display="None"></asp:RegularExpressionValidator>
 
                                         <asp:RequiredFieldValidator ID="RequiredFieldValidatorEmail" runat="server" ErrorMessage="Debe ingresar el correo electronico" ControlToValidate="txtEmail" ForeColor="Red" Display="None"></asp:RequiredFieldValidator>
+                                        
                                         <asp:RegularExpressionValidator ID="RegularExpressionValidatorEmail" runat="server" ControlToValidate="txtEmail" ErrorMessage="El correo electronico no es valido" ForeColor="Red" ValidationExpression="^([\w]+@{1}[\w]+.{1}([a-z]{2,3}(.)?)([a-z]{2})?)+$" Display="None"></asp:RegularExpressionValidator>
 
                                         <asp:RequiredFieldValidator ID="RequiredFieldValidatorPass" runat="server" ErrorMessage="Debe ingresar la contraseña" ControlToValidate="txtPass" ForeColor="Red" Display="None"></asp:RequiredFieldValidator>
@@ -102,9 +108,7 @@
 
                                         <asp:RequiredFieldValidator ID="RequiredFieldValidatorListTipo" runat="server" ErrorMessage="Debe seleccionar el area a la que pertenecera el usuario" ControlToValidate="listTipo" InitialValue="0" ForeColor="Red" Display="None"></asp:RequiredFieldValidator>
 
-
                                         <asp:ValidationSummary ID="ValidationSummary" CssClass="" runat="server" ForeColor="Red" />
-
                                     </div>
                                 </div>
                             </div>

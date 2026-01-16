@@ -2,7 +2,7 @@
 
 <asp:Content ID="Contenido" ContentPlaceHolderID="contenido" runat="server">
         <!-- Masthead -->
-        <header class="masthead bg-info text-white text-center">
+        <header class="masthead bg-primary text-white text-center">
             <div class="container d-flex align-items-center flex-column">
 
                 <!-- Masthead Avatar Image -->
@@ -24,7 +24,7 @@
                 </div>
 
                 <!-- Masthead Subheading -->
-                <p class="masthead-subheading font-weight-light mb-0">aplicacion tecnologica para agilizar el proceso de atencion tecnica para dispositivos tecnologicos</p>
+                <p class="masthead-subheading font-weight-light mb-0">Aplicacion tecnologica para agilizar el proceso de atencion tecnica para dispositivos tecnologicos</p>
                 <p class="masthead-subheading font-weight-light mb-0">Genere su tiket para ser atendido por personal tecnico </p>
 
             </div>

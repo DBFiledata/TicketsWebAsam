@@ -7,7 +7,7 @@
             <!-- Masthead Avatar Image -->
             <img class="mb-4" style="margin-top: -120px;" height="300" width="380" src="../userscontent/img/soporte.png" alt="" />
             <!-- Masthead Heading -->
-            <h1 class="masthead-heading text-uppercase mb-0">Le damos la biemvenida</h1>
+            <h1 class="masthead-heading text-uppercase mb-0">Le damos la bienvenida</h1>
 
             <!-- Icon Divider -->
             <div class="divider-custom divider-light">
@@ -22,7 +22,7 @@
             </div>
 
             <!-- Masthead Subheading -->
-            <p class="masthead-subheading font-weight-light mb-0">aplicacion para administrar el proceso de atencion tecnica a dispocitivos tecnologicos</p>
+            <p class="masthead-subheading font-weight-light mb-0">Aplicacion para administrar el proceso de atencion tecnica a dispositivos tecnologicos</p>
 
         </div>
     </header>

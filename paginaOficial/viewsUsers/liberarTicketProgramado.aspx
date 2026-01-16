@@ -27,7 +27,7 @@
         <div class="modal-dialog mt-3">
             <div class="modal-content">
                 <div class=" modal-header">
-                    <h4 class="modal-title text-center" id="myModalLabels">Informacion de Cuenta</h4>
+                    <h4 class="modal-title text-center" id="myModalLabels">Informacion de Ticket</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
                 </div>
                 <div class="modal-body">
@@ -60,7 +60,7 @@
         <div class="modal-dialog mt-5">
             <div class="modal-content">
                 <div class=" modal-header">
-                    <h4 class="modal-title text-center">Eliminar de Perfil</h4>
+                    <h4 class="modal-title text-center">Liberar Ticket</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
                 </div>
                 <div class="modal-body">
@@ -83,6 +83,7 @@
                                                 <asp:ListItem Value="2">Redes</asp:ListItem>
                                                 <asp:ListItem Value="3">Data Center</asp:ListItem>
                                                 <asp:ListItem Value="4">Desarrollo</asp:ListItem>
+                                                <asp:ListItem Value="9">Administrativo Tecnología</asp:ListItem>
                                             </asp:DropDownList>
                                         </div>
                                         <div id="confirmacion" class="form-group" style="display: none;">
@@ -135,16 +136,16 @@
     </div>
 
     <div class="card-header bg-gradient-secondary">
-        <h3 class=" text-center">Busqueda de Personal Tecnico</h3>
+        <h3 class=" text-center">Liberar Tickets Programados</h3>
     </div>
     <div class="card-body">
         <div class="card-header bg-light text-center">
-            Sus Tickets Programados
+            Tickets programados
         </div>
         <div class="form-group">
             <asp:GridView ID="listTicket" class="table table-striped table-dark" runat="server" OnRowCommand="listTicket_RowCommand">
                 <Columns>
-                    <asp:TemplateField HeaderText="Manteniniento">
+                    <asp:TemplateField HeaderText="Procesos">
                         <ItemTemplate>
                             <asp:Button ID="Button1" CommandName="info" Text="👁‍🗨" CssClass="btn btn-link" ToolTip="Informacion detallada del ticket" runat="server" />
                             <asp:Button ID="Button2" CommandName="liberar" Text="🔓" CssClass="btn btn-link" ToolTip="liberar ticket" runat="server" />

@@ -18,6 +18,9 @@
                         <asp:ListItem Value="4">Desarrollo</asp:ListItem>
                         <asp:ListItem Value="5">Agente</asp:ListItem>
                         <asp:ListItem Value="6">Administrador</asp:ListItem>
+                        <asp:ListItem Value="7">Monitoreo</asp:ListItem>
+                        <asp:ListItem Value="8">Administrador de Trabajos Programados</asp:ListItem>
+                        <asp:ListItem Value="9">Administrativo Tecnología</asp:ListItem>
                     </asp:DropDownList>
                     <asp:Label ID="Label1" runat="server" Text="Label">Nombre de usuario</asp:Label>
                     <asp:TextBox ID="txtnombre" CssClass="active" ToolTip="Ingrese el nombre y apellido &#10;O alguno de estos dos datos" runat="server"></asp:TextBox>

@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="..\packages\EntityFramework.6.3.0\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.3.0\build\EntityFramework.props')" />
+  <Import Project="..\packages\EntityFramework.6.5.1\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.5.1\build\EntityFramework.props')" />
   <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
@@ -47,6 +47,113 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <!-- Firebase y Google APIs -->
+    <Reference Include="BouncyCastle.Cryptography, Version=2.6.2.0, Culture=neutral, PublicKeyToken=072edcf4a5328938, processorArchitecture=MSIL">
+      <HintPath>..\packages\BouncyCastle.Cryptography.2.6.2\lib\net461\BouncyCastle.Cryptography.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.5.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.5.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="FirebaseAdmin">
+      <HintPath>bin\FirebaseAdmin.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis">
+      <HintPath>bin\Google.Apis.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.Core">
+      <HintPath>bin\Google.Apis.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.Auth">
+      <HintPath>bin\Google.Apis.Auth.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Api.Gax">
+      <HintPath>bin\Google.Api.Gax.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Api.Gax.Rest">
+      <HintPath>bin\Google.Api.Gax.Rest.dll</HintPath>
+    </Reference>
+    <!-- Telerik Web UI -->
+    <Reference Include="Google.Protobuf, Version=3.32.0.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Protobuf.3.32.0\lib\net45\Google.Protobuf.dll</HintPath>
+    </Reference>
+    <Reference Include="K4os.Compression.LZ4, Version=1.3.8.0, Culture=neutral, PublicKeyToken=2186fa9121ef231d, processorArchitecture=MSIL">
+      <HintPath>..\packages\K4os.Compression.LZ4.1.3.8\lib\net462\K4os.Compression.LZ4.dll</HintPath>
+    </Reference>
+    <Reference Include="K4os.Compression.LZ4.Streams, Version=1.3.8.0, Culture=neutral, PublicKeyToken=2186fa9121ef231d, processorArchitecture=MSIL">
+      <HintPath>..\packages\K4os.Compression.LZ4.Streams.1.3.8\lib\net462\K4os.Compression.LZ4.Streams.dll</HintPath>
+    </Reference>
+    <Reference Include="K4os.Hash.xxHash, Version=1.0.8.0, Culture=neutral, PublicKeyToken=32cd54395057cec3, processorArchitecture=MSIL">
+      <HintPath>..\packages\K4os.Hash.xxHash.1.0.8\lib\net462\K4os.Hash.xxHash.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.5.0.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data, Version=9.5.0.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.9.5.0\lib\net462\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data.EntityFramework, Version=9.5.0.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.EntityFramework.9.5.0\lib\net462\MySql.Data.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Web, Version=9.5.0.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Web.9.5.0\lib\net462\MySql.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Configuration.ConfigurationManager, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Configuration.ConfigurationManager.8.0.0\lib\net462\System.Configuration.ConfigurationManager.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.Pipelines, Version=5.0.0.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.Pipelines.5.0.2\lib\net461\System.IO.Pipelines.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.3.0\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.3.0\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.3.0\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.3.0\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.3.0\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Web.UI">
+      <HintPath>bin\Telerik.Web.UI.dll</HintPath>
+    </Reference>
+    <!-- System.Web.Http -->
+    <Reference Include="System.Web.Http">
+      <HintPath>bin\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost">
+      <HintPath>bin\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting">
+      <HintPath>bin\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <!-- System.Net.Http para MediaTypeHeaderValue -->
+    <Reference Include="System.Net.Http">
+      <HintPath>bin\System.Net.Http.dll</HintPath>
+    </Reference>
     <Reference Include="AjaxControlToolkit, Version=19.1.0.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
       <HintPath>..\packages\AjaxControlToolkit.19.1.0\lib\net40\AjaxControlToolkit.dll</HintPath>
     </Reference>
@@ -56,31 +163,11 @@
     <Reference Include="AspNet.ScriptManager.jQuery, Version=3.4.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\AspNet.ScriptManager.jQuery.3.4.1\lib\net45\AspNet.ScriptManager.jQuery.dll</HintPath>
     </Reference>
-    <Reference Include="BouncyCastle.Crypto, Version=1.8.5.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
-      <HintPath>..\packages\BouncyCastle.1.8.5\lib\BouncyCastle.Crypto.dll</HintPath>
-    </Reference>
-    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.3.0\lib\net45\EntityFramework.dll</HintPath>
-    </Reference>
-    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.3.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
-    </Reference>
-    <Reference Include="Google.Protobuf, Version=3.10.1.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL">
-      <HintPath>..\packages\Google.Protobuf.3.10.1\lib\net45\Google.Protobuf.dll</HintPath>
-    </Reference>
+    <!-- BouncyCastle.Crypto 1.8.5 eliminado - ahora usamos BouncyCastle.Cryptography 2.6.2 -->
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=2.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="MySql.Data, Version=8.0.18.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
-      <HintPath>..\packages\MySql.Data.8.0.18\lib\net452\MySql.Data.dll</HintPath>
-    </Reference>
-    <Reference Include="MySql.Data.EntityFramework, Version=8.0.18.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
-      <HintPath>..\packages\MySql.Data.EntityFramework.8.0.18\lib\net452\MySql.Data.EntityFramework.dll</HintPath>
-    </Reference>
-    <Reference Include="MySql.Web, Version=8.0.18.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
-      <HintPath>..\packages\MySql.Web.8.0.18\lib\net452\MySql.Web.dll</HintPath>
-    </Reference>
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -103,21 +190,6 @@
     <Reference Include="System.Transactions" />
     <Reference Include="System.Web.DataVisualization" />
     <Reference Include="System.Web.Extensions" />
-    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
-    </Reference>
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
@@ -168,12 +240,15 @@
       <HintPath>..\packages\Microsoft.AspNet.FriendlyUrls.Core.1.0.2\lib\net45\Microsoft.AspNet.FriendlyUrls.dll</HintPath>
     </Reference>
     <Reference Include="WebMatrix.Data, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.AspNet.WebPages.Data.3.2.7\lib\net45\WebMatrix.Data.dll</HintPath>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.Data.3.3.0\lib\net45\WebMatrix.Data.dll</HintPath>
     </Reference>
     <Reference Include="WebMatrix.WebData, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.AspNet.WebPages.WebData.3.2.7\lib\net45\WebMatrix.WebData.dll</HintPath>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.WebData.3.3.0\lib\net45\WebMatrix.WebData.dll</HintPath>
     </Reference>
     <Reference Include="WindowsBase" />
+    <Reference Include="ZstdSharp, Version=0.8.6.0, Culture=neutral, PublicKeyToken=8d151af33a4ad5cf, processorArchitecture=MSIL">
+      <HintPath>..\packages\ZstdSharp.Port.0.8.6\lib\net462\ZstdSharp.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="admincontent\css\sb-admin-2.css" />
@@ -1793,6 +1868,7 @@
     <Content Include="Content\img\fondo1.jpg" />
     <Content Include="Content\img\fondo.jpg" />
     <Content Include="Content\Site.css" />
+    <Content Include="Default.aspx" />
     <Content Include="errores.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
@@ -1964,6 +2040,7 @@
     <Content Include="admincontent\vendor\jquery\jquery.min.map" />
     <Content Include="admincontent\vendor\jquery\jquery.slim.min.map" />
     <Content Include="login.aspx" />
+    <Content Include="sounds\coin.wav" />
     <Content Include="userscontent\img\error.png" />
     <Content Include="userscontent\img\error1.jpg" />
     <Content Include="viewsAdmin\buscarSolicitante.aspx" />
@@ -2084,8 +2161,73 @@
     <Content Include="userscontent\vendor\jquery\jquery.slim.js" />
     <Content Include="userscontent\vendor\jquery\jquery.slim.min.js" />
     <Content Include="viewsAdmin\vacaciones.aspx" />
+    <Content Include="viewsAdmin\statusTecnicos.aspx" />
+    <Content Include="viewsAdmin\seguimientoTicketsCreados.aspx" />
+    <Content Include="viewsAdmin\seguimientoTickets.aspx" />
+    <Content Include="viewsAdmin\seguimientoDeTickets.aspx" />
+    <Content Include="viewsAdmin\seguimiento.aspx" />
+    <Content Include="viewsAdmin\revision.aspx" />
+    <Content Include="viewsAdmin\Reservas.aspx" />
+    <Content Include="viewsAdmin\TiempoAtencion.aspx" />
+    <Content Include="viewsAdmin\estadisticasDiarias.aspx" />
+    <Content Include="viewsAdmin\estadisticas.aspx" />
+    <Content Include="viewsAdmin\EstadisticasFiltro.aspx" />
+    <Content Include="viewsAdmin\editarReservas.aspx" />
+    <Content Include="viewsAdmin\editarStatusTecnico.aspx" />
+    <Content Include="viewsAdmin\cantidadTProgramadosAtendidos.aspx" />
+    <Content Include="viewsAdmin\cantidadSeguimientos.aspx" />
+    <Content Include="viewsAdmin\cantidadRevisiones.aspx" />
+    <Content Include="viewsAdmin\cantidadReservas.aspx" />
+    <Content Include="viewsAdmin\cantidadPermisos.aspx" />
+    <Content Include="viewsAdmin\cantidadAtencion.aspx" />
+    <Content Include="viewsAdmin\cedidos.aspx" />
+    <Content Include="viewsAdmin\liberarTicketProgramado.aspx" />
+    <Content Include="viewsMonitoreo\cambioContraseñaAdmin.aspx" />
+    <Content Include="viewsMonitoreo\cantidadAtencion.aspx" />
+    <Content Include="viewsMonitoreo\cantidadPermisos.aspx" />
+    <Content Include="viewsMonitoreo\cantidadReservas.aspx" />
+    <Content Include="viewsMonitoreo\cedidos.aspx" />
+    <Content Include="viewsMonitoreo\estadisticas.aspx" />
+    <Content Include="viewsMonitoreo\estadisticasDiarias.aspx" />
+    <Content Include="viewsMonitoreo\estadisticas_o.aspx" />
+    <Content Include="viewsMonitoreo\infoCuentaMonitoreo.aspx" />
+    <Content Include="viewsMonitoreo\inicioMonitoreo.aspx" />
+    <Content Include="viewsMonitoreo\seguimientoDeTickets.aspx" />
+    <Content Include="viewsMonitoreo\seguimientoDeTickets_o.aspx" />
+    <Content Include="viewsMonitoreo\seguimientoTicketsCreados.aspx" />
+    <Content Include="viewsMonitoreo\TiempoAtencion.aspx" />
+    <Content Include="viewsPruebas\WebForm1.aspx" />
+    <Content Include="viewsPruebas\WebForm2.aspx" />
+    <Content Include="viewsPruebas\WebForm3.aspx" />
+    <Content Include="viewsPruebas\WebForm4.aspx" />
+    <Content Include="viewsPruebas\WebForm5.aspx" />
+    <Content Include="viewsTecnicos\cambioContraseña.aspx" />
+    <Content Include="viewsTecnicos\infoCuenta.aspx" />
+    <Content Include="viewsTecnicos\inicio.aspx" />
+    <Content Include="viewsTecnicos\registros.aspx" />
+    <Content Include="viewsTecnicos\ticketsTecnico.aspx" />
+    <Content Include="viewsTrabajosProgramados\administrarTProgramado.aspx" />
+    <Content Include="viewsTrabajosProgramados\cambioContraseñaTProgramado.aspx" />
+    <Content Include="viewsTrabajosProgramados\cantidadAtencionTProgramado.aspx" />
+    <Content Include="viewsTrabajosProgramados\cantidadPermisosTProgramado.aspx" />
+    <Content Include="viewsTrabajosProgramados\cantidadReservasTProgramado.aspx" />
+    <Content Include="viewsTrabajosProgramados\cantidadRevicionesTProgramado.aspx" />
+    <Content Include="viewsTrabajosProgramados\cantidadSeguimientoTProgramado.aspx" />
+    <Content Include="viewsTrabajosProgramados\cantidadTProgramadosAtendidos.aspx" />
+    <Content Include="viewsTrabajosProgramados\cedidos.aspx" />
+    <Content Include="viewsTrabajosProgramados\crearInstalacion.aspx" />
+    <Content Include="viewsTrabajosProgramados\crearTProgramado.aspx" />
+    <Content Include="viewsTrabajosProgramados\editarPerfilTProgramado.aspx" />
+    <Content Include="viewsTrabajosProgramados\estadisticasDiariasTProgramado.aspx" />
+    <Content Include="viewsTrabajosProgramados\estadisticasTProgramado.aspx" />
+    <Content Include="viewsTrabajosProgramados\infoCuentaTProgramado.aspx" />
+    <Content Include="viewsTrabajosProgramados\inicioTProgramado.aspx" />
+    <Content Include="viewsTrabajosProgramados\seguimientoDeTicketsCreadosTProgramado.aspx" />
+    <Content Include="viewsTrabajosProgramados\seguimientoDeTicketsTProgramado.aspx" />
+    <Content Include="viewsTrabajosProgramados\tiempoAtencionTProgramado.aspx" />
     <Content Include="viewsUsers\buscarSolicitante.aspx" />
     <Content Include="viewsUsers\cambioComtraseña.aspx" />
+    <Content Include="viewsUsers\CerrarTickets.aspx" />
     <Content Include="viewsUsers\estadisticasUsers.aspx" />
     <Content Include="viewsUsers\generarTicketsUsers.aspx" />
     <Content Include="viewsUsers\infoCuenta.aspx" />
@@ -2093,6 +2235,9 @@
     <Content Include="viewsUsers\liberarTicketProgramado.aspx" />
     <Content Include="viewsUsers\listaUsuariosUser.aspx" />
     <Content Include="viewsUsers\registroSolicitantes.aspx" />
+    <Content Include="viewsUsers\revision.aspx" />
+    <Content Include="viewsUsers\seguimiento.aspx" />
+    <Content Include="viewsUsers\seguimientoGeneralTicketsUser.aspx" />
     <Content Include="viewsUsers\seguimientoTicketsUser.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
@@ -2101,7 +2246,315 @@
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controlers\BaseDatos.cs" />
+    <Compile Include="Controlers\Tickets.cs" />
+    <Compile Include="Controlers\Mailer.cs" />
+    <Compile Include="Controlers\APIController.cs" />
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="login.aspx.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="login.aspx.designer.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="viewsMonitoreo\cambioContraseñaAdmin.aspx.cs">
+      <DependentUpon>cambioContraseñaAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="viewsMonitoreo\cambioContraseñaAdmin.aspx.designer.cs">
+      <DependentUpon>cambioContraseñaAdmin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="viewsMonitoreo\cantidadAtencion.aspx.cs">
+      <DependentUpon>cantidadAtencion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="viewsMonitoreo\cantidadAtencion.aspx.designer.cs">
+      <DependentUpon>cantidadAtencion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="viewsMonitoreo\cantidadPermisos.aspx.cs">
+      <DependentUpon>cantidadPermisos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="viewsMonitoreo\cantidadPermisos.aspx.designer.cs">
+      <DependentUpon>cantidadPermisos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="viewsMonitoreo\cantidadReservas.aspx.cs">
+      <DependentUpon>cantidadReservas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="viewsMonitoreo\cantidadReservas.aspx.designer.cs">
+      <DependentUpon>cantidadReservas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="viewsMonitoreo\cedidos.aspx.cs">
+      <DependentUpon>cedidos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="viewsMonitoreo\cedidos.aspx.designer.cs">
+      <DependentUpon>cedidos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="viewsMonitoreo\estadisticas.aspx.cs">
+      <DependentUpon>estadisticas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="viewsMonitoreo\estadisticas.aspx.designer.cs">
+      <DependentUpon>estadisticas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="viewsMonitoreo\estadisticasDiarias.aspx.cs">
+      <DependentUpon>estadisticasDiarias.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="viewsMonitoreo\estadisticasDiarias.aspx.designer.cs">
+      <DependentUpon>estadisticasDiarias.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="viewsMonitoreo\estadisticas_o.aspx.designer.cs">
+      <DependentUpon>estadisticas_o.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="viewsMonitoreo\infoCuentaMonitoreo.aspx.cs">
+      <DependentUpon>infoCuentaMonitoreo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="viewsMonitoreo\infoCuentaMonitoreo.aspx.designer.cs">
+      <DependentUpon>infoCuentaMonitoreo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="viewsMonitoreo\inicioMonitoreo.aspx.cs">
+      <DependentUpon>inicioMonitoreo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="viewsMonitoreo\inicioMonitoreo.aspx.designer.cs">
+      <DependentUpon>inicioMonitoreo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="viewsMonitoreo\monitoreo.Master.cs">
+      <DependentUpon>monitoreo.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="viewsMonitoreo\monitoreo.Master.designer.cs">
+      <DependentUpon>monitoreo.Master</DependentUpon>
+    </Compile>
+    <Compile Include="viewsMonitoreo\seguimientoDeTickets.aspx.cs">
+      <DependentUpon>seguimientoDeTickets.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="viewsMonitoreo\seguimientoDeTickets.aspx.designer.cs">
+      <DependentUpon>seguimientoDeTickets.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="viewsMonitoreo\seguimientoDeTickets_o.aspx.designer.cs">
+      <DependentUpon>seguimientoDeTickets_o.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="viewsMonitoreo\seguimientoTicketsCreados.aspx.cs">
+      <DependentUpon>seguimientoTicketsCreados.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="viewsMonitoreo\seguimientoTicketsCreados.aspx.designer.cs">
+      <DependentUpon>seguimientoTicketsCreados.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="viewsMonitoreo\TiempoAtencion.aspx.cs">
+      <DependentUpon>TiempoAtencion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="viewsMonitoreo\TiempoAtencion.aspx.designer.cs">
+      <DependentUpon>TiempoAtencion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="viewsPruebas\Site1.Master.cs">
+      <DependentUpon>Site1.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="viewsTecnicos\cambioContraseña.aspx.cs">
+      <DependentUpon>cambioContraseña.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="viewsTecnicos\cambioContraseña.aspx.designer.cs">
+      <DependentUpon>cambioContraseña.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="viewsTecnicos\infoCuenta.aspx.cs">
+      <DependentUpon>infoCuenta.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="viewsTecnicos\infoCuenta.aspx.designer.cs">
+      <DependentUpon>infoCuenta.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="viewsTecnicos\inicio.aspx.cs">
+      <DependentUpon>inicio.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="viewsTecnicos\inicio.aspx.designer.cs">
+      <DependentUpon>inicio.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="viewsTecnicos\registros.aspx.cs">
+      <DependentUpon>registros.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="viewsTecnicos\registros.aspx.designer.cs">
+      <DependentUpon>registros.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="viewsTecnicos\tecnicos.Master.cs">
+      <DependentUpon>tecnicos.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="viewsTecnicos\tecnicos.Master.designer.cs">
+      <DependentUpon>tecnicos.Master</DependentUpon>
+    </Compile>
+    <Compile Include="viewsTecnicos\ticketsTecnico.aspx.cs">
+      <DependentUpon>ticketsTecnico.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="viewsTecnicos\ticketsTecnico.aspx.designer.cs">
+      <DependentUpon>ticketsTecnico.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="viewsTrabajosProgramados\administrarTProgramado.aspx.cs">
+      <DependentUpon>administrarTProgramado.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="viewsTrabajosProgramados\administrarTProgramado.aspx.designer.cs">
+      <DependentUpon>administrarTProgramado.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="viewsTrabajosProgramados\cambioContraseñaTProgramado.aspx.cs">
+      <DependentUpon>cambioContraseñaTProgramado.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="viewsTrabajosProgramados\cambioContraseñaTProgramado.aspx.designer.cs">
+      <DependentUpon>cambioContraseñaTProgramado.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="viewsTrabajosProgramados\cantidadAtencionTProgramado.aspx.cs">
+      <DependentUpon>cantidadAtencionTProgramado.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="viewsTrabajosProgramados\cantidadAtencionTProgramado.aspx.designer.cs">
+      <DependentUpon>cantidadAtencionTProgramado.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="viewsTrabajosProgramados\cantidadPermisosTProgramado.aspx.cs">
+      <DependentUpon>cantidadPermisosTProgramado.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="viewsTrabajosProgramados\cantidadPermisosTProgramado.aspx.designer.cs">
+      <DependentUpon>cantidadPermisosTProgramado.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="viewsTrabajosProgramados\cantidadReservasTProgramado.aspx.cs">
+      <DependentUpon>cantidadReservasTProgramado.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="viewsTrabajosProgramados\cantidadReservasTProgramado.aspx.designer.cs">
+      <DependentUpon>cantidadReservasTProgramado.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="viewsTrabajosProgramados\cantidadRevicionesTProgramado.aspx.cs">
+      <DependentUpon>cantidadRevicionesTProgramado.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="viewsTrabajosProgramados\cantidadRevicionesTProgramado.aspx.designer.cs">
+      <DependentUpon>cantidadRevicionesTProgramado.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="viewsTrabajosProgramados\cantidadSeguimientoTProgramado.aspx.cs">
+      <DependentUpon>cantidadSeguimientoTProgramado.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="viewsTrabajosProgramados\cantidadSeguimientoTProgramado.aspx.designer.cs">
+      <DependentUpon>cantidadSeguimientoTProgramado.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="viewsTrabajosProgramados\cantidadTProgramadosAtendidos.aspx.cs">
+      <DependentUpon>cantidadTProgramadosAtendidos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="viewsTrabajosProgramados\cantidadTProgramadosAtendidos.aspx.designer.cs">
+      <DependentUpon>cantidadTProgramadosAtendidos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="viewsTrabajosProgramados\cedidos.aspx.cs">
+      <DependentUpon>cedidos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="viewsTrabajosProgramados\cedidos.aspx.designer.cs">
+      <DependentUpon>cedidos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="viewsTrabajosProgramados\crearInstalacion.aspx.cs">
+      <DependentUpon>crearInstalacion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="viewsTrabajosProgramados\crearInstalacion.aspx.designer.cs">
+      <DependentUpon>crearInstalacion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="viewsTrabajosProgramados\crearTProgramado.aspx.cs">
+      <DependentUpon>crearTProgramado.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="viewsTrabajosProgramados\crearTProgramado.aspx.designer.cs">
+      <DependentUpon>crearTProgramado.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="viewsTrabajosProgramados\editarPerfilTProgramado.aspx.cs">
+      <DependentUpon>editarPerfilTProgramado.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="viewsTrabajosProgramados\editarPerfilTProgramado.aspx.designer.cs">
+      <DependentUpon>editarPerfilTProgramado.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="viewsTrabajosProgramados\estadisticasDiariasTProgramado.aspx.cs">
+      <DependentUpon>estadisticasDiariasTProgramado.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="viewsTrabajosProgramados\estadisticasDiariasTProgramado.aspx.designer.cs">
+      <DependentUpon>estadisticasDiariasTProgramado.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="viewsTrabajosProgramados\estadisticasTProgramado.aspx.cs">
+      <DependentUpon>estadisticasTProgramado.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="viewsTrabajosProgramados\estadisticasTProgramado.aspx.designer.cs">
+      <DependentUpon>estadisticasTProgramado.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="viewsTrabajosProgramados\infoCuentaTProgramado.aspx.cs">
+      <DependentUpon>infoCuentaTProgramado.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="viewsTrabajosProgramados\infoCuentaTProgramado.aspx.designer.cs">
+      <DependentUpon>infoCuentaTProgramado.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="viewsTrabajosProgramados\inicioTProgramado.aspx.cs">
+      <DependentUpon>inicioTProgramado.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="viewsTrabajosProgramados\inicioTProgramado.aspx.designer.cs">
+      <DependentUpon>inicioTProgramado.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="viewsTrabajosProgramados\seguimientoDeTicketsCreadosTProgramado.aspx.cs">
+      <DependentUpon>seguimientoDeTicketsCreadosTProgramado.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="viewsTrabajosProgramados\seguimientoDeTicketsCreadosTProgramado.aspx.designer.cs">
+      <DependentUpon>seguimientoDeTicketsCreadosTProgramado.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="viewsTrabajosProgramados\seguimientoDeTicketsTProgramado.aspx.cs">
+      <DependentUpon>seguimientoDeTicketsTProgramado.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="viewsTrabajosProgramados\seguimientoDeTicketsTProgramado.aspx.designer.cs">
+      <DependentUpon>seguimientoDeTicketsTProgramado.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="viewsTrabajosProgramados\tiempoAtencionTProgramado.aspx.cs">
+      <DependentUpon>tiempoAtencionTProgramado.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="viewsTrabajosProgramados\tiempoAtencionTProgramado.aspx.designer.cs">
+      <DependentUpon>tiempoAtencionTProgramado.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="viewsTrabajosProgramados\trabajosProgramados.Master.cs">
+      <DependentUpon>TrabajosProgramados.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="viewsTrabajosProgramados\TrabajosProgramados.Master.designer.cs">
+      <DependentUpon>TrabajosProgramados.Master</DependentUpon>
+    </Compile>
+    <Compile Include="ViewSwitcher.ascx.cs">
+      <DependentUpon>ViewSwitcher.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewSwitcher.ascx.designer.cs">
+      <DependentUpon>ViewSwitcher.ascx</DependentUpon>
+    </Compile>
     <Compile Include="errores.aspx.cs">
       <DependentUpon>errores.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2267,6 +2720,153 @@
     <Compile Include="viewsAdmin\vacaciones.aspx.designer.cs">
       <DependentUpon>vacaciones.aspx</DependentUpon>
     </Compile>
+    <Compile Include="viewsAdmin\statusTecnicos.aspx.cs">
+      <DependentUpon>statusTecnicos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="viewsAdmin\statusTecnicos.aspx.designer.cs">
+      <DependentUpon>statusTecnicos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="viewsAdmin\seguimientoTicketsCreados.aspx.cs">
+      <DependentUpon>seguimientoTicketsCreados.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="viewsAdmin\seguimientoTicketsCreados.aspx.designer.cs">
+      <DependentUpon>seguimientoTicketsCreados.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="viewsAdmin\seguimientoTickets.aspx.cs">
+      <DependentUpon>seguimientoTickets.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="viewsAdmin\seguimientoTickets.aspx.designer.cs">
+      <DependentUpon>seguimientoTickets.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="viewsAdmin\seguimientoDeTickets.aspx.cs">
+      <DependentUpon>seguimientoDeTickets.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="viewsAdmin\seguimientoDeTickets.aspx.designer.cs">
+      <DependentUpon>seguimientoDeTickets.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="viewsAdmin\seguimiento.aspx.cs">
+      <DependentUpon>seguimiento.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="viewsAdmin\seguimiento.aspx.designer.cs">
+      <DependentUpon>seguimiento.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="viewsAdmin\revision.aspx.cs">
+      <DependentUpon>revision.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="viewsAdmin\revision.aspx.designer.cs">
+      <DependentUpon>revision.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="viewsAdmin\Reservas.aspx.cs">
+      <DependentUpon>Reservas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="viewsAdmin\Reservas.aspx.designer.cs">
+      <DependentUpon>Reservas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="viewsAdmin\TiempoAtencion.aspx.cs">
+      <DependentUpon>TiempoAtencion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="viewsAdmin\TiempoAtencion.aspx.designer.cs">
+      <DependentUpon>TiempoAtencion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="viewsAdmin\estadisticasDiarias.aspx.cs">
+      <DependentUpon>estadisticasDiarias.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="viewsAdmin\estadisticasDiarias.aspx.designer.cs">
+      <DependentUpon>estadisticasDiarias.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="viewsAdmin\estadisticas.aspx.cs">
+      <DependentUpon>estadisticas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="viewsAdmin\estadisticas.aspx.designer.cs">
+      <DependentUpon>estadisticas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="viewsAdmin\EstadisticasFiltro.aspx.cs">
+      <DependentUpon>EstadisticasFiltro.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="viewsAdmin\EstadisticasFiltro.aspx.designer.cs">
+      <DependentUpon>EstadisticasFiltro.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="viewsAdmin\editarReservas.aspx.cs">
+      <DependentUpon>editarReservas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="viewsAdmin\editarReservas.aspx.designer.cs">
+      <DependentUpon>editarReservas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="viewsAdmin\editarStatusTecnico.aspx.cs">
+      <DependentUpon>editarStatusTecnico.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="viewsAdmin\editarStatusTecnico.aspx.designer.cs">
+      <DependentUpon>editarStatusTecnico.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="viewsAdmin\cantidadTProgramadosAtendidos.aspx.cs">
+      <DependentUpon>cantidadTProgramadosAtendidos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="viewsAdmin\cantidadTProgramadosAtendidos.aspx.designer.cs">
+      <DependentUpon>cantidadTProgramadosAtendidos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="viewsAdmin\cantidadSeguimientos.aspx.cs">
+      <DependentUpon>cantidadSeguimientos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="viewsAdmin\cantidadSeguimientos.aspx.designer.cs">
+      <DependentUpon>cantidadSeguimientos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="viewsAdmin\cantidadRevisiones.aspx.cs">
+      <DependentUpon>cantidadRevisiones.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="viewsAdmin\cantidadRevisiones.aspx.designer.cs">
+      <DependentUpon>cantidadRevisiones.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="viewsAdmin\cantidadReservas.aspx.cs">
+      <DependentUpon>cantidadReservas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="viewsAdmin\cantidadReservas.aspx.designer.cs">
+      <DependentUpon>cantidadReservas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="viewsAdmin\cantidadPermisos.aspx.cs">
+      <DependentUpon>cantidadPermisos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="viewsAdmin\cantidadPermisos.aspx.designer.cs">
+      <DependentUpon>cantidadPermisos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="viewsAdmin\cantidadAtencion.aspx.cs">
+      <DependentUpon>cantidadAtencion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="viewsAdmin\cantidadAtencion.aspx.designer.cs">
+      <DependentUpon>cantidadAtencion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="viewsAdmin\cedidos.aspx.cs">
+      <DependentUpon>cedidos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="viewsAdmin\cedidos.aspx.designer.cs">
+      <DependentUpon>cedidos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="viewsAdmin\liberarTicketProgramado.aspx.cs">
+      <DependentUpon>liberarTicketProgramado.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="viewsAdmin\liberarTicketProgramado.aspx.designer.cs">
+      <DependentUpon>liberarTicketProgramado.aspx</DependentUpon>
+    </Compile>
     <Compile Include="viewsUsers\buscarSolicitante.aspx.cs">
       <DependentUpon>buscarSolicitante.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2280,6 +2880,13 @@
     </Compile>
     <Compile Include="viewsUsers\cambioComtraseña.aspx.designer.cs">
       <DependentUpon>cambioComtraseña.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="viewsUsers\CerrarTickets.aspx.cs">
+      <DependentUpon>CerrarTickets.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="viewsUsers\CerrarTickets.aspx.designer.cs">
+      <DependentUpon>CerrarTickets.aspx</DependentUpon>
     </Compile>
     <Compile Include="viewsUsers\estadisticasUsers.aspx.cs">
       <DependentUpon>estadisticasUsers.aspx</DependentUpon>
@@ -2329,6 +2936,27 @@
     </Compile>
     <Compile Include="viewsUsers\registroSolicitantes.aspx.designer.cs">
       <DependentUpon>registroSolicitantes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="viewsUsers\revision.aspx.cs">
+      <DependentUpon>revision.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="viewsUsers\revision.aspx.designer.cs">
+      <DependentUpon>revision.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="viewsUsers\seguimiento.aspx.cs">
+      <DependentUpon>seguimiento.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="viewsUsers\seguimiento.aspx.designer.cs">
+      <DependentUpon>seguimiento.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="viewsUsers\seguimientoGeneralTicketsUser.aspx.cs">
+      <DependentUpon>seguimientoGeneralTicketsUser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="viewsUsers\seguimientoGeneralTicketsUser.aspx.designer.cs">
+      <DependentUpon>seguimientoGeneralTicketsUser.aspx</DependentUpon>
     </Compile>
     <Compile Include="viewsUsers\seguimientoTicketsUser.aspx.cs">
       <DependentUpon>seguimientoTicketsUser.aspx</DependentUpon>
@@ -2399,6 +3027,10 @@
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="viewsAdmin\admin.Master" />
     <Content Include="viewsUsers\users.Master" />
+    <Content Include="viewsMonitoreo\monitoreo.Master" />
+    <Content Include="viewsPruebas\Site1.Master" />
+    <Content Include="viewsTecnicos\tecnicos.Master" />
+    <Content Include="viewsTrabajosProgramados\TrabajosProgramados.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -2443,10 +3075,9 @@
       <ErrorText>Este proyecto hace referencia a los paquetes NuGet que faltan en este equipo. Use la restauración de paquetes NuGet para descargarlos. Para obtener más información, consulte http://go.microsoft.com/fwlink/?LinkID=322105. El archivo que falta es {0}.</ErrorText>
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
-    <Error Condition="!Exists('..\packages\EntityFramework.6.3.0\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.3.0\build\EntityFramework.props'))" />
-    <Error Condition="!Exists('..\packages\EntityFramework.6.3.0\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.3.0\build\EntityFramework.targets'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.5.1\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.5.1\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.5.1\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.5.1\build\EntityFramework.targets'))" />
   </Target>
-  <Import Project="..\packages\EntityFramework.6.3.0\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.3.0\build\EntityFramework.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
@@ -2454,4 +3085,5 @@
   <Target Name="AfterBuild">
   </Target>
   -->
+  <Import Project="..\packages\EntityFramework.6.5.1\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.5.1\build\EntityFramework.targets')" />
 </Project>

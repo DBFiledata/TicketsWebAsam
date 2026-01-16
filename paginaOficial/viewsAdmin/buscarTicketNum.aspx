@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" Title="Buscar Ticket" MasterPageFile="~/viewsAdmin/admin.Master" CodeBehind="buscarTicketNum.aspx.cs" Inherits="paginaOficial.viewsAdmin.buscarTicketNum" %>
+﻿    <%@ Page Language="C#" AutoEventWireup="true" Title="Buscar Ticket" MasterPageFile="~/viewsAdmin/admin.Master" CodeBehind="buscarTicketNum.aspx.cs" Inherits="paginaOficial.viewsAdmin.buscarTicketNum" %>
 
 <asp:Content ID="BodyContenido" ContentPlaceHolderID="contenido" runat="server">
     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>

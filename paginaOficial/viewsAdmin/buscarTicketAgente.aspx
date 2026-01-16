@@ -36,7 +36,7 @@
 
         <asp:Panel ID="panelInfo" runat="server" Visible="False">
             <div class="card-header bg-gradient-secondary">
-                <h3 class=" text-center">Tickets del Agentes</h3>
+                <h3 class=" text-center">Tickets del Agente</h3>
             </div>
             <div class="card-body">
                 <div class="card-header bg-light">

@@ -27,7 +27,7 @@ namespace paginaOficial
                     int num = listTipo.SelectedIndex;
                     //txtId.Text = "" + num;
                     odbusuario = new Controlers.BaseDatos();
-                    if (odbusuario.RegistrarUsuario(txtId.Text, txtPass.Text, txtNombre.Text, txtApellido.Text, txtEmail.Text, Convert.ToInt32(txtTelefono.Text), Convert.ToInt32(listTipo.Text)))
+                    if (odbusuario.RegistrarUsuario(txtId.Text, txtPass.Text, txtNombre.Text, txtApellido.Text, txtEmail.Text, txtTelefono.Text, Convert.ToInt32(listTipo.Text)))
                     {
                         ScriptManager.RegisterStartupScript(this, GetType(), "Pop", "alert('Registro completado satisfactoriamente');", true);
                         txtId.Text = "";

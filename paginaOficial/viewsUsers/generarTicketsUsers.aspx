@@ -1,4 +1,5 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" Title="Generar Tickets" MasterPageFile="~/viewsUsers/users.Master" CodeBehind="generarTicketsUsers.aspx.cs" Inherits="paginaOficial.viewsCompartidas.generarTicketsUsers" %>
+﻿
+<%@ Page Language="C#" AutoEventWireup="true" Title="Generar Tickets" MasterPageFile="~/viewsUsers/users.Master" CodeBehind="generarTicketsUsers.aspx.cs" Inherits="paginaOficial.viewsCompartidas.generarTicketsUsers" Async="true" %>
 
 <asp:Content ID="BodyContenido" ContentPlaceHolderID="contenido" runat="server">
     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
@@ -25,7 +26,7 @@
                                     <div class="card-body">
                                         <asp:Panel ID="panelBuscar" runat="server">
                                             <div class="form-group">
-                                                <asp:Label ID="Label9" runat="server" Text="Label">Id de Solicitante</asp:Label>
+                                                <asp:Label ID="Label9" runat="server" Text="Label">Id de solicitante</asp:Label>
 
                                                 <div class=" d-flex align-items-center justify-content-center">
                                                     <asp:TextBox ID="txtIdSolicitante" runat="server" placeholder="👨‍💼"
@@ -34,7 +35,7 @@
                                                     <asp:Button ID="btnSolicitanteNuevo" runat="server" CssClass="btn btn-primary float-right form-control w-auto" Text="📝" Enabled="false" Visible="false" OnClick="btnSolicitanteNuevo_Click" CausesValidation="false" />
                                                 </div>
                                                 <div class=" d-flex align-items-center justify-content-center">
-                                                    <asp:Button ID="btnBuscarInfo" CssClass="btn btn-success float-right form-control mt-2 w-auto" runat="server" Text="Buscar Informacion ✔" OnClick="btnBuscarInfo_Click" />
+                                                    <asp:Button ID="btnBuscarInfo" CssClass="btn btn-success float-right form-control mt-2 w-auto" runat="server" Text="Buscar informacion ✔" OnClick="btnBuscarInfo_Click"/>
                                                 </div>
                                             </div>
                                         </asp:Panel>
@@ -42,14 +43,24 @@
                                         <asp:Panel ID="panelInfo" runat="server" Visible="False">
                                             <div class="form-group">
                                                 <div id="sectionInfo" class="form-group">
-                                                    <asp:Label ID="lbl1" runat="server" Text="Label">Nombre:</asp:Label>
-                                                    <asp:Label ID="lblNombre" runat="server" CssClass="form-control" Text="" Width="95%">apellido a mostrar</asp:Label>
+
+
+                                                    <asp:Label ID="Label11" runat="server" Text="Label">Nombre</asp:Label>
+                                                    <asp:TextBox ID="txtNombre" CssClass="form-control" placeholder="📝" runat="server"></asp:TextBox>
+
+                                                    <asp:Label ID="Label12" runat="server" Text="Label">Apellido</asp:Label>
+                                                    <asp:TextBox ID="txtApellido" CssClass="form-control" placeholder="📝" runat="server"></asp:TextBox>
+
+
                                                     <asp:Label ID="Label1" runat="server" Text="Label">Departamento:</asp:Label>
-                                                    <asp:Label ID="lblDepartamento" runat="server" CssClass="form-control" Text="" Width="95%">Numero de Telefono a mostrar</asp:Label>
+                                                    <asp:TextBox ID="txtDepartamento" runat="server" CssClass="form-control" Text="" Width="95%"></asp:TextBox>
+
                                                     <asp:Label ID="Label3" runat="server" Text="Label">Email:</asp:Label>
-                                                    <asp:Label ID="lblEmail" runat="server" CssClass="form-control" Text="" Width="95%">Email a mostrar</asp:Label>
+                                                    <asp:TextBox ID="txtEmail" runat="server" CssClass="form-control" Text="" Width="95%"></asp:TextBox>
+
                                                     <asp:Label ID="Label7" runat="server" Text="Label">Telefono:</asp:Label>
-                                                    <asp:Label ID="lblTelefono" runat="server" CssClass="form-control" Text="" Width="95%">Numero de Telefono a mostrar</asp:Label>
+                                                    <asp:TextBox ID="txtTelefono" runat="server" CssClass="form-control" Text="" Width="95%"></asp:TextBox>
+
                                                 </div>
                                                 <div class="form-group">
                                                     <asp:Label ID="Label8" runat="server" Text="Label">Detalle de lugar exacto</asp:Label>
@@ -58,7 +69,7 @@
                                                         CssClass="form-control " TextMode="MultiLine" Width="95%" Height="150px"></asp:TextBox>
                                                 </div>
                                                 <div class="form-group">
-                                                    <asp:Label ID="Label2" runat="server" Text="Label">Detalle de problemas Que se esta presentando</asp:Label>
+                                                    <asp:Label ID="Label2" runat="server" Text="Label">Detalle de problemas que se esta presentando</asp:Label>
                                                     <asp:TextBox ID="txtProblema" runat="server"
                                                         ToolTip="📝 Ingrese la informacion de forma entendible &#10;🎯 Procure que la informacion sea precisa y correcta &#10;👨‍💻 Para que el personal tecnico este correctamente informado del problema"
                                                         CssClass="form-control " TextMode="MultiLine" Width="95%" Height="150px"></asp:TextBox>
@@ -75,12 +86,15 @@
                                                     <asp:Label ID="Label6" runat="server" Text="Label">Tipo de ticket</asp:Label>
                                                     <asp:DropDownList ID="ListTipo" CssClass="form-control" ToolTip="detalle el area a la que pertenece el ticket" runat="server" Width="95%">
                                                         <asp:ListItem Value="0">👷‍ Seleccionar</asp:ListItem>
-                                                        <asp:ListItem Value="1">soporte Tecnico</asp:ListItem>
+                                                        <asp:ListItem Value="1">Soporte tecnico</asp:ListItem>
                                                         <asp:ListItem Value="2">Redes</asp:ListItem>
-                                                        <asp:ListItem Value="3">Data Center</asp:ListItem>
+                                                        <asp:ListItem Value="3">Data center</asp:ListItem>
                                                         <asp:ListItem Value="4">Desarrollo</asp:ListItem>
+                                                        <asp:ListItem Value="9">Administrativo Tecnología</asp:ListItem>
                                                     </asp:DropDownList>
                                                 </div>
+                                                <asp:CheckBox ID="CheckArea" runat="server" Text="Ticket solicitado desde el Area Revertida" 
+                                                        ToolTip="📅 selecione esta opcion si este ticket a sido una solicitud del Area Revertida" />
                                                 <div class="form-group d-flex align-items-center justify-content-center">
                                                     <asp:Button ID="btnRegistrar" CssClass="btn btn-success btn-lg float-right mr-1" runat="server" Text="Generar ✔" OnClick="btnGenerar_Click" />
                                                     <asp:Button ID="btnCancelar" CssClass="btn btn-danger btn-lg float-right ml-1" runat="server" Text="Cancelar ❌" OnClick="btnCancelar_Click" CausesValidation="false" />
@@ -88,12 +102,13 @@
                                             </div>
                                         </asp:Panel>
 
+
                                         <asp:Panel ID="panelResultado" runat="server" Visible="False">
                                             <div class="form-group">
                                                 <div>
                                                     <h5 class="active text-center">Ticket creado exitosamente</h5>
                                                 </div>
-                                                <asp:Label ID="label5" CssClass="form-control text-center mt-3" runat="server" Text="numero de ticket"></asp:Label>
+                                                <asp:Label ID="label5" CssClass="form-control text-center mt-3" runat="server" Text="Numero de ticket"></asp:Label>
                                                 <div>
                                                     <asp:Label ID="lblNum" CssClass="form-control text-center" runat="server" Text="# 0000" Font-Size="100px"></asp:Label>
                                                 </div>
@@ -104,21 +119,18 @@
                                                     <asp:Label ID="lblTecnico" CssClass="form-control text-center" runat="server" Text="nombre de tecnico"></asp:Label>
                                                 </div>
                                                 <div class="form-group d-flex align-items-center justify-content-center">
-                                                    <asp:Button ID="btnContinuar" CssClass="btn btn-success btn-lg float-right mr-1 mt-4" runat="server" Text="continuar ✔" OnClick="btnContinuar_Click" CausesValidation="false" />
+                                                    <asp:Button ID="btnContinuar" CssClass="btn btn-success btn-lg float-right mr-1 mt-4" runat="server" Text="Continuar ✔" OnClick="btnContinuar_Click" CausesValidation="false" />
                                                 </div>
                                             </div>
                                         </asp:Panel>
                                         <div class="form-group d-flex align-items-center justify-content-center">
                                             <asp:Label ID="lblerror" runat="server" Text="" Visible="false" ForeColor="Red"></asp:Label>
                                         </div>
-
                                         <div class="form-group d-flex align-items-center justify-content-center">
                                             <asp:Label ID="lblValidadorFecha" runat="server" Text=""></asp:Label>
-                                            <asp:RequiredFieldValidator CssClass="text-center" ID="RequiredFieldValidatorId" runat="server" ControlToValidate="txtIdSolicitante" ErrorMessage="Debe Ingresar un Id" ForeColor="Red" Display="None"></asp:RequiredFieldValidator>
-                                            <asp:RegularExpressionValidator ID="RegularExpressionValidatorId" runat="server" ControlToValidate="txtIdSolicitante" ErrorMessage="El Id no concuerda con un numero de cedula valido" ForeColor="Red" ValidationExpression="^(PE|E|N|[23456789](?:AV|PI)?|1[0123]?(?:AV|PI)?)-(\d{1,4})-(\d{1,6})$" Display="None"></asp:RegularExpressionValidator>
+                                            <asp:RequiredFieldValidator CssClass="text-center" ID="RequiredFieldValidatorId" runat="server" ControlToValidate="txtIdSolicitante" ErrorMessage="Debe ingresar un id" ForeColor="Red" Display="None"></asp:RequiredFieldValidator>
                                             <asp:ValidationSummary ID="ValidationSummary" CssClass="" runat="server" ForeColor="Red" />
                                         </div>
-
                                     </div>
                                 </div>
                             </div>

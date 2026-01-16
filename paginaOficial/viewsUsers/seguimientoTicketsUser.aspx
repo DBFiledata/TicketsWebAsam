@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" Title="Generar Tickets" MasterPageFile="~/viewsUsers/users.Master" CodeBehind="seguimientoTicketsUser.aspx.cs" Inherits="paginaOficial.viewsUsers.seguimientoTicketsUser" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" Title="Seguimiento de Tickets" MasterPageFile="~/viewsUsers/users.Master" CodeBehind="seguimientoTicketsUser.aspx.cs" Inherits="paginaOficial.viewsUsers.seguimientoTicketsUser" %>
 
 <asp:Content ID="BodyContenido" ContentPlaceHolderID="contenido" runat="server">
     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
@@ -20,7 +20,15 @@
                     <asp:Button ID="btnfiltrar" CssClass="btn btn-success btn-lg  mr-1" ToolTip="Aplicar Filtro" runat="server" Text="🔎" OnClick="btnfiltrar_Click" />
                 </div>
                 <div class="form-group">
-                    <asp:GridView ID="listTickets" class="table table stacktable table-dark table-responsive" Font-Size="Small" runat="server"></asp:GridView>
+                    <asp:GridView ID="listTickets" class="table table stacktable table-dark table-responsive" Font-Size="Small" runat="server"
+                        AllowPaging="true" PageSize="50" 
+                        OnPageIndexChanging="listTickets_PageIndexChanging">
+                        <AlternatingRowStyle HorizontalAlign="Center" VerticalAlign="Middle" />
+                        <PagerSettings Mode="Numeric" Position="Bottom" />
+                        <PagerStyle BackColor="White" CssClass="dataTables_paginate paging_simple_numbers" VerticalAlign="Bottom" HorizontalAlign="Center" />
+                        <HeaderStyle HorizontalAlign="Center" VerticalAlign="Middle" />
+                        <RowStyle HorizontalAlign="Center" VerticalAlign="Middle" />
+                    </asp:GridView>
                 </div>
             </div>
         </ContentTemplate>

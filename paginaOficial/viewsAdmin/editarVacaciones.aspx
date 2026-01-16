@@ -13,7 +13,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title text-center" id="myModalLabel">Asignar vacaciones</h4>
+                    <h4 class="modal-title text-center" id="myModalLabel">Finalizar Vacaciones</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
                 </div>
                 <div class="modal-body mt-n3">
@@ -47,7 +47,7 @@
     </div>
 
     <div class="card-header bg-gradient-secondary">
-        <h3 class=" text-center">Asignar Vacaciones a Personal Tecnico</h3>
+        <h3 class=" text-center">Editar Vacaciones a Personal Tecnico</h3>
     </div>
     <div class="card-body">
         <div class="card-header bg-light">
@@ -58,6 +58,7 @@
                 <asp:ListItem Value="2">Redes</asp:ListItem>
                 <asp:ListItem Value="3">Data Center</asp:ListItem>
                 <asp:ListItem Value="4">Desarrollo</asp:ListItem>
+                <asp:ListItem Value="9">Administrativo Tecnología</asp:ListItem>
             </asp:DropDownList>
             <asp:Label ID="Label1" runat="server" Text="Label">Nombre de usuario</asp:Label>
             <asp:TextBox ID="txtNombre" CssClass="active" runat="server"></asp:TextBox>
