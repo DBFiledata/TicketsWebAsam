@@ -51,13 +51,25 @@ namespace paginaOficial.viewsAdmin
 
     	protected Button btnFinalizar;
 
-    	protected Label Label6;
+	protected Label lblIdDisponibilidad;
 
-    	protected DropDownList listTipo;
+	protected Label lblNombreDisponibilidad;
 
-    	protected Label Label1;
+	protected Label lblTipoDisponibilidad;
 
-    	protected TextBox txtNombre;
+	protected DropDownList ddlDisponibilidad;
+
+	protected TextBox txtFechaRetorno;
+
+	protected Button btnGuardarDisponibilidad;
+
+	protected Label Label6;
+
+	protected DropDownList listTipo;
+
+	protected Label Label1;
+
+	protected TextBox txtNombre;
 
     	protected Button btnfiltrar;
 
@@ -79,17 +91,19 @@ namespace paginaOficial.viewsAdmin
     		else if (!Page.IsPostBack)
     		{
     			odbusuario = new BaseDatos();
-    			DataSet ds = odbusuario.muestraAsignarEstatusTecnico();
-    			GridView1.DataSource = ds.Tables[0];
+    			// Ejecutar proceso de retorno automático
+    			odbusuario.procesarRetornoAutomaticoDisponibilidad();
+    			// Cargar GridView
+    		GridView1.DataSource = odbusuario.filtroAsignarEstatusTecnico(null, null, 0);
     			GridView1.DataBind();
     		}
     	}
 
     	protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
     	{
+    		odbusuario = new BaseDatos();
     		try
     		{
-    			odbusuario = new BaseDatos();
     			if (e.CommandName.Equals("permisos", StringComparison.CurrentCultureIgnoreCase))
     			{
     				GridViewRow gvr = (GridViewRow)((Button)e.CommandSource).NamingContainer;
@@ -150,10 +164,22 @@ namespace paginaOficial.viewsAdmin
     				lblTipoArea.Text = datos5[5];
     				ScriptManager.RegisterStartupScript(this, GetType(), "Pop", "openModalArea()", addScriptTags: true);
     			}
+    			if (e.CommandName.Equals("editarDisponibilidad", StringComparison.CurrentCultureIgnoreCase))
+    			{
+    				GridViewRow gvr6 = (GridViewRow)((LinkButton)e.CommandSource).NamingContainer;
+    				string eleccion6 = gvr6.Cells[1].Text.ToString().Trim();
+    				Session["cedula"] = eleccion6;
+    				string[] datos6 = new string[6];
+    				datos6 = odbusuario.infoCuenta(eleccion6);
+    				lblIdDisponibilidad.Text = datos6[0];
+    				lblNombreDisponibilidad.Text = datos6[1] + " " + datos6[2];
+    				lblTipoDisponibilidad.Text = datos6[5];
+    				ScriptManager.RegisterStartupScript(this, GetType(), "Pop", "openModalEditarDisponibilidad()", addScriptTags: true);
+    			}
     		}
     		catch (Exception)
     		{
-    			ScriptManager.RegisterStartupScript(this, GetType(), "Pop", "alert('Erorr al ingresar al proceso');", addScriptTags: true);
+    			ScriptManager.RegisterStartupScript(this, GetType(), "Pop", "mostrarAlerta('Error al ingresar al proceso', 'danger');", addScriptTags: true);
     		}
     	}
 
@@ -166,10 +192,11 @@ namespace paginaOficial.viewsAdmin
     			DataSet ds = odbusuario.muestraAsignarEstatusTecnico();
     			GridView1.DataSource = ds.Tables[0];
     			GridView1.DataBind();
+    			ScriptManager.RegisterStartupScript(this, GetType(), "pop", "mostrarAlerta('Técnico asignado al área exitosamente', 'success');", addScriptTags: true);
     		}
     		else
     		{
-    			ScriptManager.RegisterStartupScript(this, GetType(), "pop", "alert('asignacion de permiso no se a podido completar');", addScriptTags: true);
+    			ScriptManager.RegisterStartupScript(this, GetType(), "pop", "mostrarAlerta('No se pudo asignar al área', 'danger');", addScriptTags: true);
     		}
     	}
 
@@ -182,10 +209,11 @@ namespace paginaOficial.viewsAdmin
     			DataSet ds = odbusuario.muestraAsignarEstatusTecnico();
     			GridView1.DataSource = ds.Tables[0];
     			GridView1.DataBind();
+    			ScriptManager.RegisterStartupScript(this, GetType(), "pop", "mostrarAlerta('Técnico asignado al área exitosamente', 'success');", addScriptTags: true);
     		}
     		else
     		{
-    			ScriptManager.RegisterStartupScript(this, GetType(), "pop", "alert('asignacion de permiso no se a podido completar');", addScriptTags: true);
+    			ScriptManager.RegisterStartupScript(this, GetType(), "pop", "mostrarAlerta('No se pudo asignar al área', 'danger');", addScriptTags: true);
     		}
     	}
 
@@ -201,7 +229,7 @@ namespace paginaOficial.viewsAdmin
     		}
     		else
     		{
-    			ScriptManager.RegisterStartupScript(this, GetType(), "pop", "alert('asignacion de Reserva no se a podido completar');", addScriptTags: true);
+    			ScriptManager.RegisterStartupScript(this, GetType(), "pop", "mostrarAlerta('No se pudo completar la asignación de reserva', 'danger');", addScriptTags: true);
     		}
     	}
 
@@ -217,7 +245,7 @@ namespace paginaOficial.viewsAdmin
     		}
     		else
     		{
-    			ScriptManager.RegisterStartupScript(this, GetType(), "pop", "alert('asignacion de vacaciones no se a podido completar');", addScriptTags: true);
+    			ScriptManager.RegisterStartupScript(this, GetType(), "pop", "mostrarAlerta('No se pudo completar la asignación de vacaciones', 'danger');", addScriptTags: true);
     		}
     	}
 
@@ -233,7 +261,35 @@ namespace paginaOficial.viewsAdmin
     		}
     		else
     		{
-    			ScriptManager.RegisterStartupScript(this, GetType(), "pop", "alert('Finalizacion de vacaciones no se a podido completar');", addScriptTags: true);
+    			ScriptManager.RegisterStartupScript(this, GetType(), "pop", "mostrarAlerta('No se pudo finalizar las vacaciones', 'danger');", addScriptTags: true);
+    		}
+    	}
+
+    	protected void btnGuardarDisponibilidad_Click(object sender, EventArgs e)
+    	{
+    		odbusuario = new BaseDatos();
+    		int idDisponibilidad = Convert.ToInt32(ddlDisponibilidad.SelectedValue);
+		DateTime? fechaRetorno = null;
+		
+		// Solo capturar fecha de retorno para estados temporales: Ocupado(2), Permiso(3), Vacaciones(4), Reserva(5), Trabajo Programado(7)
+		if ((idDisponibilidad == 2 || idDisponibilidad == 3 || idDisponibilidad == 4 || 
+		     idDisponibilidad == 5 || idDisponibilidad == 7) && !string.IsNullOrEmpty(txtFechaRetorno.Text))
+		{
+			fechaRetorno = DateTime.Parse(txtFechaRetorno.Text);
+		}
+		
+		if (odbusuario.actualizarDisponibilidad((string)Session["cedula"], idDisponibilidad, fechaRetorno))
+		{
+			odbusuario = new BaseDatos();
+			DataSet ds = odbusuario.muestraAsignarEstatusTecnico();
+			GridView1.DataSource = ds.Tables[0];
+			GridView1.DataBind();
+			
+			string mensaje = fechaRetorno.HasValue 
+				? "Disponibilidad actualizada. Retorno automático programado para: " + fechaRetorno.Value.ToString("dd/MM/yyyy HH:mm")
+				: "Disponibilidad actualizada exitosamente";
+			
+			ScriptManager.RegisterStartupScript(this, GetType(), "pop", "mostrarAlerta('" + mensaje + "', 'success');", addScriptTags: true);
     		}
     	}
 

@@ -1871,6 +1871,46 @@ namespace paginaOficial.Controlers
     		return ds;
     	}
 
+    	public DataSet filtroSinReserva(string nombre, string apellido, int tipo)
+    	{
+    		try
+    		{
+    			ds = new DataSet();
+    			Cmd.Parameters.Clear();
+    			Cmd.CommandType = CommandType.StoredProcedure;
+    			Cmd.CommandText = "filtroSinReserva";
+    			Cmd.Parameters.Add(new MySqlParameter("@nombre", nombre));
+    			Cmd.Parameters.Add(new MySqlParameter("@apellido", apellido));
+    			Cmd.Parameters.Add(new MySqlParameter("@codigo", tipo));
+    			Adap = new MySqlDataAdapter(Cmd);
+    			Adap.Fill(ds);
+    		}
+    		catch (Exception)
+    		{
+    		}
+    		return ds;
+    	}
+
+    	public DataSet filtroEnReserva(string nombre, string apellido, int tipo)
+    	{
+    		try
+    		{
+    			ds = new DataSet();
+    			Cmd.Parameters.Clear();
+    			Cmd.CommandType = CommandType.StoredProcedure;
+    			Cmd.CommandText = "filtroEnReserva";
+    			Cmd.Parameters.Add(new MySqlParameter("@nombre", nombre));
+    			Cmd.Parameters.Add(new MySqlParameter("@apellido", apellido));
+    			Cmd.Parameters.Add(new MySqlParameter("@codigo", tipo));
+    			Adap = new MySqlDataAdapter(Cmd);
+    			Adap.Fill(ds);
+    		}
+    		catch (Exception)
+    		{
+    		}
+    		return ds;
+    	}
+
     	public DataSet filtroSinVacaciones(string nombre, string apellido, int tipo)
     	{
     		try
@@ -2157,47 +2197,65 @@ namespace paginaOficial.Controlers
     		}
     	}
 
-    	public DataSet filtroSinReserva(string nombre, string apellido, int tipo)
-    	{
-    		try
-    		{
-    			ds = new DataSet();
-    			Cmd.Parameters.Clear();
-    			Cmd.CommandType = CommandType.StoredProcedure;
-    			Cmd.CommandText = "filtroSinReserva";
-    			Cmd.Parameters.Add(new MySqlParameter("@nombre", nombre));
-    			Cmd.Parameters.Add(new MySqlParameter("@apellido", apellido));
-    			Cmd.Parameters.Add(new MySqlParameter("@codigo", tipo));
-    			Adap = new MySqlDataAdapter(Cmd);
-    			Adap.Fill(ds);
+public bool actualizarDisponibilidad(string id, int idDisponibilidad, DateTime? fechaRetorno = null)
+	{
+		try
+		{
+			Cmd.Parameters.Clear();
+			Cmd.CommandType = CommandType.Text;
+			
+			string sql = "UPDATE usuarios SET disponibilidad_codigos = @idDisponibilidad, fecha_retorno_disponibilidad = @fechaRetorno WHERE idusuarios = @id";
+			
+			Cmd.CommandText = sql;
+			Cmd.Parameters.Add(new MySqlParameter("@id", id));
+			Cmd.Parameters.Add(new MySqlParameter("@idDisponibilidad", idDisponibilidad));
+			Cmd.Parameters.Add(new MySqlParameter("@fechaRetorno", (object)fechaRetorno ?? DBNull.Value));
+			
+    			if (Cmd.Connection.State != ConnectionState.Open)
+    			{
+    				Cmd.Connection.Open();
+    			}
+    			int d = Cmd.ExecuteNonQuery();
+    			bool ejecucion = d > 0;
+    			Cmd.Connection.Close();
+    			return ejecucion;
     		}
-    		catch (Exception)
+    		catch (Exception ex)
     		{
+    			if (Cmd.Connection.State == ConnectionState.Open)
+    			{
+    				Cmd.Connection.Close();
+    			}
+    			return false;
     		}
-    		return ds;
     	}
 
-    	public DataSet filtroEnReserva(string nombre, string apellido, int tipo)
-    	{
-    		try
-    		{
-    			ds = new DataSet();
-    			Cmd.Parameters.Clear();
-    			Cmd.CommandType = CommandType.StoredProcedure;
-    			Cmd.CommandText = "filtroEnReserva";
-    			Cmd.Parameters.Add(new MySqlParameter("@nombre", nombre));
-    			Cmd.Parameters.Add(new MySqlParameter("@apellido", apellido));
-    			Cmd.Parameters.Add(new MySqlParameter("@codigo", tipo));
-    			Adap = new MySqlDataAdapter(Cmd);
-    			Adap.Fill(ds);
-    		}
-    		catch (Exception)
-    		{
-    		}
-    		return ds;
-    	}
+	public int procesarRetornoAutomaticoDisponibilidad()
+	{
+		try
+		{
+			Cmd.Parameters.Clear();
+			Cmd.CommandType = CommandType.StoredProcedure;
+			Cmd.CommandText = "procesoRetornoAutomaticoDisponibilidad";
+			if (Cmd.Connection.State != ConnectionState.Open)
+			{
+				Cmd.Connection.Open();
+			}
+			object result = Cmd.ExecuteScalar();
+			Cmd.Connection.Close();
+			return result != null ? Convert.ToInt32(result) : 0;
+		}
+		catch (Exception)
+		{
+			if (Cmd.Connection.State == ConnectionState.Open)
+			{
+				Cmd.Connection.Close();
+			}
+			return 0;
+		}
+	}
 
-    	public DataSet EstadisticaAreaTickets()
+	public DataSet EstadisticaAreaTickets()
     	{
     		try
     		{
