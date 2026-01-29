@@ -57,8 +57,17 @@ namespace paginaOficial.viewsUsers
     		if ((listTipo.SelectedIndex >= 0) & (listTipo.SelectedIndex <= 4))
     		{
     			DataSet ds = odbusuario.filtroTicketRevision(Convert.ToInt32(listTipo.Text));
-    			GridView1.DataSource = ds.Tables[0];
-    			GridView1.DataBind();
+    			if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+    			{
+    				GridView1.DataSource = ds.Tables[0];
+    				GridView1.DataBind();
+    			}
+    			else
+    			{
+    				GridView1.DataSource = null;
+    				GridView1.DataBind();
+    				ScriptManager.RegisterStartupScript(this, GetType(), "Pop", "alert('No se encontraron tickets de revisión para el área seleccionada');", addScriptTags: true);
+    			}
     		}
     		else
     		{

@@ -783,13 +783,17 @@ namespace paginaOficial.Controlers
     			Cmd.Parameters.Clear();
     			Cmd.CommandType = CommandType.StoredProcedure;
     			Cmd.CommandText = "filtrolistaTicket";
+    			Cmd.Parameters.Add(new MySqlParameter("@estado", 7)); // Estado 7 = Revisión
     			Cmd.Parameters.Add(new MySqlParameter("@area", area));
-    			ds = new DataSet();
+    			Cmd.Parameters.Add(new MySqlParameter("@desde", "0000-00-00")); // Sin filtro de fecha
+    			Cmd.Parameters.Add(new MySqlParameter("@hasta", "0000-00-00")); // Sin filtro de fecha
     			Adap = new MySqlDataAdapter(Cmd);
     			Adap.Fill(ds);
     		}
-    		catch (Exception)
+    		catch (Exception ex)
     		{
+    			// Log del error para debugging
+    			System.Diagnostics.Debug.WriteLine("Error en filtroTicketRevision: " + ex.Message);
     		}
     		return ds;
     	}
@@ -1360,6 +1364,60 @@ namespace paginaOficial.Controlers
     		{
     		}
     		return ds;
+    	}
+
+    	/// <summary>
+    	/// Reasigna un ticket a otra área y asigna automáticamente un técnico de esa área
+    	/// </summary>
+    	/// <param name="idTicket">ID del ticket a reasignar</param>
+    	/// <param name="nuevaArea">Código del área destino</param>
+    	/// <param name="motivo">Motivo de la reasignación</param>
+    	/// <param name="usuarioActual">Usuario que realiza la reasignación</param>
+    	/// <returns>DataSet con resultado: Exito, Mensaje, NuevoTecnico, NombreTecnico</returns>
+    	public DataSet reasignarTicketArea(int idTicket, int nuevaArea, string motivo, string usuarioActual)
+    	{
+    		try
+    		{
+    			ds = new DataSet();
+    			Cmd.Parameters.Clear();
+    			Cmd.CommandType = CommandType.StoredProcedure;
+    			Cmd.CommandText = "reasignarTicketArea";
+    			Cmd.Parameters.Add(new MySqlParameter("@p_idTicket", idTicket));
+    			Cmd.Parameters.Add(new MySqlParameter("@p_nuevaArea", nuevaArea));
+    			Cmd.Parameters.Add(new MySqlParameter("@p_motivo", motivo));
+    			Cmd.Parameters.Add(new MySqlParameter("@p_usuarioActual", usuarioActual));
+    			Adap = new MySqlDataAdapter(Cmd);
+    			Adap.Fill(ds);
+    			return ds;
+    		}
+    		catch (Exception ex)
+    		{
+    			System.Diagnostics.Debug.WriteLine("Error en reasignarTicketArea: " + ex.Message);
+    			return null;
+    		}
+    	}
+
+    	/// <summary>
+    	/// Obtiene las áreas disponibles para reasignación de tickets
+    	/// </summary>
+    	/// <returns>DataSet con codigos y tipos de área</returns>
+    	public DataSet obtenerAreasReasignacion()
+    	{
+    		try
+    		{
+    			ds = new DataSet();
+    			Cmd.Parameters.Clear();
+    			Cmd.CommandType = CommandType.StoredProcedure;
+    			Cmd.CommandText = "obtenerAreasReasignacion";
+    			Adap = new MySqlDataAdapter(Cmd);
+    			Adap.Fill(ds);
+    			return ds;
+    		}
+    		catch (Exception ex)
+    		{
+    			System.Diagnostics.Debug.WriteLine("Error en obtenerAreasReasignacion: " + ex.Message);
+    			return null;
+    		}
     	}
 
     	public bool EliminarTicket(int id)
