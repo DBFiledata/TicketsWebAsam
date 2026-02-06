@@ -6,6 +6,46 @@
 
     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
     <style type="text/css">
+        /* Estilos para alertas modernas */
+        .alert-container {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 9999;
+            max-width: 400px;
+        }
+        .alert {
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            animation: slideIn 0.3s ease-out;
+        }
+        @keyframes slideIn {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        .alert-success {
+            background-color: #d4edda;
+            border-color: #c3e6cb;
+            color: #155724;
+        }
+        .alert-danger {
+            background-color: #f8d7da;
+            border-color: #f5c6cb;
+            color: #721c24;
+        }
+        .alert-warning {
+            background-color: #fff3cd;
+            border-color: #ffeeba;
+            color: #856404;
+        }
+        .alert-info {
+            background-color: #d1ecf1;
+            border-color: #bee5eb;
+            color: #0c5460;
+        }
+
         .modal {
             position: fixed;
             top: 0;
@@ -121,7 +161,26 @@
             opacity: 0.8;
         }
     </style>
+
+    <!-- Contenedor de alertas modernas -->
+    <div id="alertContainer" class="alert-container"></div>
+
     <script type="text/javascript">
+        function mostrarAlerta(tipo, mensaje) {
+            var alertClass = 'alert-' + tipo;
+            var icono = tipo === 'success' ? 'fa-check-circle' : 
+                       (tipo === 'danger' ? 'fa-exclamation-circle' : 
+                       (tipo === 'warning' ? 'fa-exclamation-triangle' : 'fa-info-circle'));
+            var alertHtml = '<div class="alert ' + alertClass + '">' +
+                '<i class="fas ' + icono + ' mr-2"></i>' + mensaje +
+                '</div>';
+            var container = document.getElementById('alertContainer');
+            container.innerHTML = alertHtml;
+            setTimeout(function () {
+                container.innerHTML = '';
+            }, 4000);
+        }
+
         function iniciarTimer() {
             var b = $find('<%= Timer1.ClientID %>');
             if (b) {
@@ -157,6 +216,11 @@
             <asp:HiddenField ID="HiddenField5" runat="server" />
             <ajaxToolkit:ModalPopupExtender ID="mpeReasignado" runat="server" PopupControlID="Panel5" TargetControlID="HiddenField5"
                 CancelControlID="btnCloseReasignado" OnCancelScript="iniciarTimer();" BackgroundCssClass="modalBackground">
+            </ajaxToolkit:ModalPopupExtender>
+
+            <asp:HiddenField ID="HiddenField6" runat="server" />
+            <ajaxToolkit:ModalPopupExtender ID="mpeReasignarArea" runat="server" PopupControlID="Panel6" TargetControlID="HiddenField6"
+                CancelControlID="btnCloseReasignarArea" OnCancelScript="iniciarTimer();" BackgroundCssClass="modalBackground">
             </ajaxToolkit:ModalPopupExtender>
 
 
@@ -336,6 +400,56 @@
 
             </asp:Panel>
 
+            <asp:Panel ID="Panel6" runat="server" CssClass="modal-dialog" align="center" Style="display: none; width: 500px;">
+                <div class="modal-content">
+                    <div class="modal-header" style="background-color: #17a2b8; color: white;">
+                        <h4 class="modal-title text-center"><i class="fas fa-exchange-alt"></i> Reasignar Ticket a Otra Área</h4>
+                        <asp:Button ID="btnCloseReasignarArea" runat="server" Text="x" class="close" aria-hidden="true" style="color: white;" />
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-md-12 mx-auto">
+                                <div class="card border-secondary">
+                                    <div class="card-body">
+                                        <div class="text-center mb-3">
+                                            <h6>Reasignar Ticket #<asp:Label ID="lblIdReasignarArea" runat="server" Font-Bold="true" Text=""></asp:Label></h6>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <asp:Label ID="Label5" runat="server" Text="Label"><i class="fas fa-building"></i> Seleccionar Nueva Área:</asp:Label>
+                                            <asp:DropDownList ID="ddlNuevaArea" runat="server" CssClass="form-control">
+                                                <asp:ListItem Value="0" Text="-- Seleccione un área --"></asp:ListItem>
+                                                <asp:ListItem Value="1" Text="Soporte Técnico"></asp:ListItem>
+                                                <asp:ListItem Value="2" Text="Redes"></asp:ListItem>
+                                                <asp:ListItem Value="3" Text="Data Center"></asp:ListItem>
+                                                <asp:ListItem Value="4" Text="Desarrollo"></asp:ListItem>
+                                                <asp:ListItem Value="9" Text="Administrativo Tecnología"></asp:ListItem>
+                                            </asp:DropDownList>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <asp:Label ID="Label6" runat="server" Text="Label"><i class="fas fa-comment-alt"></i> Motivo de Reasignación:</asp:Label>
+                                            <asp:TextBox ID="txtMotivoReasignacionArea" runat="server"
+                                                ToolTip="📝 Ingrese el motivo de la reasignación de área"
+                                                CssClass="form-control" TextMode="MultiLine" Height="100px"
+                                                placeholder="Explique brevemente el motivo de la reasignación..."></asp:TextBox>
+                                        </div>
+                                        
+                                        <div class="alert alert-info small">
+                                            <i class="fas fa-info-circle"></i> Al reasignar el ticket, se asignará automáticamente a un técnico disponible del área seleccionada.
+                                        </div>
+                                        
+                                        <div class="text-center">
+                                            <asp:Button ID="btnConfirmarReasignarArea" class="btn btn-info" runat="server" Text="✔ Confirmar Reasignación" OnClick="btnConfirmarReasignarArea_Click" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </asp:Panel>
+
 
             <div class="card-header bg-gradient-secondary">
                 <h3>Asignar Porcesos a Tickets</h3>
@@ -355,7 +469,8 @@
                                         <asp:Button ID="Button1" CommandName="cerrarTicket" Text="🔐" CssClass="btn btn-link" ToolTip="Cerrar ticket" runat="server" />
                                         <asp:Button ID="Button2" CommandName="seguimientoTicket" Text="⏳" CssClass="btn btn-link" ToolTip="Seguimiento" runat="server" />
                                         <asp:Button ID="Button3" CommandName="revisionTicket" Text="📑" CssClass="btn btn-link" ToolTip="Revisión" runat="server" />
-                                        <asp:Button ID="Button4" CommandName="reasignar" Text="🔄" CssClass="btn btn-link" ToolTip="Reasignar ticket" runat="server" />
+                                        <asp:Button ID="Button4" CommandName="reasignar" Text="🔄" CssClass="btn btn-link" ToolTip="Reasignar a otro técnico" runat="server" />
+                                        <asp:Button ID="Button5" CommandName="reasignarArea" Text="🔀" CssClass="btn btn-link" ToolTip="Reasignar a otra área" runat="server" />
 
                                     </ItemTemplate>
                                 </asp:TemplateField>

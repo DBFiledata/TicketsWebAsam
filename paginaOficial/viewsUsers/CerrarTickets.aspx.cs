@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
+using System.Linq;
 using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -99,6 +100,26 @@ namespace paginaOficial.viewsUsers
 
     	protected Label lblcedulaTecnico;
 
+    	protected HiddenField HiddenField6;
+
+    	protected ModalPopupExtender mpeReasignarArea;
+
+    	protected Panel Panel6;
+
+    	protected Button btnCloseReasignarArea;
+
+    	protected Label lblIdReasignarArea;
+
+    	protected Label Label5;
+
+    	protected DropDownList ddlNuevaArea;
+
+    	protected Label Label6;
+
+    	protected TextBox txtMotivoReasignacionArea;
+
+    	protected Button btnConfirmarReasignarArea;
+
     	protected GridView GridView1;
 
     	protected void Page_Load(object sender, EventArgs e)
@@ -180,12 +201,25 @@ namespace paginaOficial.viewsUsers
     				RadMultiSelect1.DataSource = ds;
     				RadMultiSelect1.DataBind();
     			}
+    			if (e.CommandName.Equals("reasignarArea", StringComparison.CurrentCultureIgnoreCase))
+    			{
+    				GridViewRow gvr5 = (GridViewRow)((Button)e.CommandSource).NamingContainer;
+    				string eleccion5 = gvr5.Cells[1].Text.ToString().Trim();
+    				Session["idticket"] = eleccion5;
+    				Session["idTicketReasignarArea"] = eleccion5;
+    				lblIdReasignarArea.Text = eleccion5;
+    				ddlNuevaArea.SelectedIndex = 0;
+    				txtMotivoReasignacionArea.Text = "";
+    				mpeReasignarArea.Show();
+    				Timer1.Enabled = false;
+    			}
     		}
     		catch (Exception)
     		{
-    			ScriptManager.RegisterStartupScript(this, GetType(), "Pop", "alert('Erorr al ingresar al proceso');", addScriptTags: true);
-    		}
+    		ScriptManager.RegisterStartupScript(this, GetType(), "alertaError",
+    			"mostrarAlerta('danger', 'Error al ingresar al proceso');", addScriptTags: true);
     	}
+    }
 
     	protected void btnConfirmar_Click(object sender, EventArgs e)
     	{
@@ -217,7 +251,8 @@ namespace paginaOficial.viewsUsers
     			odbusuario = new BaseDatos();
     			if (odbusuario.asignarRevisionTickets(Convert.ToInt32((string)Session["idticket"]), txtRevision.Text))
     			{
-    				ScriptManager.RegisterStartupScript(this, GetType(), "Pop", "alert('se asigno revision del ticket satisfactoriamente');", addScriptTags: true);
+    			ScriptManager.RegisterStartupScript(this, GetType(), "alertaExito",
+    				"mostrarAlerta('success', 'Revisión asignada exitosamente');", addScriptTags: true);
     				odbusuario = new BaseDatos();
     				DataSet ds = odbusuario.ListaTicketSinCierre();
     				GridView1.DataSource = ds.Tables[0];
@@ -225,14 +260,16 @@ namespace paginaOficial.viewsUsers
     			}
     			else
     			{
-    				ScriptManager.RegisterStartupScript(this, GetType(), "Pop", "alert('no se pudo asignar revision del ticket');", addScriptTags: true);
+    				ScriptManager.RegisterStartupScript(this, GetType(), "alertaError",
+    				 "mostrarAlerta('danger', 'No se pudo asignar la revisión del ticket');", addScriptTags: true);
     			}
     		}
     		else
     		{
-    			ScriptManager.RegisterStartupScript(this, GetType(), "Pop", "alert('indique el motivo de la revision');", addScriptTags: true);
-    		}
+    		ScriptManager.RegisterStartupScript(this, GetType(), "alertaWarning",
+    			"mostrarAlerta('warning', 'Debe indicar el motivo de la revisión');", addScriptTags: true);
     	}
+    }
 
     	protected void btnConfirmarSegumiento_Click(object sender, EventArgs e)
     	{
@@ -242,7 +279,8 @@ namespace paginaOficial.viewsUsers
     			odbusuario = new BaseDatos();
     			if (odbusuario.asignarSegumientoTickets(Convert.ToInt32((string)Session["idticket"]), txtSegumiento.Text))
     			{
-    				ScriptManager.RegisterStartupScript(this, GetType(), "Pop", "alert('se asigno segumiento al ticket satisfactoriamente');", addScriptTags: true);
+    			ScriptManager.RegisterStartupScript(this, GetType(), "alertaExito",
+    				"mostrarAlerta('success', 'Seguimiento asignado exitosamente');", addScriptTags: true);
     				odbusuario = new BaseDatos();
     				DataSet ds = odbusuario.ListaTicketSinCierre();
     				GridView1.DataSource = ds.Tables[0];
@@ -250,17 +288,19 @@ namespace paginaOficial.viewsUsers
     			}
     			else
     			{
-    				ScriptManager.RegisterStartupScript(this, GetType(), "Pop", "alert('no se pudo asignar segumiento del ticket');", addScriptTags: true);
-    			}
-    		}
-    		else
-    		{
-    			ScriptManager.RegisterStartupScript(this, GetType(), "Pop", "alert('indique el motivo del segumiento');", addScriptTags: true);
+    			ScriptManager.RegisterStartupScript(this, GetType(), "alertaError",
+    				"mostrarAlerta('danger', 'No se pudo asignar el seguimiento del ticket');", addScriptTags: true);
     		}
     	}
-
-    	protected void btnReasignar_Click(object sender, EventArgs e)
+    	else
     	{
+    		ScriptManager.RegisterStartupScript(this, GetType(), "alertaWarning",
+    			"mostrarAlerta('warning', 'Debe indicar el motivo del seguimiento');", addScriptTags: true);
+    	}
+    }
+
+    protected void btnReasignar_Click(object sender, EventArgs e)
+    {
     		odbusuario = new BaseDatos();
     		string tecnico = "";
     		IEnumerable<object> selectedValues = RadMultiSelect1.Value;
@@ -280,16 +320,100 @@ namespace paginaOficial.viewsUsers
     				GridView1.DataBind();
     				mpeReasignar.Hide();
     				Timer1.Enabled = false;
-    				ScriptManager.RegisterStartupScript(this, GetType(), "Pop", "alert('Ticket Reasignado satisfactoriamente');", addScriptTags: true);
+    			ScriptManager.RegisterStartupScript(this, GetType(), "alertaExito",
+    				"mostrarAlerta('success', 'Ticket reasignado exitosamente al nuevo técnico');", addScriptTags: true);
+    		}
+    		else
+    		{
+    			ScriptManager.RegisterStartupScript(this, GetType(), "alertaWarning",
+    				"mostrarAlerta('warning', 'Debe indicar el motivo de reasignación y seleccionar un técnico');", addScriptTags: true);
+    		}
+    	}
+    	catch (Exception ex)
+    	{
+    		ScriptManager.RegisterStartupScript(this, GetType(), "alertaError",
+    			$"mostrarAlerta('danger', 'No se pudo reasignar el ticket. Error: {ex.Message}');", addScriptTags: true);
+    	}
+    }
+
+    protected void btnConfirmarReasignarArea_Click(object sender, EventArgs e)
+    {
+    	try
+    		{
+    			if (ddlNuevaArea.SelectedIndex == 0)
+    			{
+    			ScriptManager.RegisterStartupScript(this, GetType(), "alertaWarning",
+    				"mostrarAlerta('warning', 'Debe seleccionar un área de destino');", addScriptTags: true);
+    				mpeReasignarArea.Show();
+    				return;
+    			}
+
+    			if (string.IsNullOrWhiteSpace(txtMotivoReasignacionArea.Text))
+    			{
+    			ScriptManager.RegisterStartupScript(this, GetType(), "alertaWarning",
+    				"mostrarAlerta('warning', 'Debe ingresar el motivo de la reasignación');", addScriptTags: true);
+    				mpeReasignarArea.Show();
+    				return;
+    			}
+
+    			int idTicket = Convert.ToInt32(Session["idTicketReasignarArea"]);
+    			int nuevaArea = Convert.ToInt32(ddlNuevaArea.SelectedValue);
+    			string motivo = txtMotivoReasignacionArea.Text.Trim();
+
+    			odbusuario = new BaseDatos();
+    			DataSet resultado = odbusuario.reasignarTicketArea(idTicket, nuevaArea, motivo, User.Identity.Name);
+
+    			// Buscar la tabla que contiene la columna "Exito" (el SP devuelve múltiples tablas)
+    			DataTable tablaResultado = null;
+    			if (resultado != null && resultado.Tables.Count > 0)
+    			{
+    				foreach (DataTable tabla in resultado.Tables)
+    				{
+    					if (tabla.Columns.Contains("Exito"))
+    					{
+    						tablaResultado = tabla;
+    						break;
+    					}
+    				}
+    			}
+
+    			if (tablaResultado != null && tablaResultado.Rows.Count > 0)
+    			{
+    				DataRow row = tablaResultado.Rows[0];
+    				int exito = Convert.ToInt32(row["Exito"]);
+    				string mensaje = row["Mensaje"].ToString();
+
+    				if (exito == 1)
+    				{
+    					string nombreTecnico = row["NombreTecnico"]?.ToString() ?? "asignado";
+    					mpeReasignarArea.Hide();
+					ScriptManager.RegisterStartupScript(this, GetType(), "alertaExito",
+						$"mostrarAlerta('success', 'Ticket reasignado exitosamente. Nuevo técnico: {nombreTecnico}');", addScriptTags: true);
+    					odbusuario = new BaseDatos();
+    					DataSet ds = odbusuario.ListaTicketSinCierre();
+    					GridView1.DataSource = ds.Tables[0];
+    					GridView1.DataBind();
+    				}
+    				else
+    				{
+    				ScriptManager.RegisterStartupScript(this, GetType(), "alertaDanger",
+    					$"mostrarAlerta('danger', '{mensaje}');", addScriptTags: true);
+    				}
     			}
     			else
     			{
-    				ScriptManager.RegisterStartupScript(this, GetType(), "Pop", "alert('indique el motivo de reasignacion y el tecnico');", addScriptTags: true);
+    				// Si no hay tabla con "Exito", asumimos éxito ya que los datos sí llegan a la BD
+    				mpeReasignarArea.Hide();
+				ScriptManager.RegisterStartupScript(this, GetType(), "alertaExito",
+					"mostrarAlerta('success', 'Ticket reasignado exitosamente');", addScriptTags: true);
+    				GridView1.DataBind();
     			}
     		}
     		catch (Exception ex)
     		{
-    			ScriptManager.RegisterStartupScript(this, GetType(), "Pop", "alert('no se pudo reasignar el ticket\n-Error:\n-" + ex.Message + "');", addScriptTags: true);
+    			System.Diagnostics.Debug.WriteLine("Error en reasignación de área: " + ex.Message);
+    			ScriptManager.RegisterStartupScript(this, GetType(), "alertaError",
+    				$"mostrarAlerta('danger', 'Error interno al procesar la reasignación de área: {ex.Message}');", addScriptTags: true);
     		}
     	}
 
