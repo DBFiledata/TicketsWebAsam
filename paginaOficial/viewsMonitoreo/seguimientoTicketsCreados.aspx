@@ -119,6 +119,30 @@
             filter: alpha(opacity=90);
             opacity: 0.8;
         }
+
+        /* Animación de parpadeo para tickets críticos */
+        @keyframes parpadeo-critico {
+            0% { background-color: #dc3545; }
+            50% { background-color: #ff6b6b; }
+            100% { background-color: #dc3545; }
+        }
+
+        .ticket-critico {
+            animation: parpadeo-critico 1s ease-in-out infinite;
+            color: white !important;
+            font-weight: bold;
+        }
+
+        .ticket-urgente {
+            background-color: #dc3545 !important;
+            color: white !important;
+            font-weight: bold;
+        }
+
+        .ticket-alerta {
+            background-color: #ffc107 !important;
+            color: black !important;
+        }
     </style>
     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
         <ContentTemplate>
