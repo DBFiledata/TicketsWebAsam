@@ -424,6 +424,7 @@
                                                 <asp:ListItem Value="3" Text="Data Center"></asp:ListItem>
                                                 <asp:ListItem Value="4" Text="Desarrollo"></asp:ListItem>
                                                 <asp:ListItem Value="9" Text="Administrativo Tecnología"></asp:ListItem>
+                                                <asp:ListItem Value="10" Text="Web"></asp:ListItem>
                                             </asp:DropDownList>
                                         </div>
                                         
