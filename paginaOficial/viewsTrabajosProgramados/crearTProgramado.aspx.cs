@@ -95,7 +95,15 @@ namespace paginaOficial.viewsTrabajosProgramados
     		{
     			DataSet ds = new DataSet();
     			odbusuario = new BaseDatos();
-    			ds = odbusuario.tecnicosDisponiblesTrabajosProgramados();
+    			
+    			// Filtrar técnicos por área según el rol del usuario
+    			int rolUsuario = 1; // Por defecto técnico
+    			if (Session["rol"] != null && !string.IsNullOrEmpty(Session["rol"].ToString()))
+    			{
+    				int.TryParse(Session["rol"].ToString(), out rolUsuario);
+    			}
+    			
+    			ds = odbusuario.tecnicosDisponiblesTrabajosProgramadosPorArea(rolUsuario);
     			RadMultiSelect1.DataSource = ds;
     			RadMultiSelect1.DataBind();
     		}
@@ -153,7 +161,14 @@ namespace paginaOficial.viewsTrabajosProgramados
     				RadMultiSelect1.Items.Clear();
     				new DataSet();
     				odbusuario = new BaseDatos();
-    				DataSet ds = odbusuario.tecnicosDisponiblesTrabajosProgramados();
+    				
+    				// Filtrar técnicos por área según el rol del usuario
+    				int rolUsuario = 1;
+    				if (Session["rol"] != null && !string.IsNullOrEmpty(Session["rol"].ToString()))
+    				{
+    					int.TryParse(Session["rol"].ToString(), out rolUsuario);
+    				}
+    				DataSet ds = odbusuario.tecnicosDisponiblesTrabajosProgramadosPorArea(rolUsuario);
     				RadMultiSelect1.DataSource = ds;
     				RadMultiSelect1.DataBind();
     				if (nToken > 0)
@@ -182,7 +197,14 @@ namespace paginaOficial.viewsTrabajosProgramados
     		panelInfo.Visible = true;
     		DataSet ds = new DataSet();
     		odbusuario = new BaseDatos();
-    		ds = odbusuario.tecnicosDisponiblesTrabajosProgramados();
+    		
+    		// Filtrar técnicos por área según el rol del usuario
+    		int rolUsuario = 1;
+    		if (Session["rol"] != null && !string.IsNullOrEmpty(Session["rol"].ToString()))
+    		{
+    			int.TryParse(Session["rol"].ToString(), out rolUsuario);
+    		}
+    		ds = odbusuario.tecnicosDisponiblesTrabajosProgramadosPorArea(rolUsuario);
     		RadMultiSelect1.DataSource = ds;
     		RadMultiSelect1.DataBind();
     	}
@@ -237,7 +259,14 @@ namespace paginaOficial.viewsTrabajosProgramados
     			Session["ReasicgacionTP"] = null;
     			new DataSet();
     			odbusuario = new BaseDatos();
-    			DataSet ds = odbusuario.tecnicosDisponiblesTrabajosProgramados();
+    			
+    			// Filtrar técnicos por área según el rol del usuario
+    			int rolUsuario2 = 1;
+    			if (Session["rol"] != null && !string.IsNullOrEmpty(Session["rol"].ToString()))
+    			{
+    				int.TryParse(Session["rol"].ToString(), out rolUsuario2);
+    			}
+    			DataSet ds = odbusuario.tecnicosDisponiblesTrabajosProgramadosPorArea(rolUsuario2);
     			RadMultiSelect1.DataSource = ds;
     			RadMultiSelect1.DataBind();
     			if (nToken > 0)

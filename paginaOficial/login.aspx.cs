@@ -32,11 +32,12 @@ namespace paginaOficial
     		odbusuario = new BaseDatos();
     		if (odbusuario.login(Login.UserName, Login.Password))
     		{
-    			string[] datos = new string[2];
+    			string[] datos = new string[3];
     			datos = odbusuario.getDatosSession(Login.UserName, Login.Password);
     			Session["id"] = Login.UserName;
     			Session["username"] = datos[0];
     			Session["type"] = datos[1];
+    			Session["rol"] = datos[2];
     			FormsAuthentication.SetAuthCookie(Login.UserName, Login.RememberMeSet);
     			FormsAuthentication.RedirectFromLoginPage(Login.UserName, Login.RememberMeSet);
     			string nombre = User.Identity.Name;

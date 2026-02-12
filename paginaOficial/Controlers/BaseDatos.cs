@@ -431,10 +431,11 @@ namespace paginaOficial.Controlers
     			Cmd.Connection.Close();
     			if (ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
     			{
-    			    string[] resultado = new string[2]
+    			    string[] resultado = new string[3]
     			    {
     				    Convert.ToString(ds.Tables[0].Rows[0]["nombres"]),
-    				    Convert.ToString(ds.Tables[0].Rows[0]["tiposDeUsuarios_codigos"])
+    				    Convert.ToString(ds.Tables[0].Rows[0]["tiposDeUsuarios_codigos"]),
+    				    Convert.ToString(ds.Tables[0].Rows[0]["idRoles"])
     			    };
     			    return resultado;
     			}
@@ -1702,6 +1703,24 @@ namespace paginaOficial.Controlers
     			Cmd.Parameters.Clear();
     			Cmd.CommandType = CommandType.StoredProcedure;
     			Cmd.CommandText = "tecnicosDisponiblesTrabajosProgramados";
+    			Adap = new MySqlDataAdapter(Cmd);
+    			Adap.Fill(ds);
+    		}
+    		catch (Exception)
+    		{
+    		}
+    		return ds;
+    	}
+
+    	public DataSet tecnicosDisponiblesTrabajosProgramadosPorArea(int rolUsuario)
+    	{
+    		try
+    		{
+    			ds = new DataSet();
+    			Cmd.Parameters.Clear();
+    			Cmd.CommandType = CommandType.StoredProcedure;
+    			Cmd.CommandText = "tecnicosDisponiblesTrabajosProgramadosPorArea";
+    			Cmd.Parameters.Add(new MySqlParameter("@rolUsuario", rolUsuario));
     			Adap = new MySqlDataAdapter(Cmd);
     			Adap.Fill(ds);
     		}
