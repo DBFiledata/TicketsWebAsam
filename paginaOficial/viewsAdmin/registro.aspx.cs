@@ -22,7 +22,7 @@ namespace paginaOficial
         {
             lblerror.Visible = false;
             if (txtId.Text != string.Empty & txtPass.Text != string.Empty & txtNombre.Text != string.Empty & txtApellido.Text != string.Empty &
-                    txtEmail.Text != string.Empty & txtPass2.Text != string.Empty & listTipo.SelectedIndex > 0 & listTipo.SelectedIndex < 7)
+                    txtEmail.Text != string.Empty & txtPass2.Text != string.Empty & listTipo.SelectedIndex > 0)
             {
                     int num = listTipo.SelectedIndex;
                     //txtId.Text = "" + num;

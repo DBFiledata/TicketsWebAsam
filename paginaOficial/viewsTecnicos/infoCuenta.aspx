@@ -36,7 +36,7 @@
                                         </div>
                                     </div>
                                     <div class="form-group pl-3">
-                                        <asp:Label ID="Label6" runat="server" Text="Label">Tipo ded usuario:</asp:Label>
+                                        <asp:Label ID="Label6" runat="server" Text="Label">Tipo de usuario:</asp:Label>
                                         <asp:Label ID="lblTipo" runat="server" CssClass="form-control text-center" Text="Label">usuario estandar, tecnico,...</asp:Label>
                                     </div>
                                     <div class="form-group text-center">
