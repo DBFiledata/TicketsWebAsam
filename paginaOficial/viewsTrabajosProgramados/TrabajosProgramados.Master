@@ -75,14 +75,23 @@
                     <span>Administrar</span></a>
             </li>
 
+            
+
             <!-- Divider -->
             <hr class="sidebar-divider">
 
             <!-- Heading -->
             <div class="sidebar-heading">
-                Productividad
+                Control de Personal
            
             </div>
+
+            <!-- Item Control de Personal -->
+            <li class="nav-item">
+                <a class="nav-link" href="statusTecnicosTProgramado.aspx">
+                    <i class="fa fa-users"></i>
+                    <span>Disponibilidad</span></a>
+            </li>
 
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#desplegableRendimiento" aria-expanded="true" aria-controls="collapsePages">

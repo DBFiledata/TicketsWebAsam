@@ -29,7 +29,8 @@ namespace paginaOficial.viewsTrabajosProgramados
     		else if (!Page.IsPostBack)
     		{
     			odbusuario = new BaseDatos();
-    			DataSet ds = odbusuario.cantidadSerguimientos();
+    			int rolJefe = Convert.ToInt32(Session["rol"]);
+    			DataSet ds = odbusuario.cantidadSeguimientosPorArea(rolJefe);
     			// Validar que el DataSet tenga tablas antes de asignar al GridView
     			if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
     			{

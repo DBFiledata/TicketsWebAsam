@@ -29,9 +29,13 @@ namespace paginaOficial.viewsTrabajosProgramados
     		else if (!Page.IsPostBack)
     		{
     			odbusuario = new BaseDatos();
-    			DataSet ds = odbusuario.cantidadAtencion();
-    			GridView1.DataSource = ds.Tables[0];
-    			GridView1.DataBind();
+    			int rolJefe = Convert.ToInt32(Session["rol"]);
+    			DataSet ds = odbusuario.cantidadAtencionPorArea(rolJefe);
+    			if (ds != null && ds.Tables.Count > 0)
+    			{
+    				GridView1.DataSource = ds.Tables[0];
+    				GridView1.DataBind();
+    			}
     		}
     	}
     }

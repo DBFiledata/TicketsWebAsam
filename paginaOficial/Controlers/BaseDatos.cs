@@ -1928,6 +1928,26 @@ namespace paginaOficial.Controlers
     		return ds;
     	}
 
+    	public DataSet filtroAsignarEstatusTecnicoPorArea(string nombre, string apellido, int rolJefe)
+    	{
+    		try
+    		{
+    			ds = new DataSet();
+    			Cmd.Parameters.Clear();
+    			Cmd.CommandType = CommandType.StoredProcedure;
+    			Cmd.CommandText = "filtroAsignarEstatusTecnicoPorArea";
+    			Cmd.Parameters.Add(new MySqlParameter("@nombre", nombre));
+    			Cmd.Parameters.Add(new MySqlParameter("@apellido", apellido));
+    			Cmd.Parameters.Add(new MySqlParameter("@rolJefe", rolJefe));
+    			Adap = new MySqlDataAdapter(Cmd);
+    			Adap.Fill(ds);
+    		}
+    		catch (Exception)
+    		{
+    		}
+    		return ds;
+    	}
+
     	public DataSet filtroEditarEstatusTecnico(string nombre, string apellido, int tipo)
     	{
     		try
@@ -2614,6 +2634,178 @@ public bool actualizarDisponibilidad(string id, int idDisponibilidad, DateTime? 
     			if (Cmd.Connection.State == ConnectionState.Open)
     			    Cmd.Connection.Close();
     			System.Diagnostics.Debug.WriteLine($"Error en cantidadRevisiones: {ex.Message}");
+    		}
+    		return ds;
+    	}
+
+    	// ========================================================================
+    	// Métodos de Productividad Filtrados por Área del Jefe
+    	// ========================================================================
+
+    	public DataSet cantidadAtencionPorArea(int rolJefe)
+    	{
+    		try
+    		{
+    			ds = new DataSet();
+    			Cmd.Parameters.Clear();
+    			Cmd.CommandType = CommandType.StoredProcedure;
+    			Cmd.CommandText = "cantidadAtencionPorArea";
+    			Cmd.Parameters.Add(new MySqlParameter("@rolJefe", rolJefe));
+    			Adap = new MySqlDataAdapter(Cmd);
+    			Adap.Fill(ds);
+    		}
+    		catch (Exception)
+    		{
+    		}
+    		return ds;
+    	}
+
+    	public DataSet tiempoAtencionPorArea(int rolJefe)
+    	{
+    		try
+    		{
+    			ds = new DataSet();
+    			Cmd.Parameters.Clear();
+    			Cmd.CommandType = CommandType.StoredProcedure;
+    			Cmd.CommandText = "tiempoAtencionPorArea";
+    			Cmd.Parameters.Add(new MySqlParameter("@rolJefe", rolJefe));
+    			Adap = new MySqlDataAdapter(Cmd);
+    			Adap.Fill(ds);
+    		}
+    		catch (Exception)
+    		{
+    		}
+    		return ds;
+    	}
+
+    	public DataSet cantidadPermisosPorArea(int rolJefe)
+    	{
+    		try
+    		{
+    			ds = new DataSet();
+    			Cmd.Parameters.Clear();
+    			Cmd.CommandType = CommandType.StoredProcedure;
+    			Cmd.CommandText = "cantidadPermisosPorArea";
+    			Cmd.Parameters.Add(new MySqlParameter("@rolJefe", rolJefe));
+    			Adap = new MySqlDataAdapter(Cmd);
+    			Adap.Fill(ds);
+    		}
+    		catch (Exception)
+    		{
+    		}
+    		return ds;
+    	}
+
+    	public DataSet cantidadCedidosPorArea(int rolJefe)
+    	{
+    		try
+    		{
+    			ds = new DataSet();
+    			Cmd.Parameters.Clear();
+    			Cmd.CommandType = CommandType.StoredProcedure;
+    			Cmd.CommandText = "cantidadCedidosPorArea";
+    			Cmd.Parameters.Add(new MySqlParameter("@rolJefe", rolJefe));
+    			if (Cmd.Connection.State != ConnectionState.Open)
+    			    Cmd.Connection.Open();
+    			Adap = new MySqlDataAdapter(Cmd);
+    			Adap.Fill(ds);
+    			Cmd.Connection.Close();
+    		}
+    		catch (Exception ex)
+    		{
+    			if (Cmd.Connection.State == ConnectionState.Open)
+    			    Cmd.Connection.Close();
+    			System.Diagnostics.Debug.WriteLine($"Error en cantidadCedidosPorArea: {ex.Message}");
+    		}
+    		return ds;
+    	}
+
+    	public DataSet cantidadReservasPorArea(int rolJefe)
+    	{
+    		try
+    		{
+    			ds = new DataSet();
+    			Cmd.Parameters.Clear();
+    			Cmd.CommandType = CommandType.StoredProcedure;
+    			Cmd.CommandText = "cantidadReservasPorArea";
+    			Cmd.Parameters.Add(new MySqlParameter("@rolJefe", rolJefe));
+    			Adap = new MySqlDataAdapter(Cmd);
+    			Adap.Fill(ds);
+    		}
+    		catch (Exception)
+    		{
+    		}
+    		return ds;
+    	}
+
+    	public DataSet cantidadRevisionesPorArea(int rolJefe)
+    	{
+    		try
+    		{
+    			ds = new DataSet();
+    			Cmd.Parameters.Clear();
+    			Cmd.CommandType = CommandType.StoredProcedure;
+    			Cmd.CommandText = "cantidadRevisionesPorArea";
+    			Cmd.Parameters.Add(new MySqlParameter("@rolJefe", rolJefe));
+    			if (Cmd.Connection.State != ConnectionState.Open)
+    			    Cmd.Connection.Open();
+    			Adap = new MySqlDataAdapter(Cmd);
+    			Adap.Fill(ds);
+    			Cmd.Connection.Close();
+    		}
+    		catch (Exception ex)
+    		{
+    			if (Cmd.Connection.State == ConnectionState.Open)
+    			    Cmd.Connection.Close();
+    			System.Diagnostics.Debug.WriteLine($"Error en cantidadRevisionesPorArea: {ex.Message}");
+    		}
+    		return ds;
+    	}
+
+    	public DataSet cantidadSeguimientosPorArea(int rolJefe)
+    	{
+    		try
+    		{
+    			ds = new DataSet();
+    			Cmd.Parameters.Clear();
+    			Cmd.CommandType = CommandType.StoredProcedure;
+    			Cmd.CommandText = "cantidadSeguimientosPorArea";
+    			Cmd.Parameters.Add(new MySqlParameter("@rolJefe", rolJefe));
+    			if (Cmd.Connection.State != ConnectionState.Open)
+    			    Cmd.Connection.Open();
+    			Adap = new MySqlDataAdapter(Cmd);
+    			Adap.Fill(ds);
+    			Cmd.Connection.Close();
+    		}
+    		catch (Exception ex)
+    		{
+    			if (Cmd.Connection.State == ConnectionState.Open)
+    			    Cmd.Connection.Close();
+    			System.Diagnostics.Debug.WriteLine($"Error en cantidadSeguimientosPorArea: {ex.Message}");
+    		}
+    		return ds;
+    	}
+
+    	public DataSet cantidadTrabajoProgramadoPorArea(int rolJefe)
+    	{
+    		try
+    		{
+    			ds = new DataSet();
+    			Cmd.Parameters.Clear();
+    			Cmd.CommandType = CommandType.StoredProcedure;
+    			Cmd.CommandText = "cantidadTrabajoProgramadoPorArea";
+    			Cmd.Parameters.Add(new MySqlParameter("@rolJefe", rolJefe));
+    			if (Cmd.Connection.State != ConnectionState.Open)
+    			    Cmd.Connection.Open();
+    			Adap = new MySqlDataAdapter(Cmd);
+    			Adap.Fill(ds);
+    			Cmd.Connection.Close();
+    		}
+    		catch (Exception ex)
+    		{
+    			if (Cmd.Connection.State == ConnectionState.Open)
+    			    Cmd.Connection.Close();
+    			System.Diagnostics.Debug.WriteLine($"Error en cantidadTrabajoProgramadoPorArea: {ex.Message}");
     		}
     		return ds;
     	}
