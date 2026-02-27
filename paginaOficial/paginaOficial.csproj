@@ -2229,6 +2229,7 @@
     <Content Include="viewsTrabajosProgramados\seguimientoDeTicketsTProgramado.aspx" />
     <Content Include="viewsTrabajosProgramados\tiempoAtencionTProgramado.aspx" />
     <Content Include="viewsTrabajosProgramados\statusTecnicosTProgramado.aspx" />
+    <Content Include="viewsTrabajosProgramados\ticketsTProgramado.aspx" />
     <Content Include="viewsUsers\buscarSolicitante.aspx" />
     <Content Include="viewsUsers\cambioComtraseña.aspx" />
     <Content Include="viewsUsers\CerrarTickets.aspx" />
@@ -2551,6 +2552,13 @@
     </Compile>
     <Compile Include="viewsTrabajosProgramados\statusTecnicosTProgramado.aspx.designer.cs">
       <DependentUpon>statusTecnicosTProgramado.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="viewsTrabajosProgramados\ticketsTProgramado.aspx.cs">
+      <DependentUpon>ticketsTProgramado.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="viewsTrabajosProgramados\ticketsTProgramado.aspx.designer.cs">
+      <DependentUpon>ticketsTProgramado.aspx</DependentUpon>
     </Compile>
     <Compile Include="viewsTrabajosProgramados\trabajosProgramados.Master.cs">
       <DependentUpon>TrabajosProgramados.Master</DependentUpon>

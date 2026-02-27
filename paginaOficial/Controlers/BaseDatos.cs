@@ -2860,6 +2860,24 @@ public bool actualizarDisponibilidad(string id, int idDisponibilidad, DateTime? 
     		}
     	}
 
+    	public DataSet listaTicketsPorAreaJefe(int rolJefe)
+    	{
+    		try
+    		{
+    			ds = new DataSet();
+    			Cmd.Parameters.Clear();
+    			Cmd.CommandType = CommandType.StoredProcedure;
+    			Cmd.CommandText = "listaTicketsPorAreaJefe";
+    			Cmd.Parameters.Add(new MySqlParameter("@rolJefe", rolJefe));
+    			Adap = new MySqlDataAdapter(Cmd);
+    			Adap.Fill(ds);
+    		}
+    		catch (Exception)
+    		{
+    		}
+    		return ds;
+    	}
+
     	public string totalTickets()
     	{
     		try
