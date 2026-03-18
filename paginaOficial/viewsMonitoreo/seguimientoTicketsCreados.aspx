@@ -143,6 +143,15 @@
             background-color: #ffc107 !important;
             color: black !important;
         }
+
+        /* Scroll para columnas de texto largo */
+        .cell-scroll {
+            max-height: 80px;
+            max-width: 300px;
+            overflow-y: auto;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
     </style>
     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
         <ContentTemplate>

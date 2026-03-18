@@ -2,6 +2,16 @@
 
 <asp:Content ID="BodyContenido" ContentPlaceHolderID="contenido" runat="server">
     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+    <style type="text/css">
+        /* Scroll para columnas de texto largo */
+        .cell-scroll {
+            max-height: 80px;
+            max-width: 300px;
+            overflow-y: auto;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+    </style>
 
     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
         <ContentTemplate>
@@ -29,8 +39,16 @@
                         DataKeyNames="Numero">
                         <Columns>
                             <asp:BoundField DataField="Numero" HeaderText="Número" />
-                            <asp:BoundField DataField="problemas" HeaderText="Problema" />
-                            <asp:BoundField DataField="descripciones" HeaderText="Descripción" />
+                            <asp:TemplateField HeaderText="Problema">
+                                <ItemTemplate>
+                                    <div class="cell-scroll"><%# Eval("problemas") %></div>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                            <asp:TemplateField HeaderText="Descripción">
+                                <ItemTemplate>
+                                    <div class="cell-scroll"><%# Eval("descripciones") %></div>
+                                </ItemTemplate>
+                            </asp:TemplateField>
                             <asp:BoundField DataField="Solicitante" HeaderText="Solicitante" />
                             <asp:BoundField DataField="Tecnico" HeaderText="Técnico" />
                             <asp:BoundField DataField="Area" HeaderText="Área" />

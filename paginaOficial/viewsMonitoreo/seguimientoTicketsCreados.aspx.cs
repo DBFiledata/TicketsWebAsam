@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Data;
 using System.Drawing;
 using System.Globalization;
@@ -89,6 +89,20 @@ namespace paginaOficial.viewsMonitoreo
     		{
     			return;
     		}
+    		// Scroll para columnas Problema y Descripcion
+    		GridView gv = (GridView)sender;
+    		if (gv.HeaderRow != null)
+    		{
+    			for (int i = 0; i < gv.HeaderRow.Cells.Count; i++)
+    			{
+    				string hText = gv.HeaderRow.Cells[i].Text.ToLower();
+    				if (hText.Contains("problema") || hText.Contains("descripci"))
+    				{
+    					string origText = e.Row.Cells[i].Text;
+    					e.Row.Cells[i].Text = "<div class='cell-scroll'>" + origText + "</div>";
+    				}
+    			}
+    		}
     		string dateString = HttpUtility.HtmlDecode(e.Row.Cells[9].Text);
     		string tipo = HttpUtility.HtmlDecode(e.Row.Cells[1].Text);
     		int id = Convert.ToInt32(e.Row.Cells[0].Text);
@@ -113,7 +127,7 @@ namespace paginaOficial.viewsMonitoreo
     		
     		if (horasTranscurridas >= 6.0)
     		{
-    			// CRÍTICO: Más de 6 horas - Rojo parpadeante
+    			// CRÃTICO: Más de 6 horas - Rojo parpadeante
     			e.Row.CssClass = "ticket-critico";
     		}
     		else if (horasTranscurridas >= 4.0)

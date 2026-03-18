@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Data;
 using System.Web.Security;
 using System.Web.UI;
@@ -71,6 +71,26 @@ namespace paginaOficial.viewsTrabajosProgramados
     	{
     		listTickets.PageIndex = e.NewPageIndex;
     		btnfiltrar_Click(null, null);
+    	}
+
+    	protected void listTickets_RowDataBound(object sender, GridViewRowEventArgs e)
+    	{
+    		if (e.Row.RowType == DataControlRowType.DataRow)
+    		{
+    			GridView gv = (GridView)sender;
+    			if (gv.HeaderRow != null)
+    			{
+    				for (int i = 0; i < gv.HeaderRow.Cells.Count; i++)
+    				{
+    					string headerText = gv.HeaderRow.Cells[i].Text.ToLower();
+    					if (headerText.Contains("problema") || headerText.Contains("descripci"))
+    					{
+    						string originalText = e.Row.Cells[i].Text;
+    						e.Row.Cells[i].Text = "<div class='cell-scroll'>" + originalText + "</div>";
+    					}
+    				}
+    			}
+    		}
     	}
     }
 

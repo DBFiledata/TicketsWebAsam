@@ -119,7 +119,7 @@ namespace paginaOficial.viewsUsers
     			{
     				odbusuario = new BaseDatos();
     				string[] datos = new string[6];
-    				datos = odbusuario.infoSolicitante(txtIdSolicitante.Text);
+    				datos = odbusuario.infoSolicitanteIntranet(txtIdSolicitante.Text);
     				if (datos != null)
     				{
     					panelBuscar.Visible = false;
@@ -128,8 +128,8 @@ namespace paginaOficial.viewsUsers
     					lblDepartamento.Text = datos[3];
     					lblEmail.Text = datos[4];
     					lblTelefono.Text = datos[5];
-    					btnEditar.Enabled = true;
-    					btnEliminar.Enabled = true;
+    					btnEditar.Enabled = false;
+    					btnEliminar.Enabled = false;
     					Session["solicitante"] = datos[0];
     					panelInfo.Visible = true;
     				}

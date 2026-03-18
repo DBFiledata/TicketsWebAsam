@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Data;
 using System.Drawing;
 using System.Globalization;
@@ -143,6 +143,20 @@ namespace paginaOficial.viewsTrabajosProgramados
     		if (e.Row.RowType != DataControlRowType.DataRow)
     		{
     			return;
+    		}
+    		// Scroll para columnas Problema y Descripcion
+    		GridView gv = (GridView)sender;
+    		if (gv.HeaderRow != null)
+    		{
+    			for (int i = 0; i < gv.HeaderRow.Cells.Count; i++)
+    			{
+    				string hText = gv.HeaderRow.Cells[i].Text.ToLower();
+    				if (hText.Contains("problema") || hText.Contains("descripci"))
+    				{
+    					string origText = e.Row.Cells[i].Text;
+    					e.Row.Cells[i].Text = "<div class='cell-scroll'>" + origText + "</div>";
+    				}
+    			}
     		}
     		string dateString = HttpUtility.HtmlDecode(e.Row.Cells[10].Text);
     		string tipo = HttpUtility.HtmlDecode(e.Row.Cells[2].Text);

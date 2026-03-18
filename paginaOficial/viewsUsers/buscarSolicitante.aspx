@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" Title="Busqueda de solicitantes" MasterPageFile="~/viewsUsers/users.Master" CodeBehind="buscarSolicitante.aspx.cs" Inherits="paginaOficial.viewsUsers.buscarSolicitante" %>
+<%@ Page Language="C#" AutoEventWireup="true" Title="Busqueda de solicitantes" MasterPageFile="~/viewsUsers/users.Master" CodeBehind="buscarSolicitante.aspx.cs" Inherits="paginaOficial.viewsUsers.buscarSolicitante" %>
 
 <asp:Content ID="BodyContenido" ContentPlaceHolderID="contenido" runat="server">
     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
@@ -11,21 +11,21 @@
                             <div class="col-md-10 mx-auto">
                                 <div class="card border-secondary">
                                     <div class="card-header">
-                                        <h3 class=" text-center">Busqueda de Solicitantes</h3>
+                                        <h3 class=" text-center">Búsqueda de Personal y Extensiones</h3>
                                     </div>
                                     <div class="card-body">
                                         <asp:Panel ID="panelBuscar" runat="server" Visible="true">
                                             <div class="form-group">
                                                 <asp:TextBox ID="txtIdSolicitante" CssClass="form-control text-center"
                                                     Width="95%"
-                                                    ToolTip="👨‍💼 Debe ingresar el ID del Solicitante  &#10;✔Al encontarlo puede realizar los siguientes procesos: &#10;🛠edicion o  🗑eliminacion"
-                                                    placeholder="👨‍💼" runat="server">
+                                                    ToolTip="Debe ingresar la Extensión del Solicitante para cargar su información de la planilla"
+                                                    placeholder="Extensión" runat="server">
                                                 </asp:TextBox>
                                             </div>
 
 
                                             <div class="form-group d-flex align-items-center justify-content-center">
-                                                <asp:Button ID="btnBuscarSolicitante" CssClass="btn btn-success btn-lg float-right mr-1" runat="server" Text="Buscar🔎" OnClick="btnBuscarSolicitante_Click" />
+                                                <asp:Button ID="btnBuscarSolicitante" CssClass="btn btn-success btn-lg float-right mr-1" runat="server" Text="Buscar" OnClick="btnBuscarSolicitante_Click" />
                                             </div>
 
                                         </asp:Panel>
@@ -46,8 +46,8 @@
                                             </div>
 
                                             <div class="form-group d-flex align-items-center justify-content-center">
-                                                <asp:Button ID="btnEditar" CssClass="btn btn-success btn-lg float-right mr-1" runat="server" Text="Editar ✔" OnClick="btnEditar_Click" Enabled="False" CausesValidation="False"/>
-                                                <asp:Button ID="btnEliminar" CssClass="btn btn-danger btn-lg float-right ml-1" runat="server" Text="Eliminar ❌" Enabled="False" OnClientClick="return confirm('¿Desea eliminar la cuenta?');" OnClick="btnEliminar_Click" CausesValidation="False"/>
+                                                <asp:Button ID="btnEditar" CssClass="btn btn-success btn-lg float-right mr-1" runat="server" Text="Editar" OnClick="btnEditar_Click" Enabled="False" CausesValidation="False" Visible="False"/>
+                                                <asp:Button ID="btnEliminar" CssClass="btn btn-danger btn-lg float-right ml-1" runat="server" Text="Eliminar" Enabled="False" OnClientClick="return confirm('¿Desea eliminar la cuenta?');" OnClick="btnEliminar_Click" CausesValidation="False" Visible="False"/>
                                             </div>
                                         </asp:Panel>
 

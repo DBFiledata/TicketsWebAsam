@@ -1,7 +1,7 @@
-// Auto-generated
+﻿// Auto-generated
 namespace paginaOficial.viewsTecnicos
 {
-    public partial class cambioContrase�a
+    public partial class cambioContraseña
     {
     }
 }

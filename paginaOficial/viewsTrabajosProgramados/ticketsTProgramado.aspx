@@ -1,4 +1,4 @@
-<%@ Page Language="C#" AutoEventWireup="true" Title="Tickets del Area" MasterPageFile="~/viewsTrabajosProgramados/TrabajosProgramados.Master" CodeBehind="ticketsTProgramado.aspx.cs" Inherits="paginaOficial.viewsTrabajosProgramados.ticketsTProgramado" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" Title="Tickets del Area" MasterPageFile="~/viewsTrabajosProgramados/TrabajosProgramados.Master" CodeBehind="ticketsTProgramado.aspx.cs" Inherits="paginaOficial.viewsTrabajosProgramados.ticketsTProgramado" %>
 
 <asp:Content ID="BodyContenido" ContentPlaceHolderID="contenido" runat="server">
 
@@ -84,6 +84,15 @@
             background-color: Black;
             filter: alpha(opacity=90);
             opacity: 0.8;
+        }
+
+        /* Scroll para columnas de texto largo */
+        .cell-scroll {
+            max-height: 80px;
+            max-width: 300px;
+            overflow-y: auto;
+            white-space: pre-wrap;
+            word-wrap: break-word;
         }
     </style>
     <script type="text/javascript">
@@ -205,11 +214,11 @@
                 </div>
                 <div class="form-group table-responsive">
                     <div class="table-responsive">
-                        <asp:GridView ID="GridView1" CssClass="table table-striped table-dark table-bordered" Font-Size="Small" Width="100%" CellSpacing="0" runat="server" OnRowCommand="GridView1_RowCommand">
+                        <asp:GridView ID="GridView1" CssClass="table table-striped table-dark table-bordered" Font-Size="Small" Width="100%" CellSpacing="0" runat="server" OnRowCommand="GridView1_RowCommand" OnRowDataBound="GridView1_RowDataBound">
                             <Columns>
                                 <asp:TemplateField HeaderText="Procesos">
                                     <ItemTemplate>
-                                        <asp:Button ID="Button1" CommandName="reasignarTicket" Text="🔄" CssClass="btn btn-link" ToolTip="Reasignar a otro tecnico" runat="server" />
+                                        <asp:Button ID="Button1" CommandName="reasignarTicket" Text="ðŸ”„" CssClass="btn btn-link" ToolTip="Reasignar a otro tecnico" runat="server" />
                                     </ItemTemplate>
                                 </asp:TemplateField>
                             </Columns>

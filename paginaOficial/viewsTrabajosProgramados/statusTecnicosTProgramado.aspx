@@ -1,4 +1,4 @@
-<%@ Page Language="C#" AutoEventWireup="true" Title="Disponibilidad del Personal" MasterPageFile="~/viewsTrabajosProgramados/TrabajosProgramados.Master" CodeBehind="statusTecnicosTProgramado.aspx.cs" Inherits="paginaOficial.viewsTrabajosProgramados.statusTecnicosTProgramado" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" Title="Disponibilidad del Personal" MasterPageFile="~/viewsTrabajosProgramados/TrabajosProgramados.Master" CodeBehind="statusTecnicosTProgramado.aspx.cs" Inherits="paginaOficial.viewsTrabajosProgramados.statusTecnicosTProgramado" %>
 
 <asp:Content ID="BodyContenido" ContentPlaceHolderID="contenido" runat="server">
 
@@ -60,9 +60,9 @@
             var divFecha = $('#divFechaRetorno');
             var txtFecha = $('#<%= txtFechaRetorno.ClientID %>');
             
-            // Mostrar campo de fecha solo para: Ocupado(2), Permiso(3), Vacaciones(4), Reserva(5), Trabajo Programado(7)
+            // Mostrar campo de fecha solo para: Ocupado(2), Permiso(3), Vacaciones(4), Reserva(5), Trabajo Programado(7), T.Compensatorio(9)
             if (disponibilidad == '2' || disponibilidad == '3' || disponibilidad == '4' || 
-                disponibilidad == '5' || disponibilidad == '7') {
+                disponibilidad == '5' || disponibilidad == '7' || disponibilidad == '9') {
                 divFecha.slideDown(300);
                 
                 // Sugerir fecha por defecto según el tipo
@@ -84,6 +84,9 @@
                         break;
                     case '7': // Trabajo Programado - sugerir 3 horas
                         sugerencia.setHours(now.getHours() + 3);
+                        break;
+                    case '9': // T.Compensatorio - sugerir 4 horas
+                        sugerencia.setHours(now.getHours() + 4);
                         break;
                 }
                 
@@ -284,7 +287,8 @@
                                                 <asp:ListItem Value="5">Reserva</asp:ListItem>
                                                 <asp:ListItem Value="6">En el Area</asp:ListItem>
                                                 <asp:ListItem Value="7">Trabajo Programado</asp:ListItem>
-                                                <asp:ListItem Value="8">Instalación</asp:ListItem>
+                                                <asp:ListItem Value="8">Instalacion</asp:ListItem>
+                                                <asp:ListItem Value="9">T.Compensatorio</asp:ListItem>
                                             </asp:DropDownList>
                                         </div>
                                         <div class="form-group" id="divFechaRetorno" style="display: none;">

@@ -1,7 +1,7 @@
-// Auto-generated
+﻿// Auto-generated
 namespace paginaOficial.usersviews
 {
-    public partial class cambioComtrase�a
+    public partial class cambioComtraseña
     {
     }
 }

@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Data;
 using System.IO;
 using System.Web;
@@ -112,7 +112,7 @@ namespace paginaOficial.viewsMonitoreo
 
     			if (ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
     			{
-    				// Verificar si aplica clasificación: Estado Atendido(3)/Finalizado(5) + Área Desarrollo(4)
+    				// Verificar si aplica clasificación: Estado Atendido(3)/Finalizado(5) + Ãrea Desarrollo(4)
     				bool aplicarClasificacion = (estado == 3 || estado == 5) && area == 4;
     				int colProblemaIndex = -1;
 
@@ -238,6 +238,26 @@ namespace paginaOficial.viewsMonitoreo
     		}
 
     		return false;
+    	}
+
+    	protected void listTickets_RowDataBound(object sender, GridViewRowEventArgs e)
+    	{
+    		if (e.Row.RowType == DataControlRowType.DataRow)
+    		{
+    			GridView gv = (GridView)sender;
+    			if (gv.HeaderRow != null)
+    			{
+    				for (int i = 0; i < gv.HeaderRow.Cells.Count; i++)
+    				{
+    					string headerText = gv.HeaderRow.Cells[i].Text.ToLower();
+    					if (headerText.Contains("problema") || headerText.Contains("descripci"))
+    					{
+    						string originalText = e.Row.Cells[i].Text;
+    						e.Row.Cells[i].Text = "<div class='cell-scroll'>" + originalText + "</div>";
+    					}
+    				}
+    			}
+    		}
     	}
     }
 

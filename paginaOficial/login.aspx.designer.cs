@@ -1,4 +1,4 @@
-// Auto-generated
+﻿// Auto-generated
 namespace paginaOficial
 {
     public partial class login

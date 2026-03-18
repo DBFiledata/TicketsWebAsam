@@ -118,6 +118,15 @@
             filter: alpha(opacity=90);
             opacity: 0.8;
         }
+
+        /* Scroll para columnas de texto largo */
+        .cell-scroll {
+            max-height: 80px;
+            max-width: 300px;
+            overflow-y: auto;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
     </style>
     <script type="text/javascript">
         function iniciarTimer() {

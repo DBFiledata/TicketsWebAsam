@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Data;
 using System.Web.Security;
 using System.Web.UI;
@@ -203,9 +203,9 @@ namespace paginaOficial.viewsTrabajosProgramados
             int idDisponibilidad = Convert.ToInt32(ddlDisponibilidad.SelectedValue);
             DateTime? fechaRetorno = null;
             
-            // Solo capturar fecha de retorno para estados temporales: Ocupado(2), Permiso(3), Vacaciones(4), Reserva(5), Trabajo Programado(7)
+            // Solo capturar fecha de retorno para estados temporales: Ocupado(2), Permiso(3), Vacaciones(4), Reserva(5), Trabajo Programado(7), T.Compensatorio(9)
             if ((idDisponibilidad == 2 || idDisponibilidad == 3 || idDisponibilidad == 4 || 
-                 idDisponibilidad == 5 || idDisponibilidad == 7) && !string.IsNullOrEmpty(txtFechaRetorno.Text))
+                 idDisponibilidad == 5 || idDisponibilidad == 7 || idDisponibilidad == 9) && !string.IsNullOrEmpty(txtFechaRetorno.Text))
             {
                 fechaRetorno = DateTime.Parse(txtFechaRetorno.Text);
             }

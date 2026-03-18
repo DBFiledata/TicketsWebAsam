@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Configuration;
 using System.Data;
 using MySql.Data.MySqlClient;
@@ -1000,23 +1000,18 @@ namespace paginaOficial.Controlers
     		}
     	}
 
-    	public DataSet generarTicket(string desc, string problem, string numsol, string user, string tipo, string nombre, string apellido, string departamento, string email, string telefono)
+    	public DataSet generarTicket(string desc, string problem, string numsol, string user, string tipo)
     	{
     		try
     		{
     			Cmd.Parameters.Clear();
     			Cmd.CommandType = CommandType.StoredProcedure;
-    			Cmd.CommandText = "crearTicketss";
+    			Cmd.CommandText = "crearTicketsIntranet";
     			Cmd.Parameters.Add(new MySqlParameter("@descripcion", desc));
     			Cmd.Parameters.Add(new MySqlParameter("@problema", problem));
     			Cmd.Parameters.Add(new MySqlParameter("@solicitente", numsol));
     			Cmd.Parameters.Add(new MySqlParameter("@usuario", user));
-    			Cmd.Parameters.Add(new MySqlParameter("@nombre", nombre));
-    			Cmd.Parameters.Add(new MySqlParameter("@apellido", apellido));
     			Cmd.Parameters.Add(new MySqlParameter("@tipo", tipo));
-    			Cmd.Parameters.Add(new MySqlParameter("@departamento", departamento));
-    			Cmd.Parameters.Add(new MySqlParameter("@email", email));
-    			Cmd.Parameters.Add(new MySqlParameter("@telefono", telefono));
     			ds = new DataSet();
     			Adap = new MySqlDataAdapter(Cmd);
     			Adap.Fill(ds);
@@ -1024,27 +1019,22 @@ namespace paginaOficial.Controlers
     		}
     		catch (Exception)
     		{
-    			return null;
+    			throw;
     		}
     	}
 
-    	public DataSet crearTicketsArea(string desc, string problem, string numsol, string user, string tipo, string nombre, string apellido, string departamento, string email, string telefono)
+    	public DataSet crearTicketsArea(string desc, string problem, string numsol, string user, string tipo)
     	{
     		try
     		{
     			Cmd.Parameters.Clear();
     			Cmd.CommandType = CommandType.StoredProcedure;
-    			Cmd.CommandText = "crearTicketsArea";
+    			Cmd.CommandText = "crearTicketsAreaIntranet";
     			Cmd.Parameters.Add(new MySqlParameter("@descripcion", desc));
     			Cmd.Parameters.Add(new MySqlParameter("@problema", problem));
     			Cmd.Parameters.Add(new MySqlParameter("@solicitente", numsol));
     			Cmd.Parameters.Add(new MySqlParameter("@usuario", user));
-    			Cmd.Parameters.Add(new MySqlParameter("@nombre", nombre));
-    			Cmd.Parameters.Add(new MySqlParameter("@apellido", apellido));
     			Cmd.Parameters.Add(new MySqlParameter("@tipo", tipo));
-    			Cmd.Parameters.Add(new MySqlParameter("@departamento", departamento));
-    			Cmd.Parameters.Add(new MySqlParameter("@email", email));
-    			Cmd.Parameters.Add(new MySqlParameter("@telefono", telefono));
     			ds = new DataSet();
     			Adap = new MySqlDataAdapter(Cmd);
     			Adap.Fill(ds);
@@ -1052,27 +1042,22 @@ namespace paginaOficial.Controlers
     		}
     		catch (Exception)
     		{
-    			return null;
+    			throw;
     		}
     	}
 
-    	public DataSet generarTicketProgramado(string desc, string problem, string numsol, string user, DateTime fecha, string nombre, string apellido, string departamento, string email, string telefono)
+    	public DataSet generarTicketProgramado(string desc, string problem, string numsol, string user, DateTime fecha)
     	{
     		try
     		{
     			Cmd.Parameters.Clear();
     			Cmd.CommandType = CommandType.StoredProcedure;
-    			Cmd.CommandText = "crearTicketsProgramados";
+    			Cmd.CommandText = "crearTicketsProgramadosIntranet";
     			Cmd.Parameters.Add(new MySqlParameter("@descripcion", desc));
     			Cmd.Parameters.Add(new MySqlParameter("@problema", problem));
     			Cmd.Parameters.Add(new MySqlParameter("@fecha", fecha));
     			Cmd.Parameters.Add(new MySqlParameter("@usuario", user));
     			Cmd.Parameters.Add(new MySqlParameter("@solicitente", numsol));
-    			Cmd.Parameters.Add(new MySqlParameter("@nombre", nombre));
-    			Cmd.Parameters.Add(new MySqlParameter("@apellido", apellido));
-    			Cmd.Parameters.Add(new MySqlParameter("@departamento", departamento));
-    			Cmd.Parameters.Add(new MySqlParameter("@email", email));
-    			Cmd.Parameters.Add(new MySqlParameter("@telefono", telefono));
     			ds = new DataSet();
     			Adap = new MySqlDataAdapter(Cmd);
     			Adap.Fill(ds);
@@ -1080,7 +1065,7 @@ namespace paginaOficial.Controlers
     		}
     		catch (Exception)
     		{
-    			return null;
+    			throw;
     		}
     	}
 
@@ -1504,6 +1489,43 @@ namespace paginaOficial.Controlers
     			resultado = null;
     			Cmd.Connection.Close();
     			return resultado;
+    		}
+    		catch (Exception)
+    		{
+    			return null;
+    		}
+    	}
+
+    	public string[] infoSolicitanteIntranet(string extension)
+    	{
+    		try
+    		{
+    			using (MySqlConnection cnIntranet = new MySqlConnection(
+    				ConfigurationManager.ConnectionStrings["emprendimientos_asamConnectionString"].ConnectionString))
+    			{
+    				MySqlCommand cmdIntranet = new MySqlCommand();
+    				cmdIntranet.Connection = cnIntranet;
+    				cmdIntranet.CommandType = CommandType.StoredProcedure;
+    				cmdIntranet.CommandText = "buscarPersonalPorExtension";
+    				cmdIntranet.Parameters.Add(new MySqlParameter("@ext", Convert.ToInt32(extension)));
+    				DataSet dsIntranet = new DataSet();
+    				MySqlDataAdapter adapIntranet = new MySqlDataAdapter(cmdIntranet);
+    				adapIntranet.Fill(dsIntranet);
+    				if (dsIntranet.Tables.Count > 0 && dsIntranet.Tables[0].Rows.Count > 0)
+    				{
+    					string[] resultado = new string[6]
+    					{
+    						Convert.ToString(dsIntranet.Tables[0].Rows[0]["idsolicitantes"]),
+    						Convert.ToString(dsIntranet.Tables[0].Rows[0]["nombres"]),
+    						Convert.ToString(dsIntranet.Tables[0].Rows[0]["apellidos"]),
+    						Convert.ToString(dsIntranet.Tables[0].Rows[0]["departamentos"]),
+    						Convert.ToString(dsIntranet.Tables[0].Rows[0]["correos"]),
+    						Convert.ToString(dsIntranet.Tables[0].Rows[0]["telefonos"])
+    					};
+    					return resultado;
+    				}
+    				return null;
+    			}
     		}
     		catch (Exception)
     		{
@@ -2477,7 +2499,7 @@ public bool actualizarDisponibilidad(string id, int idDisponibilidad, DateTime? 
     		return ds;
     	}
 
-    	public DataSet cantidadAtencion()
+    	public DataSet cantidadAtencion(string desde, string hasta)
     	{
     		try
     		{
@@ -2485,6 +2507,8 @@ public bool actualizarDisponibilidad(string id, int idDisponibilidad, DateTime? 
     			Cmd.Parameters.Clear();
     			Cmd.CommandType = CommandType.StoredProcedure;
     			Cmd.CommandText = "cantidadAtencion";
+    			Cmd.Parameters.Add(new MySqlParameter("@desde", desde));
+    			Cmd.Parameters.Add(new MySqlParameter("@hasta", hasta));
     			Adap = new MySqlDataAdapter(Cmd);
     			Adap.Fill(ds);
     		}
@@ -2494,7 +2518,7 @@ public bool actualizarDisponibilidad(string id, int idDisponibilidad, DateTime? 
     		return ds;
     	}
 
-    	public DataSet tiempoAtencion()
+    	public DataSet tiempoAtencion(string desde, string hasta)
     	{
     		try
     		{
@@ -2502,6 +2526,8 @@ public bool actualizarDisponibilidad(string id, int idDisponibilidad, DateTime? 
     			Cmd.Parameters.Clear();
     			Cmd.CommandType = CommandType.StoredProcedure;
     			Cmd.CommandText = "tiempoAtencion";
+    			Cmd.Parameters.Add(new MySqlParameter("@desde", desde));
+    			Cmd.Parameters.Add(new MySqlParameter("@hasta", hasta));
     			Adap = new MySqlDataAdapter(Cmd);
     			Adap.Fill(ds);
     		}
@@ -2511,7 +2537,7 @@ public bool actualizarDisponibilidad(string id, int idDisponibilidad, DateTime? 
     		return ds;
     	}
 
-    	public DataSet cantidadCedidos()
+    	public DataSet cantidadCedidos(string desde, string hasta)
     	{
     		try
     		{
@@ -2519,6 +2545,8 @@ public bool actualizarDisponibilidad(string id, int idDisponibilidad, DateTime? 
     			Cmd.Parameters.Clear();
     			Cmd.CommandType = CommandType.StoredProcedure;
     			Cmd.CommandText = "cantidadCedidos";
+    			Cmd.Parameters.Add(new MySqlParameter("@desde", desde));
+    			Cmd.Parameters.Add(new MySqlParameter("@hasta", hasta));
     			if (Cmd.Connection.State != ConnectionState.Open)
     			    Cmd.Connection.Open();
     			Adap = new MySqlDataAdapter(Cmd);
@@ -2529,13 +2557,12 @@ public bool actualizarDisponibilidad(string id, int idDisponibilidad, DateTime? 
     		{
     			if (Cmd.Connection.State == ConnectionState.Open)
     			    Cmd.Connection.Close();
-    			// Log error for debugging
     			System.Diagnostics.Debug.WriteLine($"Error en cantidadCedidos: {ex.Message}");
     		}
     		return ds;
     	}
 
-    	public DataSet cantidadPermisos()
+    	public DataSet cantidadPermisos(string desde, string hasta)
     	{
     		try
     		{
@@ -2543,6 +2570,8 @@ public bool actualizarDisponibilidad(string id, int idDisponibilidad, DateTime? 
     			Cmd.Parameters.Clear();
     			Cmd.CommandType = CommandType.StoredProcedure;
     			Cmd.CommandText = "cantidadPermisos";
+    			Cmd.Parameters.Add(new MySqlParameter("@desde", desde));
+    			Cmd.Parameters.Add(new MySqlParameter("@hasta", hasta));
     			Adap = new MySqlDataAdapter(Cmd);
     			Adap.Fill(ds);
     		}
@@ -2552,7 +2581,7 @@ public bool actualizarDisponibilidad(string id, int idDisponibilidad, DateTime? 
     		return ds;
     	}
 
-    	public DataSet cantidadReservas()
+    	public DataSet cantidadReservas(string desde, string hasta)
     	{
     		try
     		{
@@ -2560,6 +2589,8 @@ public bool actualizarDisponibilidad(string id, int idDisponibilidad, DateTime? 
     			Cmd.Parameters.Clear();
     			Cmd.CommandType = CommandType.StoredProcedure;
     			Cmd.CommandText = "cantidadReservas";
+    			Cmd.Parameters.Add(new MySqlParameter("@desde", desde));
+    			Cmd.Parameters.Add(new MySqlParameter("@hasta", hasta));
     			Adap = new MySqlDataAdapter(Cmd);
     			Adap.Fill(ds);
     		}
@@ -2569,7 +2600,7 @@ public bool actualizarDisponibilidad(string id, int idDisponibilidad, DateTime? 
     		return ds;
     	}
 
-    	public DataSet cantidadSerguimientos()
+    	public DataSet cantidadSerguimientos(string desde, string hasta)
     	{
     		try
     		{
@@ -2577,6 +2608,8 @@ public bool actualizarDisponibilidad(string id, int idDisponibilidad, DateTime? 
     			Cmd.Parameters.Clear();
     			Cmd.CommandType = CommandType.StoredProcedure;
     			Cmd.CommandText = "cantidadSerguimientos";
+    			Cmd.Parameters.Add(new MySqlParameter("@desde", desde));
+    			Cmd.Parameters.Add(new MySqlParameter("@hasta", hasta));
     			if (Cmd.Connection.State != ConnectionState.Open)
     			    Cmd.Connection.Open();
     			Adap = new MySqlDataAdapter(Cmd);
@@ -2592,7 +2625,7 @@ public bool actualizarDisponibilidad(string id, int idDisponibilidad, DateTime? 
     		return ds;
     	}
 
-    	public DataSet cantidadTrabajoProgramado()
+    	public DataSet cantidadTrabajoProgramado(string desde, string hasta)
     	{
     		try
     		{
@@ -2600,6 +2633,8 @@ public bool actualizarDisponibilidad(string id, int idDisponibilidad, DateTime? 
     			Cmd.Parameters.Clear();
     			Cmd.CommandType = CommandType.StoredProcedure;
     			Cmd.CommandText = "cantidadTrabajoProgramado";
+    			Cmd.Parameters.Add(new MySqlParameter("@desde", desde));
+    			Cmd.Parameters.Add(new MySqlParameter("@hasta", hasta));
     			if (Cmd.Connection.State != ConnectionState.Open)
     			    Cmd.Connection.Open();
     			Adap = new MySqlDataAdapter(Cmd);
@@ -2615,7 +2650,7 @@ public bool actualizarDisponibilidad(string id, int idDisponibilidad, DateTime? 
     		return ds;
     	}
 
-    	public DataSet cantidadRevisiones()
+    	public DataSet cantidadRevisiones(string desde, string hasta)
     	{
     		try
     		{
@@ -2623,6 +2658,8 @@ public bool actualizarDisponibilidad(string id, int idDisponibilidad, DateTime? 
     			Cmd.Parameters.Clear();
     			Cmd.CommandType = CommandType.StoredProcedure;
     			Cmd.CommandText = "cantidadRevisiones";
+    			Cmd.Parameters.Add(new MySqlParameter("@desde", desde));
+    			Cmd.Parameters.Add(new MySqlParameter("@hasta", hasta));
     			if (Cmd.Connection.State != ConnectionState.Open)
     			    Cmd.Connection.Open();
     			Adap = new MySqlDataAdapter(Cmd);
@@ -2639,10 +2676,10 @@ public bool actualizarDisponibilidad(string id, int idDisponibilidad, DateTime? 
     	}
 
     	// ========================================================================
-    	// Métodos de Productividad Filtrados por Área del Jefe
+    	// Métodos de Productividad Filtrados por Ãrea del Jefe
     	// ========================================================================
 
-    	public DataSet cantidadAtencionPorArea(int rolJefe)
+    	public DataSet cantidadAtencionPorArea(int rolJefe, string desde, string hasta)
     	{
     		try
     		{
@@ -2651,6 +2688,8 @@ public bool actualizarDisponibilidad(string id, int idDisponibilidad, DateTime? 
     			Cmd.CommandType = CommandType.StoredProcedure;
     			Cmd.CommandText = "cantidadAtencionPorArea";
     			Cmd.Parameters.Add(new MySqlParameter("@rolJefe", rolJefe));
+    			Cmd.Parameters.Add(new MySqlParameter("@desde", desde));
+    			Cmd.Parameters.Add(new MySqlParameter("@hasta", hasta));
     			Adap = new MySqlDataAdapter(Cmd);
     			Adap.Fill(ds);
     		}
@@ -2660,7 +2699,7 @@ public bool actualizarDisponibilidad(string id, int idDisponibilidad, DateTime? 
     		return ds;
     	}
 
-    	public DataSet tiempoAtencionPorArea(int rolJefe)
+    	public DataSet tiempoAtencionPorArea(int rolJefe, string desde, string hasta)
     	{
     		try
     		{
@@ -2669,6 +2708,8 @@ public bool actualizarDisponibilidad(string id, int idDisponibilidad, DateTime? 
     			Cmd.CommandType = CommandType.StoredProcedure;
     			Cmd.CommandText = "tiempoAtencionPorArea";
     			Cmd.Parameters.Add(new MySqlParameter("@rolJefe", rolJefe));
+    			Cmd.Parameters.Add(new MySqlParameter("@desde", desde));
+    			Cmd.Parameters.Add(new MySqlParameter("@hasta", hasta));
     			Adap = new MySqlDataAdapter(Cmd);
     			Adap.Fill(ds);
     		}
@@ -2678,7 +2719,7 @@ public bool actualizarDisponibilidad(string id, int idDisponibilidad, DateTime? 
     		return ds;
     	}
 
-    	public DataSet cantidadPermisosPorArea(int rolJefe)
+    	public DataSet cantidadPermisosPorArea(int rolJefe, string desde, string hasta)
     	{
     		try
     		{
@@ -2687,16 +2728,24 @@ public bool actualizarDisponibilidad(string id, int idDisponibilidad, DateTime? 
     			Cmd.CommandType = CommandType.StoredProcedure;
     			Cmd.CommandText = "cantidadPermisosPorArea";
     			Cmd.Parameters.Add(new MySqlParameter("@rolJefe", rolJefe));
+    			Cmd.Parameters.Add(new MySqlParameter("@desde", desde));
+    			Cmd.Parameters.Add(new MySqlParameter("@hasta", hasta));
+    			if (Cmd.Connection.State != ConnectionState.Open)
+    			    Cmd.Connection.Open();
     			Adap = new MySqlDataAdapter(Cmd);
     			Adap.Fill(ds);
+    			Cmd.Connection.Close();
     		}
-    		catch (Exception)
+    		catch (Exception ex)
     		{
+    			if (Cmd.Connection.State == ConnectionState.Open)
+    			    Cmd.Connection.Close();
+    			System.Diagnostics.Debug.WriteLine($"Error en cantidadPermisosPorArea: {ex.Message}");
     		}
     		return ds;
     	}
 
-    	public DataSet cantidadCedidosPorArea(int rolJefe)
+    	public DataSet cantidadCedidosPorArea(int rolJefe, string desde, string hasta)
     	{
     		try
     		{
@@ -2705,6 +2754,8 @@ public bool actualizarDisponibilidad(string id, int idDisponibilidad, DateTime? 
     			Cmd.CommandType = CommandType.StoredProcedure;
     			Cmd.CommandText = "cantidadCedidosPorArea";
     			Cmd.Parameters.Add(new MySqlParameter("@rolJefe", rolJefe));
+    			Cmd.Parameters.Add(new MySqlParameter("@desde", desde));
+    			Cmd.Parameters.Add(new MySqlParameter("@hasta", hasta));
     			if (Cmd.Connection.State != ConnectionState.Open)
     			    Cmd.Connection.Open();
     			Adap = new MySqlDataAdapter(Cmd);
@@ -2720,7 +2771,7 @@ public bool actualizarDisponibilidad(string id, int idDisponibilidad, DateTime? 
     		return ds;
     	}
 
-    	public DataSet cantidadReservasPorArea(int rolJefe)
+    	public DataSet cantidadReservasPorArea(int rolJefe, string desde, string hasta)
     	{
     		try
     		{
@@ -2729,16 +2780,24 @@ public bool actualizarDisponibilidad(string id, int idDisponibilidad, DateTime? 
     			Cmd.CommandType = CommandType.StoredProcedure;
     			Cmd.CommandText = "cantidadReservasPorArea";
     			Cmd.Parameters.Add(new MySqlParameter("@rolJefe", rolJefe));
+    			Cmd.Parameters.Add(new MySqlParameter("@desde", desde));
+    			Cmd.Parameters.Add(new MySqlParameter("@hasta", hasta));
+    			if (Cmd.Connection.State != ConnectionState.Open)
+    			    Cmd.Connection.Open();
     			Adap = new MySqlDataAdapter(Cmd);
     			Adap.Fill(ds);
+    			Cmd.Connection.Close();
     		}
-    		catch (Exception)
+    		catch (Exception ex)
     		{
+    			if (Cmd.Connection.State == ConnectionState.Open)
+    			    Cmd.Connection.Close();
+    			System.Diagnostics.Debug.WriteLine($"Error en cantidadReservasPorArea: {ex.Message}");
     		}
     		return ds;
     	}
 
-    	public DataSet cantidadRevisionesPorArea(int rolJefe)
+    	public DataSet cantidadRevisionesPorArea(int rolJefe, string desde, string hasta)
     	{
     		try
     		{
@@ -2747,6 +2806,8 @@ public bool actualizarDisponibilidad(string id, int idDisponibilidad, DateTime? 
     			Cmd.CommandType = CommandType.StoredProcedure;
     			Cmd.CommandText = "cantidadRevisionesPorArea";
     			Cmd.Parameters.Add(new MySqlParameter("@rolJefe", rolJefe));
+    			Cmd.Parameters.Add(new MySqlParameter("@desde", desde));
+    			Cmd.Parameters.Add(new MySqlParameter("@hasta", hasta));
     			if (Cmd.Connection.State != ConnectionState.Open)
     			    Cmd.Connection.Open();
     			Adap = new MySqlDataAdapter(Cmd);
@@ -2762,7 +2823,7 @@ public bool actualizarDisponibilidad(string id, int idDisponibilidad, DateTime? 
     		return ds;
     	}
 
-    	public DataSet cantidadSeguimientosPorArea(int rolJefe)
+    	public DataSet cantidadSeguimientosPorArea(int rolJefe, string desde, string hasta)
     	{
     		try
     		{
@@ -2771,6 +2832,8 @@ public bool actualizarDisponibilidad(string id, int idDisponibilidad, DateTime? 
     			Cmd.CommandType = CommandType.StoredProcedure;
     			Cmd.CommandText = "cantidadSeguimientosPorArea";
     			Cmd.Parameters.Add(new MySqlParameter("@rolJefe", rolJefe));
+    			Cmd.Parameters.Add(new MySqlParameter("@desde", desde));
+    			Cmd.Parameters.Add(new MySqlParameter("@hasta", hasta));
     			if (Cmd.Connection.State != ConnectionState.Open)
     			    Cmd.Connection.Open();
     			Adap = new MySqlDataAdapter(Cmd);
@@ -2786,7 +2849,7 @@ public bool actualizarDisponibilidad(string id, int idDisponibilidad, DateTime? 
     		return ds;
     	}
 
-    	public DataSet cantidadTrabajoProgramadoPorArea(int rolJefe)
+    	public DataSet cantidadTrabajoProgramadoPorArea(int rolJefe, string desde, string hasta)
     	{
     		try
     		{
@@ -2795,6 +2858,8 @@ public bool actualizarDisponibilidad(string id, int idDisponibilidad, DateTime? 
     			Cmd.CommandType = CommandType.StoredProcedure;
     			Cmd.CommandText = "cantidadTrabajoProgramadoPorArea";
     			Cmd.Parameters.Add(new MySqlParameter("@rolJefe", rolJefe));
+    			Cmd.Parameters.Add(new MySqlParameter("@desde", desde));
+    			Cmd.Parameters.Add(new MySqlParameter("@hasta", hasta));
     			if (Cmd.Connection.State != ConnectionState.Open)
     			    Cmd.Connection.Open();
     			Adap = new MySqlDataAdapter(Cmd);

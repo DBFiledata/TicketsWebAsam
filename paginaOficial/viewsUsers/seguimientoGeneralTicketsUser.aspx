@@ -80,6 +80,15 @@
             border-color: #ffeeba;
             color: #856404;
         }
+
+        /* Scroll para columnas de texto largo */
+        .cell-scroll {
+            max-height: 80px;
+            max-width: 300px;
+            overflow-y: auto;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
     </style>
 
     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
@@ -132,8 +141,16 @@
                             <asp:BoundField DataField="Departamento" HeaderText="Departamento" />
                             <asp:BoundField DataField="Nombre Tecnico" HeaderText="Técnico" />
                             <asp:BoundField DataField="Nombre Agente" HeaderText="Agente" />
-                            <asp:BoundField DataField="Problema" HeaderText="Problema" />
-                            <asp:BoundField DataField="Descripcion" HeaderText="Descripción" />
+                            <asp:TemplateField HeaderText="Problema">
+                                <ItemTemplate>
+                                    <div class="cell-scroll"><%# Eval("Problema") %></div>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                            <asp:TemplateField HeaderText="Descripción">
+                                <ItemTemplate>
+                                    <div class="cell-scroll"><%# Eval("Descripcion") %></div>
+                                </ItemTemplate>
+                            </asp:TemplateField>
                             <asp:BoundField DataField="Area" HeaderText="Área" />
                             <asp:BoundField DataField="Estado" HeaderText="Estado" />
                             <asp:BoundField DataField="Fecha de creacion    " HeaderText="Creación" DataFormatString="{0:dd/MM/yyyy}" />

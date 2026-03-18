@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Data;
 using System.Web.Security;
 using System.Web.UI;
@@ -29,9 +29,12 @@ namespace paginaOficial.viewsMonitoreo
     		else if (!Page.IsPostBack)
     		{
     			odbusuario = new BaseDatos();
-    			DataSet ds = odbusuario.cantidadReservas();
-    			GridView1.DataSource = ds.Tables[0];
-    			GridView1.DataBind();
+    			DataSet ds = odbusuario.cantidadReservas("0000-00-00", "0000-00-00");
+    			if (ds != null && ds.Tables.Count > 0)
+    			{
+    				GridView1.DataSource = ds.Tables[0];
+    				GridView1.DataBind();
+    			}
     		}
     	}
     }

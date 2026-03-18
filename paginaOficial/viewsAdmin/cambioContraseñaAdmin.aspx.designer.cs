@@ -1,7 +1,7 @@
-// Auto-generated
+﻿// Auto-generated
 namespace paginaOficial.viewsAdmin
 {
-    public partial class cambioContrase�aAdmin
+    public partial class cambioContraseñaAdmin
     {
     }
 }

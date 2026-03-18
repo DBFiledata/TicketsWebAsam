@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Data;
 using System.Drawing;
 using System.Web.Security;
@@ -187,6 +187,20 @@ namespace paginaOficial.viewsTecnicos
     	{
     		if (e.Row.RowType == DataControlRowType.DataRow)
     		{
+    			// Scroll para columnas Problema y Descripcion
+    			GridView gv = (GridView)sender;
+    			if (gv.HeaderRow != null)
+    			{
+    				for (int i = 0; i < gv.HeaderRow.Cells.Count; i++)
+    				{
+    					string hText = gv.HeaderRow.Cells[i].Text.ToLower();
+    					if (hText.Contains("problema") || hText.Contains("descripci"))
+    					{
+    						string origText = e.Row.Cells[i].Text;
+    						e.Row.Cells[i].Text = "<div class='cell-scroll'>" + origText + "</div>";
+    					}
+    				}
+    			}
     			if (e.Row.Cells[7].Text == "Creado")
     			{
     				Button Button1 = (Button)e.Row.FindControl("Button1");

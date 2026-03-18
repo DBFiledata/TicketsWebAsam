@@ -2,6 +2,16 @@
 
 <asp:Content ID="BodyContenido" ContentPlaceHolderID="contenido" runat="server">
     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+    <style type="text/css">
+        /* Scroll para columnas de texto largo */
+        .cell-scroll {
+            max-height: 80px;
+            max-width: 300px;
+            overflow-y: auto;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+    </style>
     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
         <ContentTemplate>
             <div class="card-header bg-gradient-secondary">
@@ -56,7 +66,8 @@
                 </div>
                 <div class="form-group">
                     <asp:GridView ID="listTickets" class="table table stacktable table-dark table-responsive" Font-Size="Small" runat="server" AllowPaging="true" PageSize="100" 
-                        OnPageIndexChanging="listTickets_PageIndexChanging">
+                        OnPageIndexChanging="listTickets_PageIndexChanging"
+                        OnRowDataBound="listTickets_RowDataBound">
                         <AlternatingRowStyle HorizontalAlign="Center" VerticalAlign="Middle" />
                         <PagerSettings Mode="Numeric" Position="Bottom" />
                         <PagerStyle BackColor="White" CssClass="dataTables_paginate paging_simple_numbers" VerticalAlign="Bottom" HorizontalAlign="Center" />

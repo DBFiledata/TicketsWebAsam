@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Web.UI;
@@ -112,7 +112,7 @@ namespace paginaOficial.viewsCompartidas
     		{
     			odbusuario = new BaseDatos();
     			string[] datos = new string[6];
-    			datos = odbusuario.infoSolicitante((string)Session["solicitanteNuevo"]);
+    			datos = odbusuario.infoSolicitanteIntranet((string)Session["solicitanteNuevo"]);
     			if (datos != null)
     			{
     				btnSolicitanteNuevo.Visible = true;
@@ -145,7 +145,7 @@ namespace paginaOficial.viewsCompartidas
     		ListTipo.ClearSelection();
     		odbusuario = new BaseDatos();
     		string[] datos = new string[6];
-    		datos = odbusuario.infoSolicitante(txtIdSolicitante.Text);
+    		datos = odbusuario.infoSolicitanteIntranet(txtIdSolicitante.Text);
     		int ocurrencias = 0;
     		ocurrencias = txtIdSolicitante.Text.Split('-').Length - 1;
     		if (datos != null)
@@ -188,7 +188,13 @@ namespace paginaOficial.viewsCompartidas
     			string desc;
     			if (checkFechaProgramacion.Checked)
     			{
-    				TiCket = odbusuario.generarTicketProgramado(txtDetallePocicion.Text, txtProblema.Text, txtIdSolicitante.Text, User.Identity.Name, Convert.ToDateTime(txtfecha.Text), txtNombre.Text, txtApellido.Text, txtDepartamento.Text, txtEmail.Text, txtTelefono.Text);
+    				TiCket = odbusuario.generarTicketProgramado(txtDetallePocicion.Text, txtProblema.Text, txtIdSolicitante.Text, User.Identity.Name, Convert.ToDateTime(txtfecha.Text));
+    				if (TiCket == null || TiCket.Tables.Count < 3)
+    				{
+    					string dbg = TiCket == null ? "resultado=null" : "tablas=" + TiCket.Tables.Count;
+				ScriptManager.RegisterStartupScript(this, GetType(), "Pop", "alert('No se pudo generar el ticket programado.\\n" + dbg + "\\nVerifique que haya tecnicos disponibles para el tipo seleccionado.');", addScriptTags: true);
+    					return;
+    				}
     				id = Convert.ToInt32(TiCket.Tables[2].Rows[0]["id"]);
     				desc = "ticket programado para el " + txtfecha.Text;
     				if (checkFechaProgramacion.Checked & (txtfecha.Text != string.Empty))
@@ -217,7 +223,13 @@ namespace paginaOficial.viewsCompartidas
     			}
     			if (CheckArea.Checked)
     			{
-    				TiCket = odbusuario.crearTicketsArea(txtDetallePocicion.Text, txtProblema.Text, txtIdSolicitante.Text, User.Identity.Name, ListTipo.SelectedValue, txtNombre.Text, txtApellido.Text, txtDepartamento.Text, txtEmail.Text, txtTelefono.Text);
+    				TiCket = odbusuario.crearTicketsArea(txtDetallePocicion.Text, txtProblema.Text, txtIdSolicitante.Text, User.Identity.Name, ListTipo.SelectedValue);
+    				if (TiCket == null || TiCket.Tables.Count < 3)
+    				{
+    					string dbg = TiCket == null ? "resultado=null" : "tablas=" + TiCket.Tables.Count;
+				ScriptManager.RegisterStartupScript(this, GetType(), "Pop", "alert('No se pudo generar el ticket.\\n" + dbg + "\\nVerifique que haya tecnicos disponibles para el area seleccionada.');", addScriptTags: true);
+    					return;
+    				}
     				id = Convert.ToInt32(TiCket.Tables[2].Rows[0]["id"]);
     				desc = Convert.ToString(TiCket.Tables[2].Rows[0]["descr"]);
     				Convert.ToString(TiCket.Tables[2].Rows[0]["tokens"]);
@@ -248,7 +260,7 @@ namespace paginaOficial.viewsCompartidas
     						}
     						catch (Exception)
     						{
-    							ScriptManager.RegisterStartupScript(this, GetType(), "Pop", "alert('El tecnico no cuenta con dispositivo movil vinculado al sistema\n!No le podra llegar notificacion de asignacion de ticket!');", addScriptTags: true);
+    							ScriptManager.RegisterStartupScript(this, GetType(), "Pop", "alert('El tecnico no cuenta con dispositivo movil vinculado al sistema\\n!No le podra llegar notificacion de asignacion de ticket!');", addScriptTags: true);
     							return;
     						}
     					}
@@ -259,7 +271,13 @@ namespace paginaOficial.viewsCompartidas
     				}
     				return;
     			}
-    			TiCket = odbusuario.generarTicket(txtDetallePocicion.Text, txtProblema.Text, txtIdSolicitante.Text, User.Identity.Name, ListTipo.SelectedValue, txtNombre.Text, txtApellido.Text, txtDepartamento.Text, txtEmail.Text, txtTelefono.Text);
+    			TiCket = odbusuario.generarTicket(txtDetallePocicion.Text, txtProblema.Text, txtIdSolicitante.Text, User.Identity.Name, ListTipo.SelectedValue);
+    			if (TiCket == null || TiCket.Tables.Count < 3)
+    			{
+    				string dbg = TiCket == null ? "resultado=null" : "tablas=" + TiCket.Tables.Count;
+				ScriptManager.RegisterStartupScript(this, GetType(), "Pop", "alert('No se pudo generar el ticket.\\n" + dbg + "\\nVerifique que haya tecnicos disponibles para el tipo seleccionado.');", addScriptTags: true);
+    				return;
+    			}
     			id = Convert.ToInt32(TiCket.Tables[2].Rows[0]["id"]);
     			desc = Convert.ToString(TiCket.Tables[2].Rows[0]["descr"]);
     			Convert.ToString(TiCket.Tables[2].Rows[0]["tokens"]);
@@ -294,7 +312,7 @@ namespace paginaOficial.viewsCompartidas
     					}
     					catch (Exception)
     					{
-    						ScriptManager.RegisterStartupScript(this, GetType(), "Pop", "alert('El tecnico no cuenta con dispositivo movil vinculado al sistema\n!No le podra llegar notificacion de asignacion de ticket!');", addScriptTags: true);
+    						ScriptManager.RegisterStartupScript(this, GetType(), "Pop", "alert('El tecnico no cuenta con dispositivo movil vinculado al sistema\\n!No le podra llegar notificacion de asignacion de ticket!');", addScriptTags: true);
     					}
     				}
     			}
@@ -306,7 +324,7 @@ namespace paginaOficial.viewsCompartidas
     		catch (Exception ex3)
     		{
     			Exception ex4 = ex3;
-    			ScriptManager.RegisterStartupScript(this, GetType(), "Pop", "alert('no se pudo generar ticket\n-Error:\n-" + ex4.Message + "');", addScriptTags: true);
+    			ScriptManager.RegisterStartupScript(this, GetType(), "Pop", "alert('no se pudo generar ticket\\n-Error:\\n-" + ex4.Message.Replace("'", "") + "');", addScriptTags: true);
     		}
     	}
 
