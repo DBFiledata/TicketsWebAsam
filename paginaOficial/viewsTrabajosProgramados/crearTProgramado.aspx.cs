@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Web.Security;
@@ -117,9 +117,10 @@ namespace paginaOficial.viewsTrabajosProgramados
     		try
     		{
     			DataSet TiCket = odbusuario.generarTicketTrabajoProgramados(txtDetallePocicion.Text, txtProblema.Text, User.Identity.Name);
-    			int id = Convert.ToInt32(TiCket.Tables[0].Rows[0]["id"]);
-    			if (TiCket != null || id == -1)
+    			
+    			if (TiCket != null && TiCket.Tables.Count > 0 && TiCket.Tables[0].Rows.Count > 0)
     			{
+    				int id = Convert.ToInt32(TiCket.Tables[0].Rows[0]["id"]);
     				lblerror.Visible = false;
     				txtDetallePocicion.Text = "";
     				txtProblema.Text = "";
@@ -127,10 +128,7 @@ namespace paginaOficial.viewsTrabajosProgramados
     				lblNum.Text = Convert.ToString(id);
     				panelResultado.Visible = true;
     				panelInfo.Visible = false;
-    				if (id == -1)
-    				{
-    					return;
-    				}
+    				
     				IEnumerable<object> selectedValues = RadMultiSelect1.Value;
     				foreach (string value in selectedValues)
     				{

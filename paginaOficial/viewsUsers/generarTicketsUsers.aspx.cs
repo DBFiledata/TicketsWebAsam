@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Web.UI;
@@ -188,7 +188,7 @@ namespace paginaOficial.viewsCompartidas
     			string desc;
     			if (checkFechaProgramacion.Checked)
     			{
-    				TiCket = odbusuario.generarTicketProgramado(txtDetallePocicion.Text, txtProblema.Text, txtIdSolicitante.Text, User.Identity.Name, Convert.ToDateTime(txtfecha.Text));
+    				TiCket = odbusuario.generarTicketProgramado(txtDetallePocicion.Text, txtProblema.Text, txtIdSolicitante.Text, User.Identity.Name, Convert.ToDateTime(txtfecha.Text), txtNombre.Text, txtApellido.Text, txtDepartamento.Text, txtEmail.Text, txtTelefono.Text);
     				if (TiCket == null || TiCket.Tables.Count < 3)
     				{
     					string dbg = TiCket == null ? "resultado=null" : "tablas=" + TiCket.Tables.Count;
@@ -223,7 +223,7 @@ namespace paginaOficial.viewsCompartidas
     			}
     			if (CheckArea.Checked)
     			{
-    				TiCket = odbusuario.crearTicketsArea(txtDetallePocicion.Text, txtProblema.Text, txtIdSolicitante.Text, User.Identity.Name, ListTipo.SelectedValue);
+    				TiCket = odbusuario.crearTicketsArea(txtDetallePocicion.Text, txtProblema.Text, txtIdSolicitante.Text, User.Identity.Name, ListTipo.SelectedValue, txtNombre.Text, txtApellido.Text, txtDepartamento.Text, txtEmail.Text, txtTelefono.Text);
     				if (TiCket == null || TiCket.Tables.Count < 3)
     				{
     					string dbg = TiCket == null ? "resultado=null" : "tablas=" + TiCket.Tables.Count;
@@ -271,7 +271,7 @@ namespace paginaOficial.viewsCompartidas
     				}
     				return;
     			}
-    			TiCket = odbusuario.generarTicket(txtDetallePocicion.Text, txtProblema.Text, txtIdSolicitante.Text, User.Identity.Name, ListTipo.SelectedValue);
+    			TiCket = odbusuario.generarTicket(txtDetallePocicion.Text, txtProblema.Text, txtIdSolicitante.Text, User.Identity.Name, ListTipo.SelectedValue, txtNombre.Text, txtApellido.Text, txtDepartamento.Text, txtEmail.Text, txtTelefono.Text);
     			if (TiCket == null || TiCket.Tables.Count < 3)
     			{
     				string dbg = TiCket == null ? "resultado=null" : "tablas=" + TiCket.Tables.Count;

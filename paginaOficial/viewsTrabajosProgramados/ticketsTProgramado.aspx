@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" Title="Tickets del Area" MasterPageFile="~/viewsTrabajosProgramados/TrabajosProgramados.Master" CodeBehind="ticketsTProgramado.aspx.cs" Inherits="paginaOficial.viewsTrabajosProgramados.ticketsTProgramado" %>
+<%@ Page Language="C#" AutoEventWireup="true" Title="Tickets del Area" MasterPageFile="~/viewsTrabajosProgramados/TrabajosProgramados.Master" CodeBehind="ticketsTProgramado.aspx.cs" Inherits="paginaOficial.viewsTrabajosProgramados.ticketsTProgramado" %>
 
 <asp:Content ID="BodyContenido" ContentPlaceHolderID="contenido" runat="server">
 
@@ -218,7 +218,7 @@
                             <Columns>
                                 <asp:TemplateField HeaderText="Procesos">
                                     <ItemTemplate>
-                                        <asp:Button ID="Button1" CommandName="reasignarTicket" Text="ðŸ”„" CssClass="btn btn-link" ToolTip="Reasignar a otro tecnico" runat="server" />
+                                        <asp:Button ID="Button1" CommandName="reasignarTicket" Text="&#x1F504;" CssClass="btn btn-link" ToolTip="Reasignar a otro tecnico" runat="server" />
                                     </ItemTemplate>
                                 </asp:TemplateField>
                             </Columns>

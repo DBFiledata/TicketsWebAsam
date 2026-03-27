@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="tecnicos.master.cs" Inherits="paginaOficial.viewsTecnicos.tecnicos" %>
+<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="tecnicos.master.cs" Inherits="paginaOficial.viewsTecnicos.tecnicos" %>
 
 <!DOCTYPE html>
 
@@ -151,8 +151,8 @@
                                 <div class="modal-body text-center">Finalizar la sesion?</div>
                                 <div class="modal-footer d-flex align-items-center justify-content-center">
 
-                                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar âŒ</button>
-                                    <asp:Button ID="btnRegbtnCerrarsesionistrar" CssClass="btn btn-primary" runat="server" Text="Aceptar âœ”" OnClick="btnCerrarsesion_Click" CausesValidation="false" />
+                                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+                                    <asp:Button ID="btnRegbtnCerrarsesionistrar" CssClass="btn btn-primary" runat="server" Text="Aceptar" OnClick="btnCerrarsesion_Click" CausesValidation="false" />
                                 </div>
                             </div>
                         </div>

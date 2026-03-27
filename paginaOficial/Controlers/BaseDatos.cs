@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Configuration;
 using System.Data;
 using MySql.Data.MySqlClient;
@@ -1000,7 +1000,7 @@ namespace paginaOficial.Controlers
     		}
     	}
 
-    	public DataSet generarTicket(string desc, string problem, string numsol, string user, string tipo)
+    	public DataSet generarTicket(string desc, string problem, string numsol, string user, string tipo, string nombre, string apellido, string departamento, string email, string telefono)
     	{
     		try
     		{
@@ -1012,6 +1012,11 @@ namespace paginaOficial.Controlers
     			Cmd.Parameters.Add(new MySqlParameter("@solicitente", numsol));
     			Cmd.Parameters.Add(new MySqlParameter("@usuario", user));
     			Cmd.Parameters.Add(new MySqlParameter("@tipo", tipo));
+    			Cmd.Parameters.Add(new MySqlParameter("@nombre", nombre));
+    			Cmd.Parameters.Add(new MySqlParameter("@apellido", apellido));
+    			Cmd.Parameters.Add(new MySqlParameter("@departamento", departamento));
+    			Cmd.Parameters.Add(new MySqlParameter("@email", email));
+    			Cmd.Parameters.Add(new MySqlParameter("@telefono", telefono));
     			ds = new DataSet();
     			Adap = new MySqlDataAdapter(Cmd);
     			Adap.Fill(ds);
@@ -1023,7 +1028,7 @@ namespace paginaOficial.Controlers
     		}
     	}
 
-    	public DataSet crearTicketsArea(string desc, string problem, string numsol, string user, string tipo)
+    	public DataSet crearTicketsArea(string desc, string problem, string numsol, string user, string tipo, string nombre, string apellido, string departamento, string email, string telefono)
     	{
     		try
     		{
@@ -1035,6 +1040,11 @@ namespace paginaOficial.Controlers
     			Cmd.Parameters.Add(new MySqlParameter("@solicitente", numsol));
     			Cmd.Parameters.Add(new MySqlParameter("@usuario", user));
     			Cmd.Parameters.Add(new MySqlParameter("@tipo", tipo));
+    			Cmd.Parameters.Add(new MySqlParameter("@nombre", nombre));
+    			Cmd.Parameters.Add(new MySqlParameter("@apellido", apellido));
+    			Cmd.Parameters.Add(new MySqlParameter("@departamento", departamento));
+    			Cmd.Parameters.Add(new MySqlParameter("@email", email));
+    			Cmd.Parameters.Add(new MySqlParameter("@telefono", telefono));
     			ds = new DataSet();
     			Adap = new MySqlDataAdapter(Cmd);
     			Adap.Fill(ds);
@@ -1046,7 +1056,7 @@ namespace paginaOficial.Controlers
     		}
     	}
 
-    	public DataSet generarTicketProgramado(string desc, string problem, string numsol, string user, DateTime fecha)
+    	public DataSet generarTicketProgramado(string desc, string problem, string numsol, string user, DateTime fecha, string nombre, string apellido, string departamento, string email, string telefono)
     	{
     		try
     		{
@@ -1055,9 +1065,14 @@ namespace paginaOficial.Controlers
     			Cmd.CommandText = "crearTicketsProgramadosIntranet";
     			Cmd.Parameters.Add(new MySqlParameter("@descripcion", desc));
     			Cmd.Parameters.Add(new MySqlParameter("@problema", problem));
-    			Cmd.Parameters.Add(new MySqlParameter("@fecha", fecha));
-    			Cmd.Parameters.Add(new MySqlParameter("@usuario", user));
     			Cmd.Parameters.Add(new MySqlParameter("@solicitente", numsol));
+    			Cmd.Parameters.Add(new MySqlParameter("@usuario", user));
+    			Cmd.Parameters.Add(new MySqlParameter("@fecha", fecha));
+    			Cmd.Parameters.Add(new MySqlParameter("@nombre", nombre));
+    			Cmd.Parameters.Add(new MySqlParameter("@apellido", apellido));
+    			Cmd.Parameters.Add(new MySqlParameter("@departamento", departamento));
+    			Cmd.Parameters.Add(new MySqlParameter("@email", email));
+    			Cmd.Parameters.Add(new MySqlParameter("@telefono", telefono));
     			ds = new DataSet();
     			Adap = new MySqlDataAdapter(Cmd);
     			Adap.Fill(ds);
