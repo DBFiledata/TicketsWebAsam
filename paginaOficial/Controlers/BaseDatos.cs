@@ -1528,14 +1528,15 @@ namespace paginaOficial.Controlers
     				adapIntranet.Fill(dsIntranet);
     				if (dsIntranet.Tables.Count > 0 && dsIntranet.Tables[0].Rows.Count > 0)
     				{
-    					string[] resultado = new string[6]
+    					string[] resultado = new string[7]
     					{
     						Convert.ToString(dsIntranet.Tables[0].Rows[0]["idsolicitantes"]),
     						Convert.ToString(dsIntranet.Tables[0].Rows[0]["nombres"]),
     						Convert.ToString(dsIntranet.Tables[0].Rows[0]["apellidos"]),
     						Convert.ToString(dsIntranet.Tables[0].Rows[0]["departamentos"]),
     						Convert.ToString(dsIntranet.Tables[0].Rows[0]["correos"]),
-    						Convert.ToString(dsIntranet.Tables[0].Rows[0]["telefonos"])
+    						Convert.ToString(dsIntranet.Tables[0].Rows[0]["telefonos"]),
+    						Convert.ToString(dsIntranet.Tables[0].Rows[0]["area_revertida"])
     					};
     					return resultado;
     				}

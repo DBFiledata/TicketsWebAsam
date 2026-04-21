@@ -1,4 +1,4 @@
-﻿
+
 <%@ Page Language="C#" AutoEventWireup="true" Title="Generar Tickets" MasterPageFile="~/viewsUsers/users.Master" CodeBehind="generarTicketsUsers.aspx.cs" Inherits="paginaOficial.viewsCompartidas.generarTicketsUsers" Async="true" %>
 
 <asp:Content ID="BodyContenido" ContentPlaceHolderID="contenido" runat="server">
@@ -93,8 +93,6 @@
                                                         <asp:ListItem Value="9">Administrativo Tecnología</asp:ListItem>
                                                     </asp:DropDownList>
                                                 </div>
-                                                <asp:CheckBox ID="CheckArea" runat="server" Text="Ticket solicitado desde el Area Revertida" 
-                                                        ToolTip="Selecione esta opcion si este ticket ha sido una solicitud del Area Revertida" />
                                                 <div class="form-group d-flex align-items-center justify-content-center">
                                                     <asp:Button ID="btnRegistrar" CssClass="btn btn-success btn-lg float-right mr-1" runat="server" Text="Generar" OnClick="btnGenerar_Click" />
                                                     <asp:Button ID="btnCancelar" CssClass="btn btn-danger btn-lg float-right ml-1" runat="server" Text="Cancelar" OnClick="btnCancelar_Click" CausesValidation="false" />

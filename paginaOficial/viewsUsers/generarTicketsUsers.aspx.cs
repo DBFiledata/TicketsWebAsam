@@ -71,7 +71,7 @@ namespace paginaOficial.viewsCompartidas
 
     	protected DropDownList ListTipo;
 
-    	protected CheckBox CheckArea;
+
 
     	protected Button btnRegistrar;
 
@@ -144,7 +144,7 @@ namespace paginaOficial.viewsCompartidas
     		txtfecha.Text = "";
     		ListTipo.ClearSelection();
     		odbusuario = new BaseDatos();
-    		string[] datos = new string[6];
+    		string[] datos = new string[7];
     		datos = odbusuario.infoSolicitanteIntranet(txtIdSolicitante.Text);
     		int ocurrencias = 0;
     		ocurrencias = txtIdSolicitante.Text.Split('-').Length - 1;
@@ -156,6 +156,11 @@ namespace paginaOficial.viewsCompartidas
     			txtDepartamento.Text = datos[3];
     			txtEmail.Text = datos[4];
     			txtTelefono.Text = datos[5];
+    			bool isAreaRevertida;
+    			if (bool.TryParse(datos[6], out isAreaRevertida) && isAreaRevertida || datos[6] == "1")
+    			{
+    				txtDetallePocicion.Text = "Area Revertida";
+    			}
     		}
     		else if (ocurrencias == 2)
     		{
@@ -221,7 +226,7 @@ namespace paginaOficial.viewsCompartidas
     					ScriptManager.RegisterStartupScript(this, GetType(), "Pop", "alert('no se pudo generar ticket<br/>-verifique que los datos entan ingresados correctamente<br/>-verifique si tiene fecha de programacion seleccionada');", addScriptTags: true);
     				}
     			}
-    			if (CheckArea.Checked)
+    			if (txtDetallePocicion.Text.Trim().Equals("Area Revertida", StringComparison.OrdinalIgnoreCase))
     			{
     				TiCket = odbusuario.crearTicketsArea(txtDetallePocicion.Text, txtProblema.Text, txtIdSolicitante.Text, User.Identity.Name, ListTipo.SelectedValue, txtNombre.Text, txtApellido.Text, txtDepartamento.Text, txtEmail.Text, txtTelefono.Text);
     				if (TiCket == null || TiCket.Tables.Count < 3)
@@ -303,8 +308,11 @@ namespace paginaOficial.viewsCompartidas
     				odbusuario = new BaseDatos();
     				_ = new string[8];
     				string[] datos = odbusuario.infoTicketMail(Convert.ToString(id));
-    				mailer = new Mailer();
-    				mailer.Notify(datos[2], id, datos[1], datos[3], (string)Session["username"], datos[5], datos[6], datos[7], 1);
+    				if (datos != null)
+    				{
+    					mailer = new Mailer();
+    					mailer.Notify(datos[2], id, datos[1], datos[3], (string)Session["username"], datos[5], datos[6], datos[7], 1);
+    				}
     				if (id != -1)
     				{
     					try
